@@ -15,7 +15,6 @@
 		function get_message($id){
 			$message = $this->MessageModel->get_messages($id);
 			
-			// var_dump($message);
 			
 			
 			return $message;
@@ -25,7 +24,7 @@
 			$message = array('from_user_id' => 1, 'to_user_id' => 1, 'chat_message' => 'This is a test insert', 'message_status' => 1 );
 
 			$result = $this->MessageModel->insert_message($message);
-		
+			
 			return $result;
 		}
 		function update_message(){

@@ -82,6 +82,9 @@ $route['admindashboard'] = 'admindashboard/index';
 $route['userdashboard/index'] = 'userdashboard/index';
 $route['userdashboard'] = 'userdashboard/index';
 
+$route['insert_message'] = 'MessageController/insert_message';
+
+
 $route['default_controller'] = 'pages/view';
 $route['(:any)'] = 'pages/view/$1';
 $route['404_override'] = '';
