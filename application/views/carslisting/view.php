@@ -111,6 +111,17 @@
 
 </div>
 
+<div class="container star-container mt-5 mb-5 p-5">
+	<!-- <h3 class="text-white">Rate this product</h3>
+	<hr>
+	<input class="rating ratingbar" value="2" data-min="0" data-max="5" data-step="1"> -->
+
+	<!-- <span class="mr-5"><a id="<?= $car['car_id']; ?>_upvote" class="voteMe"><i class="fas fa-thumbs-up fa-2x"></i></a><span id="<?= $car['car_id']; ?>_upvote_result" class="like ml-2">5</span></span>
+	<span><a id="<?= $car['car_id']; ?>_downvote" class="voteMe"><i class="fas fa-thumbs-down fa-2x"></i></a><span id="<?= $car['car_id']; ?>_downvote_result" class="dislike ml-2">4</span></span>
+
+	<input type="hidden" id="carslug" name="slug" value="<?= $car['slug']; ?>"> -->
+</div>
+
 <div class="container mt-5 mb-5">
 <h3>Comments</h3>
 <?php if($comments) : ?>

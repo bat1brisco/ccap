@@ -114,6 +114,28 @@ img.d-block.w-100 {
     background-color: #00ADEF;
 }
 
+.container.star-container {
+    background-color: #00ADEF;
+}
+
+.fas.fa-thumbs-up {
+    color: white;
+}
+
+.fas.fa-thumbs-down {
+    color: white;
+}
+
+.like.ml-2 {
+    font-weight: bold;
+    color: white;
+}
+
+.dislike.ml-2 {
+    font-weight: bold;
+    color: white;
+}
+
 .footer {
     height: 415px;
     /*margin-top: 50px;*/
@@ -149,22 +171,25 @@ img.d-block.w-100 {
     padding: 0;
 }
 
-div.col-md.pl-0.admin-sidebar > .nav-link {
+div.col-md.admin-sidebar > .nav-link {
     border-radius: none;
     color: white;
+    /*width: 195px;*/
     /*border-left: 2px solid #00ADEF;*/
 }
 
-div.col-md.pl-0.admin-sidebar > .nav-link:hover {
+div.col-md.admin-sidebar > .nav-link:hover {
     border: none;
     background-color: #F7931D;
     color: white;
+    /*width: 195px;*/
 }
 
-div.col-md.pl-0.admin-sidebar > a.nav-link.rounded-0.link-active {
+div.col-md.admin-sidebar > a.nav-link.rounded-0.link-active {
     border: none;
     background-color: #F7931D;
     color: white;
+    /*width: 195px;*/
 }
 
 .pagination-row {
@@ -191,6 +216,7 @@ div.col-5.p-3.login {
 
 .container.login.mt-3 {
     padding-bottom: 150px;
+    height: 600px;
 }
 
 ul.navbar-nav.custom-float {
@@ -198,11 +224,11 @@ ul.navbar-nav.custom-float {
 }
 
 ul.navbar-nav.admin-home-header {
-    margin-left: 530px;
+    margin-left: 555px;
 }
 
 ul.navbar-nav.user-home-header {
-    margin-left: 580px;
+    margin-left: 585px;
 }
 
 ul.navbar-nav.sub-nav {
@@ -227,6 +253,10 @@ ul.navbar-nav.sub-nav {
 
 .spec-panel-1 {
     background-color: #00ADEF;
+    color: white;
+}
+
+.fa.fa-star.fa-2x {
     color: white;
 }
 

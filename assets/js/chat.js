@@ -3,6 +3,7 @@ $(document).ready(function() {
   var dataTable = $('#admin').DataTable({
       "processing":true,
       "serverSide":true,
+      "filter":true,
       "order":[],
       "ajax":{
                 url:"chat/fetch_admin",
@@ -33,7 +34,7 @@ $(document).ready(function() {
   $(document).on('click', '.start-chat', function() {
     
     var to_user_id = $(this).data('touserid');
-    var to_f_name = $(this).data('tofname');
+    var to_fname = $(this).data('tofname');
     make_chat_dialog_box(to_user_id, to_fname);
 
       $("#user_dialog_"+to_user_id).dialog({
@@ -49,3 +50,4 @@ $(document).ready(function() {
   });
 
 });
+

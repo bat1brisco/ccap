@@ -61,11 +61,11 @@ $route['carslisting/update'] = 'carslisting/update';
 $route['carslisting/(:any)'] = 'carslisting/view/$1';
 $route['carslisting'] = 'carslisting/index';
 
+$route['chat1/index'] = 'chat1/index';
+$route['chat1'] = 'chat1/index';
 
-// $route['chat/index'] = 'chat/index';
+$route['chat/index'] = 'chat/index';
 $route['chat'] = 'chat/index';
-$route['chat/messages/(:any)'] = 'MessageController/index/$1';
-
 
 $route['acceptrejectuser/index'] = 'acceptrejectuser/index';
 $route['acceptrejectuser'] = 'acceptrejectuser/index';
@@ -78,6 +78,9 @@ $route['acceptrejectpart'] = 'acceptrejectpart/index';
 
 $route['admindashboard/index'] = 'admindashboard/index';
 $route['admindashboard'] = 'admindashboard/index';
+
+$route['userdashboard/index'] = 'userdashboard/index';
+$route['userdashboard'] = 'userdashboard/index';
 
 $route['default_controller'] = 'pages/view';
 $route['(:any)'] = 'pages/view/$1';

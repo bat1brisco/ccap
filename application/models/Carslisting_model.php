@@ -46,7 +46,7 @@
 				'post_image' => $post_image,
 				'status' => 'Pending'
 			);
-//April 10, 2019 Notification module and partial trigger
+			//April 10, 2019 Notification module and partial trigger
 			$q = $this->db->insert('cars', $data);
 			return 1;
 		}
@@ -142,12 +142,12 @@
 							<div class="col-md-3 text-center mb-4">
 								<div style="border:1px solid #ccc"; border-radius:5px; padding:16px; margin-bottom:16px; height:450px;>
 									<h3 align="center"><strong>' . $row['make'] .'</strong></h3>
-									<h4 style="text-align:center;">'. $row['model'] .'</h4>
-									<img class="post-thumbnail img-thumbnail" src="assets/images/posts/'. $row['post_image'].'">
-									<a class="btn btn-ccap mt-2 mb-2" href="/ccap/carslisting/' .$row['slug'] . '">View Details</a>
+									<h4 style="text-align:center;">' . $row['model'] .'</h4>
+									<img class="post-thumbnail img-thumbnail" src="assets/images/posts/' . $row['post_image'] . '">
+									<a class="btn btn-ccap mt-2 mb-2" href="/ccap/carslisting/' . $row['slug'] . '">View Details</a>
 								</div>			
 							</div>
-						
+							
 						';
 					}
 				} else {

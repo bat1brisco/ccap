@@ -38,6 +38,7 @@
 			$this->load->view('templates/header');
 			$this->load->view('carslisting/view', $data);
 			$this->load->view('templates/footer');
+
 		}
 
 		public function create() {
@@ -93,12 +94,12 @@
 										'status' => 'Unread',
 										'user_id' => $key->user_id);
 
-									$res = $this->notification_model->notification_module($notif);
-										}
+										$res = $this->notification_model->notification_module($notif);
+									}
 										if ($res == 1) {
 											redirect('carslisting');
 										}
-									}			
+								}			
 						
 					}
 
@@ -108,14 +109,14 @@
 
 		public function edit($slug) {
 			// Check login
-			if(!$this->session->userdata('logged_in')){
+			if(!$this->session->userdata('logged_in')) {
 				redirect('users/login');
 			}
 
 			$data['car'] = $this->carslisting_model->get_cars($slug);
 
 			// Check user
-			if($this->session->userdata('user_id') != $this->carslisting_model->get_cars($slug)['user_id']){
+			if($this->session->userdata('user_id') != $this->carslisting_model->get_cars($slug)['user_id']) {
 				redirect('carslisting');
 			}
 
@@ -132,9 +133,9 @@
 			$this->load->view('templates/footer');
 		}
 
-		public function update(){
+		public function update() {
 			// Check login
-			if(!$this->session->userdata('logged_in')){
+			if(!$this->session->userdata('logged_in')) {
 				redirect('users/login');
 			}
 
@@ -146,9 +147,9 @@
 			redirect('carslisting');
 		}
 
-		public function delete($car_id){
+		public function delete($car_id) {
 			// Check login
-			if(!$this->session->userdata('logged_in')){
+			if(!$this->session->userdata('logged_in')) {
 				redirect('users/login');
 			}
 
@@ -218,7 +219,7 @@
 			$result = $this->carslisting_model->cars_approve($id);
 			
 			$date = date('F d, Y');
-			if($result == 1){
+			if($result == 1) {
 				$notif = array(
 					'notification_message' =>'Your requested post has been approved.', 
 					'notif_date' => $date, 
@@ -236,7 +237,7 @@
 			$result = $this->carslisting_model->cars_decline($id);
 
 			$date = date('F d, Y');
-			if($result == 1){
+			if($result == 1) {
 				$notif = array(
 					'notification_message' =>'Your requested post has been declined.', 
 					'notif_date' => $date, 
@@ -249,5 +250,16 @@
 			}
 			redirect('Carslisting/manage_cars');
 		//-------------------- HERE	
+		}
+
+		public function updateRating() {
+			$user_id = $this->session->userdata('user_id');
+			$car_rating = $this->input->post('car_rating');
+
+			// Update user rating and get Average rating of a post
+			$averageRating = $this->carslisting_model->userRating($user_id, $car_id, $car_rating);
+
+			echo $averageRating;
+			exit;
 		}
 	}

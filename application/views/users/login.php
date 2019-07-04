@@ -4,7 +4,7 @@
 	<div class="row">
 		<div class="col-7 pr-0">
 
-			<div class="banner-reg-log">
+			<div class="banner-reg-log ml-0">
 				<h1><span class="blue">CEBU</span></h1>
 			<h1><span class="orange">CARS AND PARTS</span></h1>
 			<p><em>Your Cars and Car Parts Online Portal. Buy and Sell used cars and parts online.</em></p>

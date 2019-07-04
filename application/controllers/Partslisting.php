@@ -1,5 +1,4 @@
 <?php
-
 	class Partslisting extends CI_Controller {
 		public function __construct() {
 			parent::__construct();
@@ -77,14 +76,11 @@
 								'status' => 'Unread', 
 								'user_id' => $key['user_id']);
 						
-						$res = $this->notification_model->notification_module($notif);
+							$res = $this->notification_model->notification_module($notif);
 						}
 						if ($res == 1) {
 							redirect('partslisting');
-						
 						}
-						
-
 					}
 					redirect('partslisting');
 				}
@@ -133,18 +129,18 @@
 			echo json_encode($output);
 		}
 
-		public function manage_parts(){
+		public function manage_parts() {
 			$data['parts'] = $this->partslisting_model->get_pending_parts();
 			$this->load->view('templates/header');
 			$this->load->view('partslisting/parts_management', $data);
 			$this->load->view('templates/footer');
 		}
 		//NOTIFICATION TRIGGER
-		public function parts_approve($id){
+		public function parts_approve($id) {
 			$result = $this->partslisting_model->parts_approve($id);
 			
 			$date = date('F d, Y');
-			if($result == 1){
+			if($result == 1) {
 				$notif = array(
 					'notification_message' =>'Your requested post has been approved.', 
 					'notif_date' => $date, 
@@ -158,11 +154,11 @@
 			redirect('Partslisting/manage_parts');
 		//-------------------- HERE
 		}
-		public function parts_decline($id){
+		public function parts_decline($id) {
 			$result = $this->partslisting_model->parts_decline($id);
 
 			$date = date('F d, Y');
-			if($result == 1){
+			if($result == 1) {
 				$notif = array(
 					'notification_message' =>'Your requested post has been declined.', 
 					'notif_date' => $date, 

@@ -10,8 +10,7 @@
           $this->db->where('user_type', 'admin');
 
             if(isset($_POST["search"]["value"])) {
-              $this->db->or_where("fname", $_POST["search"]["value"]);
-              $this->db->or_where("lname", $_POST["search"]["value"]);
+              $this->db->like("fname", $_POST["search"]["value"]);
             }
 
             if(isset($_POST["order"])) {

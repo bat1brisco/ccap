@@ -1,7 +1,3 @@
-<!-- <h2><?= $title ?></h2> -->
-<!-- <?php echo "<pre>";
-print_r($this->session); // or print_r($_SESSION);
-echo "</pre>"; ?> -->
 <div class="container-fluid">
   <?php if($this->session->flashdata('user_pending')) : ?>
     <?php echo '<div class="alert alert-warning" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -71,7 +67,7 @@ echo "</pre>"; ?> -->
       </div>
     </div>
 
-    <div class="col-md">
+    <div class="col-md pl-0 pr-0">
       <div class="card bg-dark text-white rounded-0 border-0">
         <img class="card-img h-100" src="<?php echo base_url(); ?>assets/images/21.jpg" alt="Card image">
         <div class="card-img-overlay">
@@ -94,23 +90,22 @@ echo "</pre>"; ?> -->
 </div>
 
 <div class="container-fluid mt-5">
-<h2 class="text-center">Recent Cars Listing</h2>
-<hr>
+  <h2 class="text-center">Recent Cars Listing</h2>
+  <hr>
   <div class="row mt-4">
 
+  <?php  
+    $data = $this->db->query("SELECT * FROM `cars` WHERE `status` = 'Approved' ORDER BY `car_id` DESC LIMIT 8");
 
-<?php  
-  $data = $this->db->query("SELECT * FROM `cars` WHERE `status` = 'Approved' ORDER BY `car_id` DESC LIMIT 8");
-
-    if ($data->num_rows() > 0): ?>
-    <?php foreach ($data->result_array() as $row): ?>
+      if ($data->num_rows() > 0): ?>
+      <?php foreach ($data->result_array() as $row): ?>
     <div class="col-md-3 text-center mb-4">
       
       <div style="border:1px solid #ccc"; border-radius:5px; padding:16px; margin-bottom:16px; height:450px;>
 
         <h4 align="center"><?php echo $row['make']; ?></h4>
         <h5 style="text-align:center;"><?php echo $row['model']; ?></h5>
-        <img class="post-thumbnail img-thumbnail" src="assets/images/posts/<?php echo $row['post_image']; ?>">
+        <img class="post-thumbnail img-thumbnail" src="<?php echo base_url(); ?>assets/images/posts/<?php echo $row['post_image']; ?>">
         <a class="btn btn-ccap mt-2 mb-2" href="/ccap/carslisting/<?php echo $row['slug']; ?>">View Details</a>
 
       </div>    
@@ -123,13 +118,13 @@ echo "</pre>"; ?> -->
 </div>
 
 <div class="container-fluid mt-5">
-<h2 class="text-center">Recent Parts Listing</h2>
-<hr>
+  <h2 class="text-center">Recent Parts Listing</h2>
+  <hr>
+  
   <div class="row mt-4">
 
-
-<?php  
-  $data = $this->db->query("SELECT * FROM `parts` WHERE `status` = 'Approved' ORDER BY `parts_id` LIMIT 8");
+  <?php  
+    $data = $this->db->query("SELECT * FROM `parts` WHERE `status` = 'Approved' ORDER BY `parts_id` LIMIT 8");
 
     if ($data->num_rows() > 0): ?>
     <?php foreach ($data->result_array() as $row): ?>
@@ -139,7 +134,7 @@ echo "</pre>"; ?> -->
 
         <h4 align="center"><?php echo $row['brand']; ?></h4>
         <h5 style="text-align:center;"><?php echo $row['model_name']; ?></h5>
-        <img class="post-thumbnail img-thumbnail" src="assets/images/posts/<?php echo $row['post_image']; ?>">
+        <img class="post-thumbnail img-thumbnail" src="<?php echo base_url(); ?>assets/images/posts/<?php echo $row['post_image']; ?>">
         <a class="btn btn-ccap mt-2 mb-2" href="/ccap/partslisting/<?php echo $row['slug']; ?>">View Details</a>
 
       </div>    

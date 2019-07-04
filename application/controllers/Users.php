@@ -18,19 +18,11 @@
 					$this->load->view('templates/footer');
 				} else {
 					$enc_password = md5($this->input->post('password'));
-					$this->user_model->register($enc_password);
-					$this->session->set_flashdata('user_pending', 'Your account is still pending for approval');
-
-					// $date = date('F d, Y');
-					// $notif = array(
-					// 		'notification_message' => 'Account Pending Request.', 
-					// 		'notif_date' => $date, 
-					// 		'status' => 'Unread', 
-					// 		'user_id' => 1);
-
-					// 	$res = $this->notification_model->notification_module($notif);
+					
 					$q = $this->user_model->register($enc_password);
-					$user_data = $this->user_model->get_user($this->session->userdata('user_id'));
+					$this->session->set_flashdata('user_pending', 'Your account is still pending for approval');
+					
+					$user_data = $this->user_model->get_registrant();
 					$admins = $this->user_model->get_administrators();
 					$date = date('F d, Y');
 					if($q == 1){
@@ -49,8 +41,6 @@
 						}
 					}
 
-
-				
 				}
 		}
 
@@ -94,11 +84,24 @@
 
 							$this->session->set_userdata($user_data);
 
-							$this->load->view('templates/header');
-							$this->load->view('pages/home');
-							$this->load->view('templates/footer');
+								if ($this->session->userdata('user_type') == "admin") {
+									$data['title'] = 'My Dashboard';
+
+									$this->load->view('templates/header');
+									$this->load->view('admindashboard/index', $data);
+									$this->load->view('templates/footer');
+								} else {
+									$data['title'] = 'My Dashboard';
+									
+									$this->load->view('templates/header');
+									$this->load->view('userdashboard/index', $data);
+									$this->load->view('templates/footer');
+								}
+								
+
+							
 						} else {
-							$this->session->set_flashdata('login_failed', 'Invalid log in credentials. Please check you email and password');
+							$this->session->set_flashdata('login_failed', 'Invalid log in credentials. Please check your email and password');
 
 							//redirect('users/login');
 
@@ -131,31 +134,31 @@
 			
 		}
 
-		public function manage_account(){
+		public function manage_account() {
 			$data['users'] = $this->user_model->get_pending_users();
 			$this->load->view('templates/header');
 			$this->load->view('users/manage_account', $data);
 			$this->load->view('templates/footer');
 		}
 
-		public function administer_accounts(){
+		public function administer_accounts() {
 			$data['users'] = $this->user_model->get_approved_users();
 			$this->load->view('templates/header');
 			$this->load->view('users/administer_accounts', $data);
 			$this->load->view('templates/footer');
 		}
 
-		public function user_approve($id){
+		public function user_approve($id) {
 			$result = $this->user_model->user_approve($id);
 			redirect('users/manage_account');
 		}
 
-		public function user_decline($id){
+		public function user_decline($id) {
 			$result = $this->user_model->user_decline($id);
 			redirect('users/manage_account');
 		}
 		
-		public function get_adminstrators(){
+		public function get_adminstrators() {
 			return $this->user_model->get_adminstrators();
 		}
 	}

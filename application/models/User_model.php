@@ -110,11 +110,20 @@
 			return $user_data;
 		}
 
+		public function get_registrant() {
+			$result = $this->db->query("SELECT * FROM `users` WHERE `status` = 'Pending' ORDER BY `date_registered` DESC LIMIT 1");
+			if ($result->num_rows() == 1) {
+				$user_data = $result->row(0)->fname; 
+			} else {
+				$user_data = false;
+			}
+			return $user_data;
+		}
+
 		public function get_pending_users(){
 			$result  = $this->db->get_where('users', array('status' => 'Pending'));
 			return $result;
 		}
-
 
 		public function get_approved_users(){
 			$result  = $this->db->get_where('users', array('status' => 'Approved'));
