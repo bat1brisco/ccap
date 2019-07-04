@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 28, 2019 at 02:24 PM
+-- Generation Time: Jul 02, 2019 at 10:15 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -31,6 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `cars` (
   `car_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
+  `cars_buyer_id` int(11) NOT NULL,
   `make` varchar(75) NOT NULL,
   `model` varchar(100) NOT NULL,
   `year` varchar(4) NOT NULL,
@@ -58,15 +59,15 @@ CREATE TABLE `cars` (
 -- Dumping data for table `cars`
 --
 
-INSERT INTO `cars` (`car_id`, `user_id`, `make`, `model`, `year`, `price`, `car_status`, `transmission`, `seating_capacity`, `body_style`, `mileage`, `color`, `cylinder_engine`, `door`, `drive_type`, `fuel_type`, `description`, `rfs`, `post_image`, `date_posted`, `notification_listing`, `slug`, `status`) VALUES
-(1, 9, 'Toyota', 'Altis', '2006', 450000, 'available', 'Manual', 5, 'Sedan', 190, 'White', '1.6 Liter Inline 4', 4, 'FWD', 'Gasoline', '2006 Toyota Sedan', 'Extra unit', 'noimage.png', '2019-05-09 05:39:43', 0, 'Toyotaf2yambeq3k', 'Approved'),
-(2, 9, 'Toyota', 'Camry', '2017', 890000, 'available', 'Automatic', 5, 'Sedan', 100, 'Gray', '1.4 Liter Inline 4', 4, 'FWD', 'Gasoline', '2017 Toyota sedan', 'Extra unit', 'noimage.png', '2019-05-12 02:10:53', 0, 'Toyota05hx13ubgw', 'Approved'),
-(3, 9, 'Suzuki', 'Grand Vitara', '2005', 650000, 'available', 'Automatic', 7, 'SUV', 200, 'Maroon', '1.5 Liter Inline 4', 5, 'FWD', 'Diesel', '2005 SUV', 'Extra unit', 'noimage.png', '2019-05-12 02:17:44', 0, 'Suzukik6xsgw54jo', 'Approved'),
-(4, 9, 'Honda', 'Civic', '2003', 750000, 'available', 'Manual', 4, 'Coupe', 230, 'White', '1.5 Liter v4', 2, 'FWD', 'Gasoline', '2003 Classic sport coupe', 'Extra unit', 'noimage.png', '2019-05-12 02:21:17', 0, 'Hondaftpgz9nko1', 'Declined'),
-(5, 9, 'Toyota', 'Camry', '2017', 890000, 'available', 'Automatic', 5, 'Sedan', 100, 'White', '1.5 Liter Inline 4', 4, 'FWD', 'Gasoline', '2017 Sedan', 'Extra unit', 'noimage.png', '2019-05-12 02:49:03', 0, 'Toyotatl5ed7c69a', 'Approved'),
-(6, 9, 'Honda', 'Civic', '2003', 750000, 'available', 'Manual', 4, 'Coupe', 230, 'Black', '1.5 Liter v4', 2, 'FWD', 'Gasoline', '2003 sport coupe', 'extra unit', 'noimage.png', '2019-05-12 02:57:13', 0, 'Hondarceauqjk7n', 'Declined'),
-(7, 9, 'Honda', 'Civic', '2003', 750000, 'available', 'Manual', 4, 'Coupe', 230, 'White', '1.5 Liter v4', 2, 'FWD', 'Gasoline', '2003 Coupe', 'Extra unit', 'noimage.png', '2019-05-12 04:07:45', 0, 'Hondape3bfr7my2', 'Pending'),
-(8, 9, 'Honda', 'Civic', '2001', 750000, 'available', 'Manual', 4, 'Coupe', 230, 'White', '1.5 Liter v4', 2, 'FWD', 'Gasoline', '2001 Coupe', 'Extra unit', 'noimage.png', '2019-05-12 04:21:47', 0, 'Hondav0n8q5oh2a', 'Pending');
+INSERT INTO `cars` (`car_id`, `user_id`, `cars_buyer_id`, `make`, `model`, `year`, `price`, `car_status`, `transmission`, `seating_capacity`, `body_style`, `mileage`, `color`, `cylinder_engine`, `door`, `drive_type`, `fuel_type`, `description`, `rfs`, `post_image`, `date_posted`, `notification_listing`, `slug`, `status`) VALUES
+(1, 9, 0, 'Toyota', 'Altis', '2006', 450000, 'available', 'Manual', 5, 'Sedan', 190, 'White', '1.6 Liter Inline 4', 4, 'FWD', 'Gasoline', '2006 Toyota Sedan', 'Extra unit', 'noimage.png', '2019-05-09 05:39:43', 0, 'Toyotaf2yambeq3k', 'Approved'),
+(2, 9, 0, 'Toyota', 'Camry', '2017', 890000, 'available', 'Automatic', 5, 'Sedan', 100, 'Gray', '1.4 Liter Inline 4', 4, 'FWD', 'Gasoline', '2017 Toyota sedan', 'Extra unit', 'noimage.png', '2019-05-12 02:10:53', 0, 'Toyota05hx13ubgw', 'Approved'),
+(3, 9, 0, 'Suzuki', 'Grand Vitara', '2005', 650000, 'available', 'Automatic', 7, 'SUV', 200, 'Maroon', '1.5 Liter Inline 4', 5, 'FWD', 'Diesel', '2005 SUV', 'Extra unit', 'noimage.png', '2019-05-12 02:17:44', 0, 'Suzukik6xsgw54jo', 'Approved'),
+(4, 9, 0, 'Honda', 'Civic', '2003', 750000, 'available', 'Manual', 4, 'Coupe', 230, 'White', '1.5 Liter v4', 2, 'FWD', 'Gasoline', '2003 Classic sport coupe', 'Extra unit', 'noimage.png', '2019-05-12 02:21:17', 0, 'Hondaftpgz9nko1', 'Declined'),
+(5, 9, 0, 'Toyota', 'Camry', '2017', 890000, 'available', 'Automatic', 5, 'Sedan', 100, 'White', '1.5 Liter Inline 4', 4, 'FWD', 'Gasoline', '2017 Sedan', 'Extra unit', 'noimage.png', '2019-05-12 02:49:03', 0, 'Toyotatl5ed7c69a', 'Approved'),
+(6, 9, 0, 'Honda', 'Civic', '2003', 750000, 'available', 'Manual', 4, 'Coupe', 230, 'Black', '1.5 Liter v4', 2, 'FWD', 'Gasoline', '2003 sport coupe', 'extra unit', 'noimage.png', '2019-05-12 02:57:13', 0, 'Hondarceauqjk7n', 'Declined'),
+(7, 9, 0, 'Honda', 'Civic', '2003', 750000, 'available', 'Manual', 4, 'Coupe', 230, 'White', '1.5 Liter v4', 2, 'FWD', 'Gasoline', '2003 Coupe', 'Extra unit', 'noimage.png', '2019-05-12 04:07:45', 0, 'Hondape3bfr7my2', 'Pending'),
+(8, 9, 0, 'Honda', 'Civic', '2001', 750000, 'available', 'Manual', 4, 'Coupe', 230, 'White', '1.5 Liter v4', 2, 'FWD', 'Gasoline', '2001 Coupe', 'Extra unit', 'noimage.png', '2019-05-12 04:21:47', 0, 'Hondav0n8q5oh2a', 'Pending');
 
 -- --------------------------------------------------------
 
@@ -93,10 +94,39 @@ CREATE TABLE `car_ratings` (
   `car_rating_id` int(11) NOT NULL,
   `car_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `car_rating` int(11) NOT NULL,
-  `comment` text NOT NULL,
-  `time_stamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `car_rating` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ci_sessions`
+--
+
+CREATE TABLE `ci_sessions` (
+  `id` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ip_address` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `timestamp` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `data` blob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `ci_sessions`
+--
+
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
+('6rdj7ci1ktgdvlas8lnb3p7r5u88hp1c', '::1', 1562090345, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323039303334353b666e616d657c733a393a22416c6578616e646572223b6d6e616d657c733a343a224372757a223b6c6e616d657c733a363a2253616e746f73223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2232223b656d61696c7c733a32303a22616c657873616e746f7340676d61696c2e636f6d223b6c6f676765645f696e7c623a313b),
+('o0943h9r5pamjmvs6s3stucbv278teoj', '::1', 1562091639, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323039313633393b666e616d657c733a393a22416c6578616e646572223b6d6e616d657c733a343a224372757a223b6c6e616d657c733a363a2253616e746f73223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2232223b656d61696c7c733a32303a22616c657873616e746f7340676d61696c2e636f6d223b6c6f676765645f696e7c623a313b),
+('de53mtv96kppdrs7dc9l4uos54aul0og', '::1', 1562092668, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323039323636383b666e616d657c733a393a22416c6578616e646572223b6d6e616d657c733a343a224372757a223b6c6e616d657c733a363a2253616e746f73223b757365725f747970657c733a353a2261646d696e223b),
+('rfffako4pvm4bcahsdbajhi86kpri6om', '::1', 1562093022, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323039333032313b666e616d657c733a373a224761627269656c223b6d6e616d657c733a353a22416c697065223b6c6e616d657c733a353a22546f6d6173223b757365725f747970657c733a343a2275736572223b),
+('iku464ui8u6qksebkadnj37nkpe3c9on', '::1', 1562093679, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323039333637393b666e616d657c733a393a22416c6578616e646572223b6d6e616d657c733a343a224372757a223b6c6e616d657c733a363a2253616e746f73223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2232223b656d61696c7c733a32303a22616c657873616e746f7340676d61696c2e636f6d223b6c6f676765645f696e7c623a313b),
+('agn019hh5fvqapc3lbj5fac1nc4cu59k', '::1', 1562094710, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323039343731303b666e616d657c733a393a22416c6578616e646572223b6d6e616d657c733a343a224372757a223b6c6e616d657c733a363a2253616e746f73223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2232223b656d61696c7c733a32303a22616c657873616e746f7340676d61696c2e636f6d223b6c6f676765645f696e7c623a313b),
+('jhg1nquppb0v7fdgci1p93om8k6rl4b8', '::1', 1562095100, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323039353130303b666e616d657c733a393a22416c6578616e646572223b6d6e616d657c733a343a224372757a223b6c6e616d657c733a363a2253616e746f73223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2232223b656d61696c7c733a32303a22616c657873616e746f7340676d61696c2e636f6d223b6c6f676765645f696e7c623a313b),
+('tjf67id0osdsc97qbe9fdtb7ja94dt8v', '::1', 1562097052, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323039373035323b666e616d657c733a393a22416c6578616e646572223b6d6e616d657c733a343a224372757a223b6c6e616d657c733a363a2253616e746f73223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2232223b656d61696c7c733a32303a22616c657873616e746f7340676d61696c2e636f6d223b6c6f676765645f696e7c623a313b),
+('3baao5s3fuvr36u1n7eb5k6rdojurmp3', '::1', 1562097434, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323039373433343b666e616d657c733a393a22416c6578616e646572223b6d6e616d657c733a343a224372757a223b6c6e616d657c733a363a2253616e746f73223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2232223b656d61696c7c733a32303a22616c657873616e746f7340676d61696c2e636f6d223b6c6f676765645f696e7c623a313b),
+('31i42f8k4v8lm4ia9t18f7qbq52sv3ja', '::1', 1562097953, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323039373935333b666e616d657c733a393a22416c6578616e646572223b6d6e616d657c733a343a224372757a223b6c6e616d657c733a363a2253616e746f73223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2232223b656d61696c7c733a32303a22616c657873616e746f7340676d61696c2e636f6d223b6c6f676765645f696e7c623a313b),
+('31n6lu54t89k92g186ferbleuju6ha52', '::1', 1562098300, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323039383330303b666e616d657c733a393a22416c6578616e646572223b6d6e616d657c733a343a224372757a223b6c6e616d657c733a363a2253616e746f73223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2232223b656d61696c7c733a32303a22616c657873616e746f7340676d61696c2e636f6d223b6c6f676765645f696e7c623a313b),
+('maius3qvd0df010ar9d1hs4mml33vvpn', '::1', 1562098555, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323039383330303b666e616d657c733a373a224761627269656c223b6d6e616d657c733a353a22416c697065223b6c6e616d657c733a353a22546f6d6173223b757365725f747970657c733a343a2275736572223b);
 
 -- --------------------------------------------------------
 
@@ -164,7 +194,27 @@ INSERT INTO `notifications` (`notification_id`, `notification_message`, `notif_d
 (30, ' is registering for a new account.', 'May 12, 2019', 'Read', 2),
 (31, ' is registering for a new account.', 'May 12, 2019', 'Unread', 3),
 (32, ' is registering for a new account.', 'May 12, 2019', 'Unread', 4),
-(33, 'Your requested post has been approved.', 'May 12, 2019', 'Read', 9);
+(33, 'Your requested post has been approved.', 'May 12, 2019', 'Read', 9),
+(34, ' is registering for a new account.', 'June 02, 2019', 'Unread', 1),
+(35, ' is registering for a new account.', 'June 02, 2019', 'Read', 2),
+(36, ' is registering for a new account.', 'June 02, 2019', 'Unread', 3),
+(37, ' is registering for a new account.', 'June 02, 2019', 'Unread', 4),
+(38, ' is registering for a new account.', 'June 02, 2019', 'Unread', 1),
+(39, ' is registering for a new account.', 'June 02, 2019', 'Read', 2),
+(40, ' is registering for a new account.', 'June 02, 2019', 'Unread', 3),
+(41, ' is registering for a new account.', 'June 02, 2019', 'Unread', 4),
+(42, ' is registering for a new account.', 'June 02, 2019', 'Unread', 1),
+(43, ' is registering for a new account.', 'June 02, 2019', 'Read', 2),
+(44, ' is registering for a new account.', 'June 02, 2019', 'Unread', 3),
+(45, ' is registering for a new account.', 'June 02, 2019', 'Unread', 4),
+(46, ' is registering for a new account.', 'June 02, 2019', 'Unread', 1),
+(47, ' is registering for a new account.', 'June 02, 2019', 'Read', 2),
+(48, ' is registering for a new account.', 'June 02, 2019', 'Unread', 3),
+(49, ' is registering for a new account.', 'June 02, 2019', 'Unread', 4),
+(50, 'Benjamin is registering for a new account.', 'June 02, 2019', 'Unread', 1),
+(51, 'Benjamin is registering for a new account.', 'June 02, 2019', 'Read', 2),
+(52, 'Benjamin is registering for a new account.', 'June 02, 2019', 'Unread', 3),
+(53, 'Benjamin is registering for a new account.', 'June 02, 2019', 'Unread', 4);
 
 -- --------------------------------------------------------
 
@@ -175,6 +225,7 @@ INSERT INTO `notifications` (`notification_id`, `notification_message`, `notif_d
 CREATE TABLE `parts` (
   `parts_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
+  `parts_buyer_id` int(11) NOT NULL,
   `price` int(11) NOT NULL,
   `category` enum('Wheels','Tires','Internal Accessories','Suspension','Transmission','Drive shafts','Brakes','Engine','External Accessories') NOT NULL,
   `brand` varchar(150) NOT NULL,
@@ -216,9 +267,7 @@ CREATE TABLE `parts_ratings` (
   `parts_rating_id` int(11) NOT NULL,
   `parts_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `parts_rating` int(11) NOT NULL,
-  `comment` text NOT NULL,
-  `time_stamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `parts_rating` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -229,8 +278,8 @@ CREATE TABLE `parts_ratings` (
 
 CREATE TABLE `reports` (
   `report_id` int(11) NOT NULL,
-  `car_id` int(11) NOT NULL,
-  `parts_id` int(11) NOT NULL,
+  `car_id` int(11) DEFAULT NULL,
+  `parts_id` int(11) DEFAULT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -250,27 +299,30 @@ CREATE TABLE `users` (
   `address` varchar(255) NOT NULL,
   `contact` varchar(12) NOT NULL,
   `user_type` enum('admin','user') NOT NULL,
-  `status` enum('Approved','Declined','Pending') NOT NULL DEFAULT 'Declined'
+  `status` enum('Approved','Declined','Pending') NOT NULL DEFAULT 'Declined',
+  `date_registered` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `email`, `password`, `fname`, `mname`, `lname`, `address`, `contact`, `user_type`, `status`) VALUES
-(1, 'jimmyaldiano@gmail.com', 'c2fe677a63ffd5b7ffd8facbf327dad0', 'Jimmy', 'Inocencio', 'Aldiano', 'Pitogo, Consolacion, Cebu', '09812773849', 'admin', 'Approved'),
-(2, 'alexsantos@gmail.com', '534b44a19bf18d20b71ecc4eb77c572f', 'Alexander', 'Cruz', 'Santos', 'Nasipit, Talamban, Cebu', '09382118349', 'admin', 'Approved'),
-(3, 'christopherjacinto@yahoo.com', '6b34fe24ac2ff8103f6fce1f0da2ef57', 'Christopher', 'Malinao', 'Jacinto', 'Poblacion, Occidental, Consolacion, Cebu', '09218228374', 'admin', 'Approved'),
-(4, 'dinocruz@yahoo.com', 'b246ff693d453c3b1a3049752da2bc75', 'Dino', 'Aldiano', 'Cruz', 'Poblacion, Oriental, Consolacion, Cebu', '09283994875', 'admin', 'Approved'),
-(5, 'craigtuyao@gmail.com', '14084800449265ee16a75ea7465d01b6', 'Craig', 'Semana', 'Tuyao', 'Tayud, Lilo-an, Cebu', '09483448591', 'user', 'Pending'),
-(6, 'gabrieltomas@yahoo.com', '639bee393eecbc62256936a8e64d17b1', 'Gabriel', 'Alipe', 'Tomas', 'Tayud, Consolacion, Cebu', '09384775938', 'user', 'Approved'),
-(7, 'ginocruz@yahoo.com', '09ad68ccea425181b0f3384a47eb0ee7', 'Gino', 'Deladia', 'Cruz', 'P. Del Rosario, Cebu City', '09384885939', 'user', 'Pending'),
-(8, 'gerardogenerales@yahoo.com', '4024fb06e1423da90b80f0274e8e4476', 'Gerardo', 'Pantaleon', 'Generales', 'Banilad, Cebu City', '09483994851', 'user', 'Pending'),
-(9, 'alfredadrea@yahoo.com', '29cb2448018800ab65a9de297548b6e0', 'Alfred', 'Cruz', 'Adrea', 'Garing, Consolacion, Cebu', '09384995832', 'user', 'Approved'),
-(10, 'cliffordadriatico@yahoo.com', 'f15c041d08ec4a285457201287406d0d', 'Clifford', 'Cruz', 'Adriatico', 'Nangka, Consolacion, Cebu', '09328338492', 'user', 'Pending'),
-(11, 'cliffordadriatico@yahoo.com', 'f15c041d08ec4a285457201287406d0d', 'Clifford', 'Cruz', 'Adriatico', 'Nangka, Consolacion, Cebu', '09328338492', 'user', 'Pending'),
-(12, 'martinpontia@gmail.com', '925d7518fc597af0e43f5606f9a51512', 'Martin', 'Jugan', 'Pontia', 'Casili, Consolacion, Cebu', '09384994950', 'user', 'Pending'),
-(13, 'martinpontia@gmail.com', '925d7518fc597af0e43f5606f9a51512', 'Martin', 'Jugan', 'Pontia', 'Casili, Consolacion, Cebu', '09384994950', 'user', 'Pending');
+INSERT INTO `users` (`user_id`, `email`, `password`, `fname`, `mname`, `lname`, `address`, `contact`, `user_type`, `status`, `date_registered`) VALUES
+(1, 'jimmyaldiano@gmail.com', 'c2fe677a63ffd5b7ffd8facbf327dad0', 'Jimmy', 'Inocencio', 'Aldiano', 'Pitogo, Consolacion, Cebu', '09812773849', 'admin', 'Approved', '2019-06-02 04:35:12'),
+(2, 'alexsantos@gmail.com', '534b44a19bf18d20b71ecc4eb77c572f', 'Alexander', 'Cruz', 'Santos', 'Nasipit, Talamban, Cebu', '09382118349', 'admin', 'Approved', '2019-06-02 04:35:12'),
+(3, 'christopherjacinto@yahoo.com', '6b34fe24ac2ff8103f6fce1f0da2ef57', 'Christopher', 'Malinao', 'Jacinto', 'Poblacion, Occidental, Consolacion, Cebu', '09218228374', 'admin', 'Approved', '2019-06-02 04:35:12'),
+(4, 'dinocruz@yahoo.com', 'b246ff693d453c3b1a3049752da2bc75', 'Dino', 'Aldiano', 'Cruz', 'Poblacion, Oriental, Consolacion, Cebu', '09283994875', 'admin', 'Approved', '2019-06-02 04:35:12'),
+(5, 'craigtuyao@gmail.com', '14084800449265ee16a75ea7465d01b6', 'Craig', 'Semana', 'Tuyao', 'Tayud, Lilo-an, Cebu', '09483448591', 'user', 'Pending', '2019-06-02 04:35:12'),
+(6, 'gabrieltomas@yahoo.com', '639bee393eecbc62256936a8e64d17b1', 'Gabriel', 'Alipe', 'Tomas', 'Tayud, Consolacion, Cebu', '09384775938', 'user', 'Approved', '2019-06-02 04:35:12'),
+(7, 'ginocruz@yahoo.com', '09ad68ccea425181b0f3384a47eb0ee7', 'Gino', 'Deladia', 'Cruz', 'P. Del Rosario, Cebu City', '09384885939', 'user', 'Pending', '2019-06-02 04:35:12'),
+(8, 'gerardogenerales@yahoo.com', '4024fb06e1423da90b80f0274e8e4476', 'Gerardo', 'Pantaleon', 'Generales', 'Banilad, Cebu City', '09483994851', 'user', 'Pending', '2019-06-02 04:35:12'),
+(9, 'alfredadrea@yahoo.com', '29cb2448018800ab65a9de297548b6e0', 'Alfred', 'Cruz', 'Adrea', 'Garing, Consolacion, Cebu', '09384995832', 'user', 'Approved', '2019-06-02 04:35:12'),
+(10, 'cliffordadriatico@yahoo.com', 'f15c041d08ec4a285457201287406d0d', 'Clifford', 'Cruz', 'Adriatico', 'Nangka, Consolacion, Cebu', '09328338492', 'user', 'Pending', '2019-06-02 04:35:12'),
+(12, 'martinpontia@gmail.com', '925d7518fc597af0e43f5606f9a51512', 'Martin', 'Jugan', 'Pontia', 'Casili, Consolacion, Cebu', '09384994950', 'user', 'Pending', '2019-06-02 04:35:12'),
+(14, 'juanito123@yahoo.com', 'a94652aa97c7211ba8954dd15a3cf838', 'Juanito', 'Cresencio', 'Aldiano', 'Bakilid, A.S. Fortuna St. Cebu', '09216554987', 'user', 'Pending', '2019-06-02 04:35:12'),
+(16, 'dante1234@yahoo.com', 'dad5840ce44580d3a549fa326e104704', 'Dante', 'Calinawan', 'Asuncion', 'Estaca, Compostela, Cebu', '09384995832', 'user', 'Pending', '2019-06-02 04:35:12'),
+(17, 'benandalo@gmail.com', '7fe4771c008a22eb763df47d19e2c6aa', 'Benjamin', 'Olarte', 'Andalo', 'Sitio 1, Jagobiao, Cebu', '09485995968', 'user', 'Pending', '2019-06-02 05:12:39'),
+(18, 'bencruz@gmail.com', '7fe4771c008a22eb763df47d19e2c6aa', 'Benjamin', 'Olarte', 'cruz', 'Sitio 1, Jagobiao, Cebu', '09485995968', 'user', 'Pending', '2019-06-02 05:18:34');
 
 --
 -- Indexes for dumped tables
@@ -297,6 +349,12 @@ ALTER TABLE `car_ratings`
   ADD PRIMARY KEY (`car_rating_id`),
   ADD KEY `fk_car_rating_id` (`car_id`),
   ADD KEY `fk_car_user_id_id` (`user_id`);
+
+--
+-- Indexes for table `ci_sessions`
+--
+ALTER TABLE `ci_sessions`
+  ADD KEY `ci_sessions_timestamp` (`timestamp`);
 
 --
 -- Indexes for table `messages`
@@ -375,7 +433,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `parts`
@@ -405,7 +463,7 @@ ALTER TABLE `reports`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Constraints for dumped tables
