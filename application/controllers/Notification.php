@@ -43,7 +43,7 @@
 					}elseif ($current_hour != $hour && $current_date == $date && $current_month == $month) {
 						$past_time = $current_hour - $hour;
 						$message = " hour(s) ago.";	
-					}elseif($current_hour != $hour && $current_date != $date && $current_month == $month){
+					}elseif($current_date > $date && $current_month == $month){
 						$past_time = $current_date - $date;
 						$message = " day(s) ago.";
 					}else{
