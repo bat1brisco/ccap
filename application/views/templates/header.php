@@ -73,7 +73,7 @@
 	        </a>
 	        	
 					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" id="notif_message"></div>
-        </li>
+        		</li>
       	<!-- Notification Badge and Notification Details. -->
 
         <li class="nav-item dropdown">

@@ -28,7 +28,7 @@
 					if($q == 1){
 						foreach ($admins->result() as $key) {
 							$notif = array(
-							'notification_message' => $user_data . ' is registering for a new account.', 
+							'notification_message' => $this->input->post('fname') . ' is registering for a new account.', 
 							'notif_date' => $date, 
 							'status' => 'Unread', 
 							'user_id' => $key->user_id);
