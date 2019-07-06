@@ -22,14 +22,14 @@
 					$q = $this->user_model->register($enc_password);
 					$this->session->set_flashdata('user_pending', 'Your account is still pending for approval');
 					
+					$date = date('Y-m-d H:i:s');
 					$user_data = $this->user_model->get_registrant();
 					$admins = $this->user_model->get_administrators();
-					$date = date('F d, Y');
 					if($q == 1){
 						foreach ($admins->result() as $key) {
 							$notif = array(
 							'notification_message' => $this->input->post('fname') . ' is registering for a new account.', 
-							'notif_date' => $date, 
+							// 'notif_date' => $date, 
 							'status' => 'Unread', 
 							'user_id' => $key->user_id);
 						$res = $this->notification_model->notification_module($notif);

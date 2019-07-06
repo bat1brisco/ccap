@@ -72,7 +72,7 @@
 					if($q == 1){
 						foreach ($admins->result() as $key) {
 							$notif = array('notification_message' => $user_data . ' has posted a new car parts.', 
-								'notif_date' => $date , 
+								// 'notif_date' => $date , 
 								'status' => 'Unread', 
 								'user_id' => $key['user_id']);
 						

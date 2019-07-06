@@ -85,12 +85,13 @@
 							$user_data = $this->user_model->get_user($this->session->userdata('user_id'));
 							$admins = $this->user_model->get_administrators();
 								
-							$date = date('F d, Y');
+							date_default_timezone_set('Asia/Manila');
+							$date = date('Y-m-d H:i:s');
 								if($q == 1){
 									foreach ($admins->result() as $key) {
 										$notif = array(
 										'notification_message' => $user_data . ' has posted a new car.',
-										'notif_date' => $date,
+										// 'notif_date' => $date,
 										'status' => 'Unread',
 										'user_id' => $key->user_id);
 
