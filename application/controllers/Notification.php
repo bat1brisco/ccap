@@ -14,7 +14,7 @@
 				echo $notification;
 			}
 		}
-
+				// display notification
 		function get_all_notification(){
 			if (isset($_POST['userid'])) {
 				$notification = $this->notification_model->get_all_notification($_POST['userid']);
