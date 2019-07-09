@@ -77,7 +77,10 @@
       	<!-- Notification Badge and Notification Details. -->
 
         <li class="nav-item dropdown">
-	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin
+	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hi!Admin <?php $admin_name = $this->session->userdata('fname'); 
+	        	$admin_name1 = ucfirst($admin_name);
+	        	echo $admin_name1
+	        ?>
 	        	<i class="fas fa-user-circle" style="font-size: 1.5em;"></i>
 	        </a>
 	        

@@ -13,8 +13,10 @@ class Notification_Model extends CI_Model{
   }
   //Display all notification message and details.
   public function get_all_notification($id){
+    $result = $this->db->order_by("notif_date", "DESC");
+    $result = $this->db->limit(6);
     $result = $this->db->get_where('notifications', array('user_id' => $id));
-      return $result;
+    return $result;
   }
   //Update Notification from Unread to unread.
   public function update_notification($id){

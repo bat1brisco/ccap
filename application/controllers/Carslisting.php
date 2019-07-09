@@ -223,7 +223,7 @@
 			if($result == 1) {
 				$notif = array(
 					'notification_message' =>'Your requested post has been approved.', 
-					'notif_date' => $date, 
+					//'notif_date' => $date, 
 					'status' => 'Unread', 
 					'user_id' => $result->row(0)->user_id);
 				$res = $this->notification_model->notification_module($notif);

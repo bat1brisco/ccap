@@ -106,7 +106,7 @@
 				</div>
 				<div class="row mb-3">
 					<?php if($this->session->userdata('logged_in')) : ?>
-					<a class="btn btn-ccap" href="<?php echo base_url(); ?>partslisting/create">Sell Car</a>
+					<a class="btn btn-ccap" href="<?php echo base_url(); ?>partslisting/create">Sell Parts</a>
 					<?php endif; ?>
 
 				</div>

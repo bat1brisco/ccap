@@ -71,10 +71,10 @@
 					$date = date('F d, Y');
 					if($q == 1){
 						foreach ($admins->result() as $key) {
-							$notif = array('notification_message' => $user_data . ' has posted a new car parts.', 
+							$notif = array('notification_message' => $user_data . ' has posted a new parts.', 
 								// 'notif_date' => $date , 
 								'status' => 'Unread', 
-								'user_id' => $key['user_id']);
+								'user_id' => $key->user_id);
 						
 							$res = $this->notification_model->notification_module($notif);
 						}
@@ -143,7 +143,7 @@
 			if($result == 1) {
 				$notif = array(
 					'notification_message' =>'Your requested post has been approved.', 
-					'notif_date' => $date, 
+					// 'notif_date' => $date, 
 					'status' => 'Unread', 
 					'user_id' => $result->row(0)->user_id);
 				$res = $this->notification_model->notification_module($notif);
@@ -161,7 +161,7 @@
 			if($result == 1) {
 				$notif = array(
 					'notification_message' =>'Your requested post has been declined.', 
-					'notif_date' => $date, 
+					// 'notif_date' => $date, 
 					'status' => 'Unread', 
 					'user_id' => $result->row(0)->user_id);
 				$res = $this->notification_model->notification_module($notif);
