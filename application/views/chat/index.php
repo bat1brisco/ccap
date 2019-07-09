@@ -25,6 +25,7 @@
             <th width="40%">First Name</th>
             <th width="40%">Last Name</th>
             <th width="20%">Start Chat</th>
+            
           </tr>
         </thead>
       </table>
