@@ -30,6 +30,10 @@ div.ccap-carousel {
     height: 480px !important;
 }
 
+.inputrating {
+    font-weight: bold;
+}
+
 div#carouselExampleCaptions.carousel.slide {
     height: 480px !important;
 }
