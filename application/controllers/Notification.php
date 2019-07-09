@@ -51,9 +51,6 @@
 						$message = "Something went wrong!";
 					}
 					
-
-
-					// var_dump($current_date);
 					$out.= '<a class="dropdown-item" href="#">
 							<small>'.$e['notification_message'].'</small>
 			                <small><span style="float: right">'. $past_time . $message .'</span><br></small>
