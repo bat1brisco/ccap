@@ -85,7 +85,7 @@
 	        </a>
 	        
 	        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-	          <!-- <a class="dropdown-item" href="#">Action</a> -->
+	          <a class="dropdown-item" href="#">My Profile</a>
 	          <a class="dropdown-item" href="<?php echo base_url(); ?>users/logout">Log Out</a>
 	        </div>
       	</li>
@@ -121,7 +121,7 @@
 	        </a>
 					
 	        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-	          <a class="dropdown-item" href="#">Action</a>
+	          <a class="dropdown-item" href="#">My Profile</a>
 	          <a class="dropdown-item" href="<?php echo base_url(); ?>users/logout">Log Out</a>
 	        </div>
 	      </li>

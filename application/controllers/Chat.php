@@ -92,8 +92,14 @@
     }
 
     public function fetch_chat(){
-      $from_user_id = $this->session->userdata('user_id');
-      $to_user_id = $_POST['to_user_id'];
+      // if ($this->session->userdata('user_type') == "admin") {
+        $from_user_id = $this->session->userdata('user_id');
+        $to_user_id = $_POST['to_user_id'];
+      // }else{
+      //   $from_user_id = $_POST['to_user_id'];
+      //   $to_user_id = $this->session->userdata('user_id');
+      // }
+      
 
 
       $messages = $this->MessageModel->get_users_messages($from_user_id, $to_user_id);
