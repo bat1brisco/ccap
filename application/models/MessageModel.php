@@ -11,9 +11,9 @@
 	    	
 	    	return $result->result();
 		}
-		function get_users_messages($from_user_id, $to_user_id){
+		function get_users_messages($user_id){
 
-			$result = $this->db->order_by('time_stamp', 'ASC')->get_where('messages', array('from_user_id' => $from_user_id, 'to_user_id' => $to_user_id));
+			$result = $this->db->order_by('time_stamp', 'ASC')->get_where('messages', array('user_id' => $user_id));
 			
 			// var_dump($result);
 			return $result->result();

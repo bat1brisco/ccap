@@ -6,11 +6,7 @@
 <body>
 	<div class="container">
 		<div>
-			
 		</div>
-
 	</div>
-	
-
 </body>
 </html>
