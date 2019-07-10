@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="container mb-5">
 	<div class="row">
 		<h4>Product Details</h4>
 	</div>
@@ -111,6 +111,7 @@
 
 </div>
 
+<?php if($this->session->userdata('logged_in')): ?>
 <div class="container star-container mt-5 mb-5 p-5">
 	<!-- <h3 class="text-white">Rate this product</h3>
 	<hr>
@@ -122,13 +123,21 @@
 	<input type="hidden" id="carslug" name="slug" value="<?= $car['slug']; ?>"> -->
 	<?php echo validation_errors(); ?>
 
-	<?php echo form_open('car_comments/create/' . $car['car_id']); ?>
+	<?php echo form_open('car_ratings/createRating/' . $car['car_id']); ?>
 		<div class="form-group">
 			
 			<div class="row">
+			<?php if($hasrated == TRUE) :?>
+				<?php $inputclass="disabled"; ?>
+				<?php else : ?>
+				<?php $inputclass="inputrating"; ?>
 				<div class="col-sm"></div>
+				
 				<div class="col-sm-4">
-				<label for="inputrating" class="inputrating text-center text-white">Rating :</label>
+				
+				
+				<label for="inputrating" class="<?= $inputclass; ?> text-center text-white">Rating :</label>
+				
 				<select class="form-control" name="rating">
 					<option value="1">1</option>
 					<option value="2">2</option>
@@ -137,22 +146,38 @@
 					<option value="5">5</option>
 				</select>
 			</div>
+			<?php endif; ?>
 			<div class="col-sm"></div>
 			</div>
 
 			<div class="row">
+			<?php if($hasrated == TRUE) :?>
+				<?php $inputclass="col-sm-4 disabled"; ?>
+				<?php else : ?>
+				<?php $inputclass="col-sm-4"; ?>
 				<div class="col-sm"></div>
-				<div class="col-sm-4 text-center pt-4">
+				<div class="<?= $inputclass; ?> text-center pt-4">
 					<input type="hidden" name="slug" value="<?php echo $car['slug']; ?>">
 					<button type="submit" class="btn btn-ccap">Submit</button>
 				</div>
+				<?php endif; ?>
 				<div class="col-sm"></div>
 			</div>
+
+			<div class="row">
+				<div class="col-sm-4"></div>
+				<div class="col-sm-4">
+					<h4 class="text-center text-white mt-5">RATING: <?= $rating; ?></h4>
+				</div>
+				<div class="col-sm-4"></div>
+			</div>
+
 		</div>
 
 		
 	</form>
 </div>
+<?php endif; ?>
 
 <!-- <div class="container mt-5 mb-5">
 <h3>Comments</h3>

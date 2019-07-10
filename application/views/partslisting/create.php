@@ -1,4 +1,9 @@
-<h4><?= $title; ?></h4>
+<div class="row">
+  <div class="col-sm-4">
+  </div>
+
+  <div class="col-sm-4">
+  <h4><?= $title; ?></h4>
 
 <?php echo validation_errors(); ?>
 
@@ -80,3 +85,7 @@
     </div>
   </div>
 </form>
+  </div>
+
+  <div class="col-sm-4"></div>
+</div>
