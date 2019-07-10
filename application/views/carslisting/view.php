@@ -120,9 +120,41 @@
 	<span><a id="<?= $car['car_id']; ?>_downvote" class="voteMe"><i class="fas fa-thumbs-down fa-2x"></i></a><span id="<?= $car['car_id']; ?>_downvote_result" class="dislike ml-2">4</span></span>
 
 	<input type="hidden" id="carslug" name="slug" value="<?= $car['slug']; ?>"> -->
+	<?php echo validation_errors(); ?>
+
+	<?php echo form_open('car_comments/create/' . $car['car_id']); ?>
+		<div class="form-group">
+			
+			<div class="row">
+				<div class="col-sm"></div>
+				<div class="col-sm-4">
+				<label for="inputrating" class="inputrating text-center text-white">Rating :</label>
+				<select class="form-control" name="rating">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+				</select>
+			</div>
+			<div class="col-sm"></div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm"></div>
+				<div class="col-sm-4 text-center pt-4">
+					<input type="hidden" name="slug" value="<?php echo $car['slug']; ?>">
+					<button type="submit" class="btn btn-ccap">Submit</button>
+				</div>
+				<div class="col-sm"></div>
+			</div>
+		</div>
+
+		
+	</form>
 </div>
 
-<div class="container mt-5 mb-5">
+<!-- <div class="container mt-5 mb-5">
 <h3>Comments</h3>
 <?php if($comments) : ?>
 	<?php foreach($comments as $comment) : ?>
@@ -157,4 +189,4 @@
 	<input type="hidden" name="slug" value="<?php echo $car['slug']; ?>">
 	<button type="submit" class="btn btn-primary">Submit</button>
 </form>
-</div>
+</div> -->
