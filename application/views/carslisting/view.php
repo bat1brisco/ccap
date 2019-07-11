@@ -16,7 +16,7 @@
 			<?php if($this->session->userdata('logged_in')) : ?>
 			<div class="row">
 				<div class="col-md text-center">
-					<a class="btn btn-ccap btn-lg mt-5" href="<?php echo base_url(); ?>chat">Talk to a Middleman</a>
+					<a class="btn btn-ccap btn-lg mt-5" href="<?php echo base_url(); ?>leave_message">Leave a message</a>
 				</div>
 			</div>
 			<?php endif; ?>

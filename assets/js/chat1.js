@@ -53,7 +53,7 @@ $(document).ready(function() {
     $.ajax({
      url:"chat/send_chat",
      method:"POST",
-     data:{to_user_id:to_user_id, chat_message:chat_message},
+     data:{user_id:to_user_id, chat_message:chat_message},
      success:function(data)
      {
       $('#chat_message_'+to_user_id).val('');
