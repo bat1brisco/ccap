@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 02, 2019 at 10:15 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.4
+-- Generation Time: Jul 12, 2019 at 12:44 AM
+-- Server version: 10.3.16-MariaDB
+-- PHP Version: 7.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -49,7 +49,7 @@ CREATE TABLE `cars` (
   `description` text NOT NULL,
   `rfs` text NOT NULL,
   `post_image` varchar(255) NOT NULL,
-  `date_posted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_posted` timestamp NOT NULL DEFAULT current_timestamp(),
   `notification_listing` tinyint(1) NOT NULL,
   `slug` varchar(255) NOT NULL,
   `status` enum('Approved','Declined','Pending','Sold') NOT NULL DEFAULT 'Pending'
@@ -60,14 +60,40 @@ CREATE TABLE `cars` (
 --
 
 INSERT INTO `cars` (`car_id`, `user_id`, `cars_buyer_id`, `make`, `model`, `year`, `price`, `car_status`, `transmission`, `seating_capacity`, `body_style`, `mileage`, `color`, `cylinder_engine`, `door`, `drive_type`, `fuel_type`, `description`, `rfs`, `post_image`, `date_posted`, `notification_listing`, `slug`, `status`) VALUES
-(1, 9, 0, 'Toyota', 'Altis', '2006', 450000, 'available', 'Manual', 5, 'Sedan', 190, 'White', '1.6 Liter Inline 4', 4, 'FWD', 'Gasoline', '2006 Toyota Sedan', 'Extra unit', 'noimage.png', '2019-05-09 05:39:43', 0, 'Toyotaf2yambeq3k', 'Approved'),
-(2, 9, 0, 'Toyota', 'Camry', '2017', 890000, 'available', 'Automatic', 5, 'Sedan', 100, 'Gray', '1.4 Liter Inline 4', 4, 'FWD', 'Gasoline', '2017 Toyota sedan', 'Extra unit', 'noimage.png', '2019-05-12 02:10:53', 0, 'Toyota05hx13ubgw', 'Approved'),
-(3, 9, 0, 'Suzuki', 'Grand Vitara', '2005', 650000, 'available', 'Automatic', 7, 'SUV', 200, 'Maroon', '1.5 Liter Inline 4', 5, 'FWD', 'Diesel', '2005 SUV', 'Extra unit', 'noimage.png', '2019-05-12 02:17:44', 0, 'Suzukik6xsgw54jo', 'Approved'),
-(4, 9, 0, 'Honda', 'Civic', '2003', 750000, 'available', 'Manual', 4, 'Coupe', 230, 'White', '1.5 Liter v4', 2, 'FWD', 'Gasoline', '2003 Classic sport coupe', 'Extra unit', 'noimage.png', '2019-05-12 02:21:17', 0, 'Hondaftpgz9nko1', 'Declined'),
-(5, 9, 0, 'Toyota', 'Camry', '2017', 890000, 'available', 'Automatic', 5, 'Sedan', 100, 'White', '1.5 Liter Inline 4', 4, 'FWD', 'Gasoline', '2017 Sedan', 'Extra unit', 'noimage.png', '2019-05-12 02:49:03', 0, 'Toyotatl5ed7c69a', 'Approved'),
-(6, 9, 0, 'Honda', 'Civic', '2003', 750000, 'available', 'Manual', 4, 'Coupe', 230, 'Black', '1.5 Liter v4', 2, 'FWD', 'Gasoline', '2003 sport coupe', 'extra unit', 'noimage.png', '2019-05-12 02:57:13', 0, 'Hondarceauqjk7n', 'Declined'),
+(1, 6, 0, 'Toyota', 'Altis', '2006', 450000, 'available', 'Manual', 5, 'Sedan', 190, 'White', '1.6 Liter Inline 4', 4, 'FWD', 'Gasoline', '2006 Toyota Sedan', 'Extra unit', 'noimage.png', '2019-05-09 05:39:43', 0, 'Toyotaf2yambeq3k', 'Approved'),
+(2, 4, 0, 'Toyota', 'Camry', '2017', 890000, 'available', 'Automatic', 5, 'Sedan', 100, 'Gray', '1.4 Liter Inline 4', 4, 'FWD', 'Gasoline', '2017 Toyota sedan', 'Extra unit', 'noimage.png', '2019-05-12 02:10:53', 0, 'Toyota05hx13ubgw', 'Approved'),
+(3, 1, 0, 'Suzuki', 'Grand Vitara', '2005', 650000, 'available', 'Automatic', 7, 'SUV', 200, 'Maroon', '1.5 Liter Inline 4', 5, 'FWD', 'Diesel', '2005 SUV', 'Extra unit', 'noimage.png', '2019-05-12 02:17:44', 0, 'Suzukik6xsgw54jo', 'Approved'),
+(4, 6, 0, 'Honda', 'Civic', '2003', 750000, 'available', 'Manual', 4, 'Coupe', 230, 'White', '1.5 Liter v4', 2, 'FWD', 'Gasoline', '2003 Classic sport coupe', 'Extra unit', 'noimage.png', '2019-05-12 02:21:17', 0, 'Hondaftpgz9nko1', 'Declined'),
+(5, 6, 0, 'Toyota', 'Camry', '2017', 890000, 'available', 'Automatic', 5, 'Sedan', 100, 'White', '1.5 Liter Inline 4', 4, 'FWD', 'Gasoline', '2017 Sedan', 'Extra unit', 'noimage.png', '2019-05-12 02:49:03', 0, 'Toyotatl5ed7c69a', 'Approved'),
+(6, 6, 0, 'Honda', 'Civic', '2003', 750000, 'available', 'Manual', 4, 'Coupe', 230, 'Black', '1.5 Liter v4', 2, 'FWD', 'Gasoline', '2003 sport coupe', 'extra unit', 'noimage.png', '2019-05-12 02:57:13', 0, 'Hondarceauqjk7n', 'Declined'),
 (7, 9, 0, 'Honda', 'Civic', '2003', 750000, 'available', 'Manual', 4, 'Coupe', 230, 'White', '1.5 Liter v4', 2, 'FWD', 'Gasoline', '2003 Coupe', 'Extra unit', 'noimage.png', '2019-05-12 04:07:45', 0, 'Hondape3bfr7my2', 'Pending'),
 (8, 9, 0, 'Honda', 'Civic', '2001', 750000, 'available', 'Manual', 4, 'Coupe', 230, 'White', '1.5 Liter v4', 2, 'FWD', 'Gasoline', '2001 Coupe', 'Extra unit', 'noimage.png', '2019-05-12 04:21:47', 0, 'Hondav0n8q5oh2a', 'Pending');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `car_comment`
+--
+
+CREATE TABLE `car_comment` (
+  `car_comment_id` int(11) NOT NULL,
+  `car_id` int(11) NOT NULL,
+  `body` varchar(225) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `name` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `car_comment`
+--
+
+INSERT INTO `car_comment` (`car_comment_id`, `car_id`, `body`, `created_at`, `name`) VALUES
+(1, 1, 'sdfsfasdasd', '2019-07-11 13:08:44', ''),
+(2, 1, 'sfsdfsdfsdfsdf', '2019-07-11 13:57:22', ''),
+(3, 1, '123123123123', '2019-07-11 14:41:17', 'Gabriel Tomas'),
+(4, 1, 'asdasdasdasdasdasd', '2019-07-11 14:41:31', 'Gabriel Tomas'),
+(5, 1, 'Latest Comment', '2019-07-11 14:42:38', 'Gabriel Tomas'),
+(6, 3, 'asdasdasdasdasdasdasd', '2019-07-11 15:03:03', 'Gabriel Tomas');
 
 -- --------------------------------------------------------
 
@@ -81,7 +107,7 @@ CREATE TABLE `car_comments` (
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `body` text NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -106,7 +132,7 @@ CREATE TABLE `car_ratings` (
 CREATE TABLE `ci_sessions` (
   `id` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ip_address` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `timestamp` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `timestamp` int(10) UNSIGNED NOT NULL DEFAULT 0,
   `data` blob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -115,18 +141,30 @@ CREATE TABLE `ci_sessions` (
 --
 
 INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
-('6rdj7ci1ktgdvlas8lnb3p7r5u88hp1c', '::1', 1562090345, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323039303334353b666e616d657c733a393a22416c6578616e646572223b6d6e616d657c733a343a224372757a223b6c6e616d657c733a363a2253616e746f73223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2232223b656d61696c7c733a32303a22616c657873616e746f7340676d61696c2e636f6d223b6c6f676765645f696e7c623a313b),
-('o0943h9r5pamjmvs6s3stucbv278teoj', '::1', 1562091639, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323039313633393b666e616d657c733a393a22416c6578616e646572223b6d6e616d657c733a343a224372757a223b6c6e616d657c733a363a2253616e746f73223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2232223b656d61696c7c733a32303a22616c657873616e746f7340676d61696c2e636f6d223b6c6f676765645f696e7c623a313b),
-('de53mtv96kppdrs7dc9l4uos54aul0og', '::1', 1562092668, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323039323636383b666e616d657c733a393a22416c6578616e646572223b6d6e616d657c733a343a224372757a223b6c6e616d657c733a363a2253616e746f73223b757365725f747970657c733a353a2261646d696e223b),
-('rfffako4pvm4bcahsdbajhi86kpri6om', '::1', 1562093022, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323039333032313b666e616d657c733a373a224761627269656c223b6d6e616d657c733a353a22416c697065223b6c6e616d657c733a353a22546f6d6173223b757365725f747970657c733a343a2275736572223b),
-('iku464ui8u6qksebkadnj37nkpe3c9on', '::1', 1562093679, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323039333637393b666e616d657c733a393a22416c6578616e646572223b6d6e616d657c733a343a224372757a223b6c6e616d657c733a363a2253616e746f73223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2232223b656d61696c7c733a32303a22616c657873616e746f7340676d61696c2e636f6d223b6c6f676765645f696e7c623a313b),
-('agn019hh5fvqapc3lbj5fac1nc4cu59k', '::1', 1562094710, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323039343731303b666e616d657c733a393a22416c6578616e646572223b6d6e616d657c733a343a224372757a223b6c6e616d657c733a363a2253616e746f73223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2232223b656d61696c7c733a32303a22616c657873616e746f7340676d61696c2e636f6d223b6c6f676765645f696e7c623a313b),
-('jhg1nquppb0v7fdgci1p93om8k6rl4b8', '::1', 1562095100, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323039353130303b666e616d657c733a393a22416c6578616e646572223b6d6e616d657c733a343a224372757a223b6c6e616d657c733a363a2253616e746f73223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2232223b656d61696c7c733a32303a22616c657873616e746f7340676d61696c2e636f6d223b6c6f676765645f696e7c623a313b),
-('tjf67id0osdsc97qbe9fdtb7ja94dt8v', '::1', 1562097052, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323039373035323b666e616d657c733a393a22416c6578616e646572223b6d6e616d657c733a343a224372757a223b6c6e616d657c733a363a2253616e746f73223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2232223b656d61696c7c733a32303a22616c657873616e746f7340676d61696c2e636f6d223b6c6f676765645f696e7c623a313b),
-('3baao5s3fuvr36u1n7eb5k6rdojurmp3', '::1', 1562097434, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323039373433343b666e616d657c733a393a22416c6578616e646572223b6d6e616d657c733a343a224372757a223b6c6e616d657c733a363a2253616e746f73223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2232223b656d61696c7c733a32303a22616c657873616e746f7340676d61696c2e636f6d223b6c6f676765645f696e7c623a313b),
-('31i42f8k4v8lm4ia9t18f7qbq52sv3ja', '::1', 1562097953, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323039373935333b666e616d657c733a393a22416c6578616e646572223b6d6e616d657c733a343a224372757a223b6c6e616d657c733a363a2253616e746f73223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2232223b656d61696c7c733a32303a22616c657873616e746f7340676d61696c2e636f6d223b6c6f676765645f696e7c623a313b),
-('31n6lu54t89k92g186ferbleuju6ha52', '::1', 1562098300, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323039383330303b666e616d657c733a393a22416c6578616e646572223b6d6e616d657c733a343a224372757a223b6c6e616d657c733a363a2253616e746f73223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2232223b656d61696c7c733a32303a22616c657873616e746f7340676d61696c2e636f6d223b6c6f676765645f696e7c623a313b),
-('maius3qvd0df010ar9d1hs4mml33vvpn', '::1', 1562098555, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323039383330303b666e616d657c733a373a224761627269656c223b6d6e616d657c733a353a22416c697065223b6c6e616d657c733a353a22546f6d6173223b757365725f747970657c733a343a2275736572223b);
+('pku93chgviqc537es049jaugd1fth8tb', '::1', 1562865395, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323836353339353b666e616d657c733a343a2244696e6f223b6d6e616d657c733a373a22416c6469616e6f223b6c6e616d657c733a343a224372757a223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2234223b656d61696c7c733a31383a2264696e6f6372757a407961686f6f2e636f6d223b6c6f676765645f696e7c623a313b),
+('kca9djq2d2g6oskaqsj4rsmj3qj8lbus', '::1', 1562865715, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323836353731353b666e616d657c733a343a2244696e6f223b6d6e616d657c733a373a22416c6469616e6f223b6c6e616d657c733a343a224372757a223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2234223b656d61696c7c733a31383a2264696e6f6372757a407961686f6f2e636f6d223b6c6f676765645f696e7c623a313b),
+('fj3a45gj2r6qtaaonnr2jk8a3mec2vpn', '::1', 1562866072, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323836363037323b666e616d657c733a343a2244696e6f223b6d6e616d657c733a373a22416c6469616e6f223b6c6e616d657c733a343a224372757a223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2234223b656d61696c7c733a31383a2264696e6f6372757a407961686f6f2e636f6d223b6c6f676765645f696e7c623a313b),
+('rliie63kidiq4ns9rs5utlh0hvna8v7o', '::1', 1562866481, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323836363438313b666e616d657c733a343a2244696e6f223b6d6e616d657c733a373a22416c6469616e6f223b6c6e616d657c733a343a224372757a223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2234223b656d61696c7c733a31383a2264696e6f6372757a407961686f6f2e636f6d223b6c6f676765645f696e7c623a313b),
+('6r00sg1eqjer1jhu04lsdi36tq2m24bo', '::1', 1562866806, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323836363830363b666e616d657c733a343a2244696e6f223b6d6e616d657c733a373a22416c6469616e6f223b6c6e616d657c733a343a224372757a223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2234223b656d61696c7c733a31383a2264696e6f6372757a407961686f6f2e636f6d223b6c6f676765645f696e7c623a313b),
+('8lh7raqo0qsrfgk0cb3822195ppmu2bd', '::1', 1562867119, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323836373131393b666e616d657c733a343a2244696e6f223b6d6e616d657c733a373a22416c6469616e6f223b6c6e616d657c733a343a224372757a223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2234223b656d61696c7c733a31383a2264696e6f6372757a407961686f6f2e636f6d223b6c6f676765645f696e7c623a313b),
+('08iiko2icpetrjecb5se7s0h81enu5g4', '::1', 1562867534, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323836373533343b666e616d657c733a343a2244696e6f223b6d6e616d657c733a373a22416c6469616e6f223b6c6e616d657c733a343a224372757a223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2234223b656d61696c7c733a31383a2264696e6f6372757a407961686f6f2e636f6d223b6c6f676765645f696e7c623a313b),
+('v0s0nosobra2f5r9v3ppb6abdg9phals', '::1', 1562867904, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323836373930343b666e616d657c733a343a2244696e6f223b6d6e616d657c733a373a22416c6469616e6f223b6c6e616d657c733a343a224372757a223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2234223b656d61696c7c733a31383a2264696e6f6372757a407961686f6f2e636f6d223b6c6f676765645f696e7c623a313b),
+('5dtk284sro0kkfuk24j0un7acttn83m4', '::1', 1562868229, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323836383232393b666e616d657c733a343a2244696e6f223b6d6e616d657c733a373a22416c6469616e6f223b6c6e616d657c733a343a224372757a223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2234223b656d61696c7c733a31383a2264696e6f6372757a407961686f6f2e636f6d223b6c6f676765645f696e7c623a313b),
+('s66blhde6nfesc8kk2k19hspgcl6keol', '::1', 1562868547, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323836383534373b666e616d657c733a343a2244696e6f223b6d6e616d657c733a373a22416c6469616e6f223b6c6e616d657c733a343a224372757a223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2234223b656d61696c7c733a31383a2264696e6f6372757a407961686f6f2e636f6d223b6c6f676765645f696e7c623a313b),
+('gippfkl3ekc0211q9ar40sqomvpnnnce', '::1', 1562868860, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323836383836303b666e616d657c733a343a2244696e6f223b6d6e616d657c733a373a22416c6469616e6f223b6c6e616d657c733a343a224372757a223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2234223b656d61696c7c733a31383a2264696e6f6372757a407961686f6f2e636f6d223b6c6f676765645f696e7c623a313b),
+('sjeed81s3lubr518d0fm6s32gfn32mhc', '::1', 1562869166, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323836393136363b666e616d657c733a343a2244696e6f223b6d6e616d657c733a373a22416c6469616e6f223b6c6e616d657c733a343a224372757a223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2234223b656d61696c7c733a31383a2264696e6f6372757a407961686f6f2e636f6d223b6c6f676765645f696e7c623a313b),
+('31jfb32in8sjnfrs6d5s5epp6gavubh5', '::1', 1562869580, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323836393538303b666e616d657c733a343a2244696e6f223b6d6e616d657c733a373a22416c6469616e6f223b6c6e616d657c733a343a224372757a223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2234223b656d61696c7c733a31383a2264696e6f6372757a407961686f6f2e636f6d223b6c6f676765645f696e7c623a313b),
+('4qp519t2a8c0c6rlkri904od4ursdl6h', '::1', 1562869925, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323836393932353b666e616d657c733a343a2244696e6f223b6d6e616d657c733a373a22416c6469616e6f223b6c6e616d657c733a343a224372757a223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2234223b656d61696c7c733a31383a2264696e6f6372757a407961686f6f2e636f6d223b6c6f676765645f696e7c623a313b),
+('j4uefnq4efmpsi8nsem1omqrrins8lpc', '::1', 1562870234, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323837303233343b666e616d657c733a343a2244696e6f223b6d6e616d657c733a373a22416c6469616e6f223b6c6e616d657c733a343a224372757a223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2234223b656d61696c7c733a31383a2264696e6f6372757a407961686f6f2e636f6d223b6c6f676765645f696e7c623a313b),
+('p0ojr20u5u26jb4bau4lspskqq81h5a4', '::1', 1562870583, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323837303538333b666e616d657c733a343a2244696e6f223b6d6e616d657c733a373a22416c6469616e6f223b6c6e616d657c733a343a224372757a223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2234223b656d61696c7c733a31383a2264696e6f6372757a407961686f6f2e636f6d223b6c6f676765645f696e7c623a313b),
+('06rrbb3mhm288aupr6p89t1u3nmhlop9', '::1', 1562870927, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323837303932373b666e616d657c733a343a2244696e6f223b6d6e616d657c733a373a22416c6469616e6f223b6c6e616d657c733a343a224372757a223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2234223b656d61696c7c733a31383a2264696e6f6372757a407961686f6f2e636f6d223b6c6f676765645f696e7c623a313b),
+('ls2jnoo9o4lagja99s4f32r6gmr1lhmf', '::1', 1562871424, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323837313432343b666e616d657c733a343a2244696e6f223b6d6e616d657c733a373a22416c6469616e6f223b6c6e616d657c733a343a224372757a223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2234223b656d61696c7c733a31383a2264696e6f6372757a407961686f6f2e636f6d223b6c6f676765645f696e7c623a313b),
+('0fok4r7cmmav1tenaeg21kacdbt7cc3n', '::1', 1562871728, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323837313732383b666e616d657c733a343a2244696e6f223b6d6e616d657c733a373a22416c6469616e6f223b6c6e616d657c733a343a224372757a223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2234223b656d61696c7c733a31383a2264696e6f6372757a407961686f6f2e636f6d223b6c6f676765645f696e7c623a313b),
+('djvnucku690aj2p9hakknfn5phtbd8k4', '::1', 1562872039, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323837323033393b666e616d657c733a343a2244696e6f223b6d6e616d657c733a373a22416c6469616e6f223b6c6e616d657c733a343a224372757a223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2234223b656d61696c7c733a31383a2264696e6f6372757a407961686f6f2e636f6d223b6c6f676765645f696e7c623a313b),
+('mkki0nm7kapeajinvl5jgqa9dtlig80o', '::1', 1562872340, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323837323334303b666e616d657c733a343a2244696e6f223b6d6e616d657c733a373a22416c6469616e6f223b6c6e616d657c733a343a224372757a223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2234223b656d61696c7c733a31383a2264696e6f6372757a407961686f6f2e636f6d223b6c6f676765645f696e7c623a313b),
+('0io31ksdc4akv03ol3sk1nmb4q2hvlmn', '::1', 1562872806, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323837323830363b666e616d657c733a343a2244696e6f223b6d6e616d657c733a373a22416c6469616e6f223b6c6e616d657c733a343a224372757a223b757365725f747970657c733a353a2261646d696e223b757365725f69647c733a313a2234223b656d61696c7c733a31383a2264696e6f6372757a407961686f6f2e636f6d223b6c6f676765645f696e7c623a313b),
+('p241fd598i7acasfp9nu4l7jpe6phpqk', '::1', 1562873109, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323837333130393b666e616d657c733a373a224761627269656c223b6d6e616d657c733a353a22416c697065223b6c6e616d657c733a353a22546f6d6173223b757365725f747970657c733a343a2275736572223b757365725f69647c733a313a2236223b656d61696c7c733a32323a226761627269656c746f6d6173407961686f6f2e636f6d223b6c6f676765645f696e7c623a313b),
+('k29s23a5n9i047a32fjitkd1vrhet47t', '::1', 1562873451, 0x5f5f63695f6c6173745f726567656e65726174657c693a313536323837333130393b666e616d657c733a373a224761627269656c223b6d6e616d657c733a353a22416c697065223b6c6e616d657c733a353a22546f6d6173223b757365725f747970657c733a343a2275736572223b757365725f69647c733a313a2236223b656d61696c7c733a32323a226761627269656c746f6d6173407961686f6f2e636f6d223b6c6f676765645f696e7c623a313b);
 
 -- --------------------------------------------------------
 
@@ -136,12 +174,25 @@ INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
 
 CREATE TABLE `messages` (
   `message_id` int(11) NOT NULL,
-  `from_user_id` int(11) NOT NULL,
-  `to_user_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `chat_message` text NOT NULL,
-  `time_stamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `message_status` tinyint(1) NOT NULL
+  `time_stamp` timestamp NOT NULL DEFAULT current_timestamp(),
+  `from_admin` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `messages`
+--
+
+INSERT INTO `messages` (`message_id`, `user_id`, `chat_message`, `time_stamp`, `from_admin`) VALUES
+(25, 4, 'asdasdasd', '2019-07-11 19:12:50', 0),
+(26, 4, 'asdasdasd', '2019-07-11 19:14:49', 0),
+(28, 6, 'asdasdasdasd', '2019-07-11 19:23:27', 1),
+(29, 6, 'asdasdas', '2019-07-11 19:23:29', 1),
+(30, 6, 'asdasdasdasd', '2019-07-11 19:23:46', 1),
+(31, 4, 'asdasdasd', '2019-07-11 19:23:56', 1),
+(32, 4, 'asdasd.', '2019-07-11 19:23:59', 1),
+(33, 6, 'asdasdasd', '2019-07-11 19:25:12', 0);
 
 -- --------------------------------------------------------
 
@@ -179,42 +230,42 @@ INSERT INTO `notifications` (`notification_id`, `notification_message`, `notif_d
 (15, 'Alfred Adrea has posted a new car.', 'May 12, 2019', 'Unread', 1),
 (16, 'Alfred Adrea has posted a new car.', 'May 12, 2019', 'Read', 2),
 (17, 'Alfred Adrea has posted a new car.', 'May 12, 2019', 'Unread', 3),
-(18, 'Alfred Adrea has posted a new car.', 'May 12, 2019', 'Unread', 4),
+(18, 'Alfred Adrea has posted a new car.', 'May 12, 2019', 'Read', 4),
 (19, 'Your requested post has been declined.', 'May 12, 2019', 'Read', 9),
 (20, 'Your requested post has been declined.', 'May 12, 2019', 'Read', 9),
 (21, 'Alfred Adrea has posted a new car.', 'May 12, 2019', 'Unread', 1),
 (22, 'Alfred Adrea has posted a new car.', 'May 12, 2019', 'Read', 2),
 (23, 'Alfred Adrea has posted a new car.', 'May 12, 2019', 'Unread', 3),
-(24, 'Alfred Adrea has posted a new car.', 'May 12, 2019', 'Unread', 4),
+(24, 'Alfred Adrea has posted a new car.', 'May 12, 2019', 'Read', 4),
 (25, ' is registering as a new account.', 'May 12, 2019', 'Unread', 1),
 (26, ' is registering as a new account.', 'May 12, 2019', 'Read', 2),
 (27, ' is registering as a new account.', 'May 12, 2019', 'Unread', 3),
-(28, ' is registering as a new account.', 'May 12, 2019', 'Unread', 4),
+(28, ' is registering as a new account.', 'May 12, 2019', 'Read', 4),
 (29, ' is registering for a new account.', 'May 12, 2019', 'Unread', 1),
 (30, ' is registering for a new account.', 'May 12, 2019', 'Read', 2),
 (31, ' is registering for a new account.', 'May 12, 2019', 'Unread', 3),
-(32, ' is registering for a new account.', 'May 12, 2019', 'Unread', 4),
+(32, ' is registering for a new account.', 'May 12, 2019', 'Read', 4),
 (33, 'Your requested post has been approved.', 'May 12, 2019', 'Read', 9),
 (34, ' is registering for a new account.', 'June 02, 2019', 'Unread', 1),
 (35, ' is registering for a new account.', 'June 02, 2019', 'Read', 2),
 (36, ' is registering for a new account.', 'June 02, 2019', 'Unread', 3),
-(37, ' is registering for a new account.', 'June 02, 2019', 'Unread', 4),
+(37, ' is registering for a new account.', 'June 02, 2019', 'Read', 4),
 (38, ' is registering for a new account.', 'June 02, 2019', 'Unread', 1),
 (39, ' is registering for a new account.', 'June 02, 2019', 'Read', 2),
 (40, ' is registering for a new account.', 'June 02, 2019', 'Unread', 3),
-(41, ' is registering for a new account.', 'June 02, 2019', 'Unread', 4),
+(41, ' is registering for a new account.', 'June 02, 2019', 'Read', 4),
 (42, ' is registering for a new account.', 'June 02, 2019', 'Unread', 1),
 (43, ' is registering for a new account.', 'June 02, 2019', 'Read', 2),
 (44, ' is registering for a new account.', 'June 02, 2019', 'Unread', 3),
-(45, ' is registering for a new account.', 'June 02, 2019', 'Unread', 4),
+(45, ' is registering for a new account.', 'June 02, 2019', 'Read', 4),
 (46, ' is registering for a new account.', 'June 02, 2019', 'Unread', 1),
 (47, ' is registering for a new account.', 'June 02, 2019', 'Read', 2),
 (48, ' is registering for a new account.', 'June 02, 2019', 'Unread', 3),
-(49, ' is registering for a new account.', 'June 02, 2019', 'Unread', 4),
+(49, ' is registering for a new account.', 'June 02, 2019', 'Read', 4),
 (50, 'Benjamin is registering for a new account.', 'June 02, 2019', 'Unread', 1),
 (51, 'Benjamin is registering for a new account.', 'June 02, 2019', 'Read', 2),
 (52, 'Benjamin is registering for a new account.', 'June 02, 2019', 'Unread', 3),
-(53, 'Benjamin is registering for a new account.', 'June 02, 2019', 'Unread', 4);
+(53, 'Benjamin is registering for a new account.', 'June 02, 2019', 'Read', 4);
 
 -- --------------------------------------------------------
 
@@ -232,7 +283,7 @@ CREATE TABLE `parts` (
   `color` varchar(100) NOT NULL,
   `description` text NOT NULL,
   `parts_quantity` int(11) NOT NULL,
-  `date_posted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_posted` timestamp NOT NULL DEFAULT current_timestamp(),
   `parts_status` enum('sold','available','pending','declined') NOT NULL,
   `model_name` varchar(150) NOT NULL,
   `rfs` text NOT NULL,
@@ -254,7 +305,7 @@ CREATE TABLE `parts_comments` (
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `body` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -300,7 +351,7 @@ CREATE TABLE `users` (
   `contact` varchar(12) NOT NULL,
   `user_type` enum('admin','user') NOT NULL,
   `status` enum('Approved','Declined','Pending') NOT NULL DEFAULT 'Declined',
-  `date_registered` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `date_registered` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -336,6 +387,12 @@ ALTER TABLE `cars`
   ADD KEY `fk_car_id` (`user_id`);
 
 --
+-- Indexes for table `car_comment`
+--
+ALTER TABLE `car_comment`
+  ADD PRIMARY KEY (`car_comment_id`);
+
+--
 -- Indexes for table `car_comments`
 --
 ALTER TABLE `car_comments`
@@ -361,7 +418,7 @@ ALTER TABLE `ci_sessions`
 --
 ALTER TABLE `messages`
   ADD PRIMARY KEY (`message_id`),
-  ADD KEY `messages_user_from_user_id` (`from_user_id`);
+  ADD KEY `messages_user_from_user_id` (`user_id`);
 
 --
 -- Indexes for table `notifications`
@@ -418,6 +475,12 @@ ALTER TABLE `cars`
   MODIFY `car_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT for table `car_comment`
+--
+ALTER TABLE `car_comment`
+  MODIFY `car_comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `car_ratings`
 --
 ALTER TABLE `car_ratings`
@@ -427,7 +490,7 @@ ALTER TABLE `car_ratings`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `notifications`
@@ -492,7 +555,7 @@ ALTER TABLE `car_ratings`
 -- Constraints for table `messages`
 --
 ALTER TABLE `messages`
-  ADD CONSTRAINT `messages_user_from_user_id` FOREIGN KEY (`from_user_id`) REFERENCES `users` (`user_id`);
+  ADD CONSTRAINT `messages_user_from_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
 
 --
 -- Constraints for table `notifications`
