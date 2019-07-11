@@ -15,17 +15,39 @@
     </div>
 
     <div class="col-md-10 mb-4">
-      <h3 align="center"><?= $title; ?></h3>
-      <table id="user" class="table table-striped table-bordered text-center" style="width:100%">
+      <?php
+        // print_r($user_data); 
+        foreach($user_data as $user){
+            
+          ?>
+
+          <div class="row">
+            <div class="col"><?php echo $user->fname . " " . $user->lname ?></div>
+            <div class="col"><a href="leave_message_admin/<?php echo $user->user_id ?>"><button><?php echo $user->user_id ?></button></a>
+            
+            </div>
+              
+            
+          </div>
+
+      <?php
+
+
+
+
+        }
+      ?>
+      
+      <!-- <table id="user" class="table table-striped table-bordered text-center" style="width:100%">
         <thead>
           <tr>
             <th width="80%">First Name</th>
-            
+            <th width="20%">Start Chat</th>
             
             <th width="20%">Start Chat</th>
           </tr>
         </thead>
-      </table>
+      </table> -->
 
       <div id="user_modal_details"></div>
     </div>

@@ -14,9 +14,6 @@
 		}
 		function get_message($id){
 			$message = $this->MessageModel->get_messages($id);
-			
-			
-			
 			return $message;
 		}
 
@@ -30,10 +27,18 @@
 			return $result;
 		}
 		function leave_message(){
-			$message = $this->MessageModel->get_users_messages(4);
+			$message = $this->MessageModel->get_users_messages($this->session->userdata('user_id'));
 
 			$this->load->view('templates/header');
 			$this->load->view('message/index', array('messages' => $message));
+			$this->load->view('templates/partsfooter');
+		}
+		function leave_message_admin($id){
+
+			$message = $this->MessageModel->get_users_messages(intval($id));
+			// var_dump($message);
+			$this->load->view('templates/header');
+			$this->load->view('message_admin/index', array('messages' => $message));
 			$this->load->view('templates/partsfooter');
 		}
 		function update_message(){

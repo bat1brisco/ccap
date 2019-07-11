@@ -17,6 +17,10 @@
 			// Insert user
 			return $this->db->insert('users', $data);
 		}
+		public function get_users(){
+			$query = $this->db->get_where('users', array('user_type' => 'user'));
+			return $query;
+		}
 
 		public function get_admininfo($user_id) {
 			$query = $this->db->get_where('users', array('user_id' => $user_id));

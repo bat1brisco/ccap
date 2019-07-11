@@ -98,9 +98,11 @@
                 }
         } ?>
 
-        <form action="/ccap/chat/send_chat" method="GET">
-            <?php echo $this->session->userdata('user_type'); ?>
-            <input type="text" name="user_id" hidden value="<?php echo $this->session->userdata('user_id'); ?>">
+        <form action="/ccap/chat/send_chat" method="POST">
+            <?php
+                // var_dump(intval($this->uri->segment(2)));
+            ?>
+            <input type="text" name="user_id" hidden value="<?php echo intval($this->uri->segment(2)); ?>">
             <textarea name="chat_message" id="message" cols="30" rows="10"></textarea>
             
             <input type="submit">

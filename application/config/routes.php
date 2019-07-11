@@ -90,6 +90,8 @@ $route['insert_message'] = 'MessageController/insert_message';
 //ROUTE FOR MESSAGE ADMIN AND USER 
 //POST METHOD
 $route['leave_message'] = 'MessageController/leave_message';
+$route['leave_message_admin/(:num)'] = 'MessageController/leave_message_admin/$1';
+
 
 
 $route['default_controller'] = 'pages/view';
