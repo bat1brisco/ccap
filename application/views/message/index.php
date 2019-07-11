@@ -100,10 +100,11 @@
         } ?>
 
         <form action="chat/send_chat" method="POST">
-            
-            <textarea name="chat_message" id="message" cols="30" rows="10"></textarea>
+            <div class="form-group">
+            <textarea name="chat_message" id="message" rows="5"></textarea>
             
             <input type="submit">
+            </div>
         </form>
     </div>
 </div>
