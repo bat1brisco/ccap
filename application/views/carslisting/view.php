@@ -110,7 +110,13 @@
 <?php endif; ?>
 
 </div>
+		
+<?php 
+$session_user_id = intval($this->session->userdata('user_id'));
+$user_id = intval($car['user_id']);
 
+if($session_user_id != $user_id){
+?>
 <div class="container star-container mt-5 mb-5 p-5">
 	<!-- <h3 class="text-white">Rate this product</h3>
 	<hr>
@@ -122,21 +128,19 @@
 	<input type="hidden" id="carslug" name="slug" value="<?= $car['slug']; ?>"> -->
 	<?php echo validation_errors(); ?>
 
-	<?php echo form_open('car_comments/create/' . $car['car_id']); ?>
+	<?php	
+			echo form_open('car_comments/create/' . $car['car_id']); ?>
 		<div class="form-group">
-			
-			<div class="row">
-				<div class="col-sm"></div>
-				<div class="col-sm-4">
-				<label for="inputrating" class="inputrating text-center text-white">Rating :</label>
-				<select class="form-control" name="rating">
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-				</select>
-			</div>
+			<div class="container">
+					<div class="starrating risingstar d-flex justify-content-center flex-row-reverse">
+						<input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="5 star">5</label>
+						<input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="4 star">4</label>
+						<input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="3 star">3</label>
+						<input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="2 star">2</label>
+						<input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="1 star">1</label>
+					</div>
+			</div>	
+
 			<div class="col-sm"></div>
 			</div>
 
@@ -149,22 +153,25 @@
 				<div class="col-sm"></div>
 			</div>
 		</div>
-
-		
 	</form>
-</div>
 
-<!-- <div class="container mt-5 mb-5">
+
+</div>
+<?php } ?>
+
+<div class="container mt-5 mb-5">
 <h3>Comments</h3>
-<?php if($comments) : ?>
+<?php if(!empty($comments)) { ?>
 	<?php foreach($comments as $comment) : ?>
 		<div class="well">
-			<h5><?php echo $comment['body']; ?> [by <strong><?php echo $comment['name']; ?></strong>]</h5>
+			<h4><?php echo $comment['name']; ?></h4>
+			<h3><?php echo $comment['body']; ?></h3>
+			<h6><strong><?php echo $comment['created_at']; ?></strong></h6>
 		</div>
 	<?php endforeach; ?>
-<?php else : ?>
+<?php }else{ ?>
 	<p>No comments to display</p>
-<?php endif; ?>
+<?php } ?>
 <hr>
 
 <h3>Add Comment</h3>
@@ -173,15 +180,8 @@
 
 <?php echo form_open('car_comments/create/' . $car['car_id']); ?>
 	<div class="form-group">
-		<label>Name</label>
-		<input type="text" name="name" class="form-control">
+		<input type="text" name="name"  value="<?php echo $this->session->userdata('fname') .  " " . $this->session->userdata('lname'); ?>" class="form-control">
 	</div>
-
-	<div class="form-group">
-		<label>Email</label>
-		<input type="text" name="email" class="form-control">
-	</div>
-
 	<div class="form-group">
 		<label>Body</label>
 		<textarea name="body" class="form-control"></textarea>
@@ -189,4 +189,4 @@
 	<input type="hidden" name="slug" value="<?php echo $car['slug']; ?>">
 	<button type="submit" class="btn btn-primary">Submit</button>
 </form>
-</div> -->
+</div>

@@ -13,9 +13,48 @@
 		<link rel="stylesheet" href="<?= base_url() ?>assets/bootstrap-star-rating/css/star-rating.min.css">
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/DataTables/DataTables1/css/dataTables.bootstrap4.min.css">
 		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 		
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>
+		<style>
+			/***
+			*  Simple Pure CSS Star Rating Widget Bootstrap 4 
+			* 
+			*  www.TheMastercut.co
+			*  
+			***/
+
+			@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+			/* Styling h1 and links
+			––––––––––––––––––––––––––––––––– */
+			h1[alt="Simple"] {color: white;}
+			/* a[href], a[href]:hover {color: grey; font-size: 0.5em; text-decoration: none} */
+
+			.starrating > input {display: none;}  /* Remove radio buttons */
+
+			.starrating > label:before { 
+			content: "\f005"; /* Star */
+			margin: 2px;
+			font-size: 8em;
+			font-family: FontAwesome;
+			display: inline-block; 
+			}
+
+			.starrating > label
+			{
+			color: #222222; /* Start color when not clicked */
+			}
+
+			.starrating > input:checked ~ label
+			{ color: #ffca08 ; } /* Set yellow color when star checked */
+
+			.starrating > input:hover ~ label
+			{ color: #ffca08 ;  } /* Set yellow color when star hover */
+
+
+		</style>
 		
 	</head>
 

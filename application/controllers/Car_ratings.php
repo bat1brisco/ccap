@@ -4,12 +4,13 @@
 		public function create($car_id) {
 			$slug = $this->input->post('slug');
 			$data['car'] = $this->carslisting_model->get_cars($slug);
+			$data['comments'] = $this->car_comment_model->get_comments($car_id);
 
-			$this->form_validation->set_rules('name', 'Name', 'required');
-			$this->form_validation->set_rules('email', 'Email', 'required');
+			// $this->form_validation->set_rules('name', 'Name', 'required');
+			// $this->form_validation->set_rules('email', 'Email', 'required');
 			//$this->form_validation->set_rules('email', 'Email', 'valid_email');
-			$this->form_validation->set_rules('body', 'Body', 'required');
-
+			// $this->form_validation->set_rules('body', 'Body', 'required');
+			
 				if ($this->form_validation->run() === FALSE) {
 					$this->load->view('templates/header');
 					$this->load->view('carslisting/view', $data);

@@ -9,15 +9,15 @@
 			$data = array(
 				'car_id' => $car_id,
 				'name' => $this->input->post('name'),
-				'email' => $this->input->post('email'),
+				// 'email' => $this->input->post('email'),
 				'body' => $this->input->post('body')
 			);
 
-			return $this->db->insert('car_comments', $data);
+			return $this->db->insert('car_comment', $data);
 		}
 
 		public function get_comments($car_id) {
-			$query = $this->db->get_where('car_comments', array('car_id' => $car_id));
+			$query = $this->db->get_where('car_comment', array('car_id' => $car_id));
 			return $query->result_array();
 		}
 	}
