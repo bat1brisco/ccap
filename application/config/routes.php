@@ -88,7 +88,7 @@ $route['userdashboard'] = 'userdashboard/index';
 $route['insert_message'] = 'MessageController/insert_message';
 
 //ROUTE FOR MESSAGE ADMIN AND USER 
-// POST METHOD
+//POST METHOD
 $route['leave_message'] = 'MessageController/leave_message';
 
 

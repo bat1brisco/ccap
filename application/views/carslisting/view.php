@@ -112,20 +112,12 @@
 
 <?php if($this->session->userdata('logged_in')): ?>
 <div class="container star-container mt-5 mb-5 p-5">
-	<!-- <h3 class="text-white">Rate this product</h3>
-	<hr>
-	<input class="rating ratingbar" value="2" data-min="0" data-max="5" data-step="1"> -->
-
-	<!-- <span class="mr-5"><a id="<?= $car['car_id']; ?>_upvote" class="voteMe"><i class="fas fa-thumbs-up fa-2x"></i></a><span id="<?= $car['car_id']; ?>_upvote_result" class="like ml-2">5</span></span>
-	<span><a id="<?= $car['car_id']; ?>_downvote" class="voteMe"><i class="fas fa-thumbs-down fa-2x"></i></a><span id="<?= $car['car_id']; ?>_downvote_result" class="dislike ml-2">4</span></span>
-
-	<input type="hidden" id="carslug" name="slug" value="<?= $car['slug']; ?>"> -->
-	<?php echo validation_errors(); ?>
 
 	<?php echo form_open('car_ratings/createRating/' . $car['car_id']); ?>
 		<div class="form-group">
 			
 			<div class="row">
+			
 			<?php if($hasrated == TRUE) :?>
 				<?php $inputclass="disabled"; ?>
 				<?php else : ?>
@@ -179,13 +171,35 @@
 <?php endif; ?>
 
 <div class="container mt-5 mb-5">
+<h3>Add Comment</h3>
+
+<?php echo validation_errors(); ?>
+
+<?php echo form_open('car_comments/create/' . $car['car_id']); ?>
+	<div class="form-group">
+		<label>Name</label>
+		<input type="text" name="fname" value="<?php echo $this->session->userdata('fname');  ?>" class="form-control">
+	</div> 
+
+	<div class="form-group">
+		<label>Body</label>
+		<textarea name="body" class="form-control"></textarea>
+	</div>
+
+	<input type="hidden" name="slug" value="<?php echo $car['slug']; ?>">
+	<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+
+<div class="container mt-5 mb-5">
 <?php $fname = $this->session->userdata('fname'); ?>
 <h3>Comments</h3>
 
 <?php if($comments) : ?>
 	<?php foreach($comments as $comment) : ?>
-		<div class="well">
-			<h5><?php echo $comment['body']; ?> [by <strong><?php echo $fname; ?></strong>]</h5>
+		<div class="well mt-5 mb-1 p-5 text-white">
+			<h5><?php echo $comment['body']; ?> </h5>
+			<h5>by <strong><?php echo $comment['name']; ?></strong></h5>
 		</div>
 	<?php endforeach; ?>
 <?php else : ?>
@@ -193,26 +207,4 @@
 <?php endif; ?>
 <hr>
 
-<h3>Add Comment</h3>
-
-<?php echo validation_errors(); ?>
-
-<?php echo form_open('car_comments/create/' . $car['car_id']); ?>
-	<div class="form-group">
-		<!-- <label>Name</label> -->
-		<input type="hidden" name="name" value="<?php  ?>" class="form-control">
-	</div>
-<!-- 
-	<div class="form-group">
-		<label>Email</label>
-		<input type="text" name="email" class="form-control">
-	</div> -->
-
-	<div class="form-group">
-		<label>Body</label>
-		<textarea name="body" class="form-control"></textarea>
-	</div>
-	<input type="hidden" name="slug" value="<?php echo $car['slug']; ?>">
-	<button type="submit" class="btn btn-primary">Submit</button>
-</form>
 </div>

@@ -40,7 +40,7 @@
 
 			$hasratedquery = $this->db->get();
 
-				if ($hasratedquery->num_rows() == 1) {
+				if ($hasratedquery->num_rows() > 0) {
 					return true;
 				} else {
 					return false;
