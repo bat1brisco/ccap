@@ -1,8 +1,8 @@
 <?php
     class Chat1_model extends CI_Model {
         var $table = "users";
-        var $select_column = array("user_id", "fname", "lname");
-        var $order_column = array(null, "fname", "lname", null);
+        var $select_column = array("user_id", "fname");
+        var $order_column = array(null, "fname", null);
 
         public function make_query() {
           $this->db->select($this->select_column);

@@ -8,8 +8,8 @@
 		public function create_comment($car_id) {
 			$data = array(
 				'car_id' => $car_id,
-				'name' => $this->input->post('name'),
-				'email' => $this->input->post('email'),
+				'name' => $this->session->userdata('fname'),
+				//'email' => $this->input->post('email'),
 				'body' => $this->input->post('body')
 			);
 

@@ -1,4 +1,3 @@
-
 <div class="container mb-5">
 	<div class="row">
 		<h4>Product Details</h4>
@@ -180,11 +179,13 @@
 <?php endif; ?>
 
 <div class="container mt-5 mb-5">
+<?php $fname = $this->session->userdata('fname'); ?>
 <h3>Comments</h3>
+
 <?php if($comments) : ?>
 	<?php foreach($comments as $comment) : ?>
 		<div class="well">
-			<h5><?php echo $comment['body']; ?> [by <strong><?php echo $comment['name']; ?></strong>]</h5>
+			<h5><?php echo $comment['body']; ?> [by <strong><?php echo $fname; ?></strong>]</h5>
 		</div>
 	<?php endforeach; ?>
 <?php else : ?>
@@ -198,14 +199,14 @@
 
 <?php echo form_open('car_comments/create/' . $car['car_id']); ?>
 	<div class="form-group">
-		<label>Name</label>
-		<input type="text" name="name" class="form-control">
+		<!-- <label>Name</label> -->
+		<input type="hidden" name="name" value="<?php  ?>" class="form-control">
 	</div>
-
+<!-- 
 	<div class="form-group">
 		<label>Email</label>
 		<input type="text" name="email" class="form-control">
-	</div>
+	</div> -->
 
 	<div class="form-group">
 		<label>Body</label>
