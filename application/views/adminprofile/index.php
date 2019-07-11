@@ -18,7 +18,7 @@
 			<h4><?php echo $title; ?></h4>
 			<div class="row">
         <div class="col-sm-4 m-5">
-          <img src="<?php echo site_url(); ?>assets/images/posts/noimage.png" alt="" width="50%">
+          <img src="<?php echo site_url(); ?>assets/images/posts/noimage.png" alt="" width="75%" height="130%">
         </div>
       </div>
       
