@@ -54,7 +54,7 @@
     
     
   }
-
+// SENDING CHAT TO CONTROLLER TO DATABASE
     public function send_chat(){
 
         if($this->session->userdata('user_type') != 'admin'){

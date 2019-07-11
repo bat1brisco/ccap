@@ -5,12 +5,15 @@
 	 */
 	class MessageModel extends CI_Model
 	{
+		// GET MESSAGE
 		function get_messages($id){
 			
 			$result = $this->db->get_where('messages', array('message_id' => $id));
 	    	
 	    	return $result->result();
 		}
+
+		// GET USERS MESSGE
 		function get_users_messages($user_id){
 
 			$result = $this->db->order_by('time_stamp', 'ASC')->get_where('messages', array('user_id' => $user_id));

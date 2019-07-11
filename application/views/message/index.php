@@ -98,8 +98,7 @@
                 }
         } ?>
 
-        <form action="/ccap/chat/send_chat" method="GET">
-            <?php echo $this->session->userdata('user_type'); ?>
+        <form action="/ccap/chat/send_chat" method="POST">
             <input type="text" name="user_id" hidden value="<?php echo $this->session->userdata('user_id'); ?>">
             <textarea name="chat_message" id="message" cols="30" rows="10"></textarea>
             

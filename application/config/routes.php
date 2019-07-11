@@ -61,9 +61,10 @@ $route['carslisting/update'] = 'carslisting/update';
 $route['carslisting/(:any)'] = 'carslisting/view/$1';
 $route['carslisting'] = 'carslisting/index';
 
+// CHAT MESSAGE START ROUTING
 $route['chat1/index'] = 'chat1/index';
 $route['chat1'] = 'chat1/index';
-
+// CHAT MESSAGE START ROUTING
 $route['chat/index'] = 'chat/index';
 $route['chat'] = 'chat/index';
 
@@ -89,6 +90,8 @@ $route['insert_message'] = 'MessageController/insert_message';
 
 //ROUTE FOR MESSAGE ADMIN AND USER 
 //POST METHOD
+
+// MESSAGE ADMIN AND USER ROUTING
 $route['leave_message'] = 'MessageController/leave_message';
 $route['leave_message_admin/(:num)'] = 'MessageController/leave_message_admin/$1';
 
