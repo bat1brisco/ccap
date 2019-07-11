@@ -179,7 +179,7 @@
 </div>
 <?php endif; ?>
 
-<!-- <div class="container mt-5 mb-5">
+<div class="container mt-5 mb-5">
 <h3>Comments</h3>
 <?php if($comments) : ?>
 	<?php foreach($comments as $comment) : ?>
@@ -214,4 +214,4 @@
 	<input type="hidden" name="slug" value="<?php echo $car['slug']; ?>">
 	<button type="submit" class="btn btn-primary">Submit</button>
 </form>
-</div> -->
+</div>

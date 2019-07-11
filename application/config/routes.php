@@ -79,6 +79,9 @@ $route['acceptrejectpart'] = 'acceptrejectpart/index';
 $route['admindashboard/index'] = 'admindashboard/index';
 $route['admindashboard'] = 'admindashboard/index';
 
+$route['adminprofile/index'] = 'adminprofile/index';
+$route['adminprofile'] = 'adminprofile/index';
+
 $route['userdashboard/index'] = 'userdashboard/index';
 $route['userdashboard'] = 'userdashboard/index';
 
