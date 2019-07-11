@@ -18,6 +18,11 @@
 			return $this->db->insert('users', $data);
 		}
 
+		public function get_admininfo($user_id) {
+			$query = $this->db->get_where('users', array('user_id' => $user_id));
+			return $query->row_array();
+		}
+
 		public function login($email, $password) {
 			// Validate
 			$this->db->where('email', $email);

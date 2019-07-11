@@ -22,43 +22,7 @@
 			
 			<div class="container container-card text-center">
 				<div class="row">
-					<?php $query = $this->db->query("SELECT * FROM `users` WHERE `status` = 'Approved'") ?>
-					<div class="card text-white bg-cards mb-3 ml-5 mr-4" style="max-width: 18rem;">
-					  <div class="card-header"><h5>CURRENT USERS</h5></div>
-
-					  <div class="card-body admindash">
-					    <h1 class="card-title"><?php echo $query->num_rows(); ?></h1>
-					    
-					  </div>
-					</div>
-
-					<?php $query_pending = $this->db->query("SELECT * FROM `users` WHERE `status` = 'Pending'") ?>
-					<div class="card text-white bg-cards mb-3 ml-4 mr-4" style="max-width: 18rem;">
-					  <div class="card-header"><h5>PENDING USERS</h5></div>
-
-					  <div class="card-body admindash">
-					    <h1 class="card-title"><?php echo $query_pending->num_rows(); ?></h1>
-					    
-					  </div>
-					</div>
-
-					<div class="card text-white bg-cards mb-3 ml-4 mr-4" style="max-width: 18rem;">
-					  <div class="card-header"><h5>PENDING POSTS</h5></div>
-
-					  <div class="card-body admindash">
-					    <h1 class="card-title">30</h1>
-					    
-					  </div>
-					</div>
-
-					<div class="card text-white bg-cards mb-3 ml-4 mr-4" style="max-width: 18rem;">
-					  <div class="card-header"><h5>TRANSACTIONS</h5></div>
-
-					  <div class="card-body admindash">
-					    <h1 class="card-title">30</h1>
-					    
-					  </div>
-					</div>
+					
 
 				</div>
 			</div>

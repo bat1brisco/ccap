@@ -55,6 +55,7 @@
 </style>    
     <div class="container">
         <?php 
+            var_dump($messages);
             foreach($messages as $message){
                 // for($i = 0;$i < 3 ;$i++){
                 if($this->session->userdata('admin') == 'admin'){
@@ -105,6 +106,7 @@
             <textarea name="chat_message" id="message" cols="30" rows="10"></textarea>
             
             <input type="submit">
+            </div>
         </form>
     </div>
 </div>

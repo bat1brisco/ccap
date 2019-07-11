@@ -20,7 +20,8 @@
         foreach($fetch_data as $row) {
           $sub_array = array();
           $sub_array[] = $row->fname;
-          $sub_array[] = $row->lname;
+          // $sub_array[] = $row->lname;
+          // $sub_array[] = '<button type="button" name="viewprofile" data-touserid="'.$row->user_id.'" data-tofname="'.$row->fname.'" class="btn btn-warning btn-xs start-chat">View Profile</button>';
           $sub_array[] = '<button type="button" name="start-accept" data-touserid="'.$row->user_id.'" data-tofname="'.$row->fname.'" class="btn btn-warning btn-xs start-chat">Start Chat</button>';
 
           $data[] = $sub_array;

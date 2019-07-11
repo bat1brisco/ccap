@@ -95,14 +95,14 @@
 					</div>
 				</li>
 	
-	      <li class="nav-item dropdown">
+	      <!-- <li class="nav-item dropdown">
 					<a class="nav-link notif-bell ml-3 mr-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 	         	<i class="fas fa-envelope" style="font-size: 1.5em;"></i>
 	         	
 	         	<span class="badge badge-pill badge-danger">24</span>
 	        </a>
 	        
-	      </li>
+	      </li> -->
       	<!-- Notification Badge and Notification Details. -->
 				<li class="nav-item dropdown" id="badge_notif">
 	      	<a class="nav-link notif-bell mr-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -116,11 +116,11 @@
       	<!-- Notification Badge and Notification Details. -->
 
         <li class="nav-item dropdown">
-	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hi!Admin <?php $admin_name = $this->session->userdata('fname'); 
+	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hi! Admin <?php $admin_name = $this->session->userdata('fname'); 
 	        	$admin_name1 = ucfirst($admin_name);
 	        	echo $admin_name1
 	        ?>
-	        	<i class="fas fa-user-circle" style="font-size: 1.5em;"></i>
+	        	<!-- <i class="fas fa-user-circle" style="font-size: 1.5em;"></i> -->
 	        </a>
 	        
 	        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -134,16 +134,16 @@
 			<?php elseif(($this->session->userdata('logged_in') && $this->session->userdata('user_type') == "user" )) : ?>
 	    <ul class="navbar-nav user-home-header">
 	      	
-	      <li class="nav-item dropdown">
+	      <!-- <li class="nav-item dropdown">
 					<a class="nav-link notif-bell ml-3 mr-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 	         	<i class="fas fa-envelope" style="font-size: 1.5em;"></i>
 	         	
 	         	<span class="badge badge-pill badge-danger">24</span>
 	        </a>
-	      </li>
+	      </li> -->
 					
         <li class="nav-item dropdown" id="badge_notif">
-	      	<a class="nav-link notif-bell mr-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	      	<a class="nav-link dropdown-toggle notif-bell mr-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 	         	<i class="fas fa-bell" style="font-size: 1.5em;"></i>
 	         	
 	         	<span id="notif_count" class="badge badge-pill badge-danger"></span>
@@ -155,7 +155,7 @@
         <li class="nav-item dropdown">
 	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $this->session->userdata('fname') . " " . $this->session->userdata('lname'); ?>
 
-	         	<i class="fas fa-user-circle" style="font-size: 1.5em;"></i>
+	         	<!-- <i class="fas fa-user-circle" style="font-size: 1.5em;"></i> -->
 	        
 	        </a>
 					

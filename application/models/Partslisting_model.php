@@ -137,4 +137,32 @@
 			return $result;
 		}
 
+		public function update_post(){
+			$slug = url_title($this->input->post('slug'));
+
+			$data = array(
+				
+				'price' => $this->input->post('price'),
+				
+				'category' => $this->input->post('category'),
+				'brand' => $this->input->post('brand'),
+				'parts_quantity' => $this->input->post('parts_quantity'),
+				
+				'color' => $this->input->post('color'),
+				'description' => $this->input->post('description'),
+				
+				'model_name' => $this->input->post('model_name'),
+				'rfs' => $this->input->post('rfs')
+			);
+
+			$this->db->where('parts_id', $this->input->post('parts_id'));
+			return $this->db->update('parts', $data);
+		}
+
+		public function delete_post($parts_id){
+			$this->db->where('parts_id', $parts_id);
+			$this->db->delete('parts');
+			return true;
+		}
+
 	}

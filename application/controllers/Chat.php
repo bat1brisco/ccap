@@ -2,14 +2,11 @@
 	class Chat extends CI_Controller {
 		public function index() {
 			$data['title'] = 'CCAP Chat Application';
-
-        
+   
           $this->load->view('templates/header');
           $this->load->view('chat/index', $data);
           $this->load->view('templates/footer');
         
-			
-
 		}
 
 		public function fetch_admin() {
@@ -37,13 +34,13 @@
 
     public function fetch_user() {
       
-      $this->load->model("chat1_model");
+      $this->load->model("chat_model");
       $fetch_data = $this->chat1_model->make_datatables();
       $data = array();
         foreach($fetch_data as $row) {
           $sub_array = array();
           $sub_array[] = $row->fname;
-          $sub_array[] = $row->lname;
+          // $sub_array[] = $row->lname;
           $sub_array[] = '<button type="button" name="start-accept" data-touserid="'.$row->user_id.'" data-tofname="'.$row->fname.'" class="btn btn-warning btn-xs start-chat">Start Chat</button>';
 
           $data[] = $sub_array;

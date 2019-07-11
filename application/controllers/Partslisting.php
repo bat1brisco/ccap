@@ -22,6 +22,9 @@
 			$data['part'] = $this->partslisting_model->get_parts($slug);
 			$parts_id = $data['parts']['parts_id'];
 			$data['comments'] = $this->parts_comment_model->get_comments($parts_id);
+			$data['rating'] = $this->part_rating_model->get_rating($part_id);
+			$user_id = $this->session->userdata('user_id');
+			$data['hasrated'] = $this->part_rating_model->has_rated($part_id, $user_id);
 
 				if (empty($data['part'])) {
 					show_404();
@@ -68,24 +71,80 @@
 					$q = $this->partslisting_model->create_parts_post($post_image);
 					$user_data = $this->user_model->get_user($this->session->userdata('user_id'));
 					$admins = $this->user_model->get_administrators();
-					$date = date('F d, Y');
-					if($q == 1){
-						foreach ($admins->result() as $key) {
-							$notif = array('notification_message' => $user_data . ' has posted a new parts.', 
-								// 'notif_date' => $date , 
-								'status' => 'Unread', 
-								'user_id' => $key->user_id);
-						
-							$res = $this->notification_model->notification_module($notif);
+
+					date_default_timezone_set('Asia/Manila');
+					$date = date('Y-m-d H:i:s');
+						if($q == 1){
+							foreach ($admins->result() as $key) {
+								$notif = array('notification_message' => $user_data . ' has posted a new part.', 
+									// 'notif_date' => $date , 
+									'status' => 'Unread', 
+									'user_id' => $key->user_id);
+							
+								$res = $this->notification_model->notification_module($notif);
+							}
+							if ($res == 1) {
+								redirect('partslisting');
+							}
 						}
-						if ($res == 1) {
-							redirect('partslisting');
-						}
-					}
-					redirect('partslisting');
+						//redirect('partslisting');
 				}
 					//redirect('partslisting');
 
+		}
+
+		public function edit($slug) {
+			// Check login
+			if(!$this->session->userdata('logged_in')) {
+				redirect('users/login');
+			}
+
+			$data['part'] = $this->partslisting_model->get_parts($slug);
+
+			// Check user
+			if($this->session->userdata('user_id') != $this->partslisting_model->get_parts($slug)['user_id']) {
+				redirect('parslisting');
+			}
+
+			//$data['categories'] = $this->post_model->get_categories();
+
+			// if(empty($data['car'])){
+			// 	show_404();
+			// }
+
+			$data['title'] = 'Edit Post';
+
+			$this->load->view('templates/header');
+			$this->load->view('parslisting/edit', $data);
+			$this->load->view('templates/footer');
+		}
+
+		public function update() {
+			// Check login
+			if(!$this->session->userdata('logged_in')) {
+				redirect('users/login');
+			}
+
+			$this->partslisting_model->update_post();
+
+			// Set message
+			$this->session->set_flashdata('post_updated', 'Your post has been updated');
+
+			redirect('partslisting');
+		}
+
+		public function delete($parts_id) {
+			// Check login
+			if(!$this->session->userdata('logged_in')) {
+				redirect('users/login');
+			}
+
+			$this->partslisting_model->delete_post($parts_id);
+
+			// Set message
+			$this->session->set_flashdata('post_deleted', 'Your post has been deleted');
+
+			redirect('partslisting');
 		}
 
 		public function fetch_data() {

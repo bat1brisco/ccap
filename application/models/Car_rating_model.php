@@ -1,23 +1,49 @@
 <?php
 
-	class Car_comment_model extends CI_Model {
+	class Car_rating_model extends CI_Model {
 		public function __construct() {
 			$this->load->database();
 		}
 
-		public function create_comment($car_id) {
+		public function createRating($car_id) {
 			$data = array(
 				'car_id' => $car_id,
-				'name' => $this->input->post('name'),
-				'email' => $this->input->post('email'),
-				'body' => $this->input->post('body')
+				'user_id' => $this->session->userdata('user_id'),
+				'car_rating' => $this->input->post('rating')
 			);
 
-			return $this->db->insert('car_comment', $data);
+			return $this->db->insert('car_ratings', $data);
 		}
 
-		public function get_comments($car_id) {
-			$query = $this->db->get_where('car_comment', array('car_id' => $car_id));
-			return $query->result_array();
+		public function get_rating($car_id) {
+			$this->db->select('ROUND(AVG(car_rating),1) as averageRating');
+			$this->db->from('car_ratings');
+			$this->db->where('car_id', $car_id);
+			$ratingquery = $this->db->get();
+	       	
+	    $postResult = $ratingquery->result_array();
+
+	    $rating = $postResult[0]['averageRating'];
+	       	
+	    	if($rating == ''){
+	       	$rating = 0;
+	    	}
+
+       	return $rating;
+		}
+
+		public function has_rated($car_id, $user_id) {
+			$this->db->select('car_id, user_id');
+			$this->db->from('car_ratings');
+			$this->db->where('car_id', $car_id);
+			$this->db->where('user_id', $user_id);
+
+			$hasratedquery = $this->db->get();
+
+				if ($hasratedquery->num_rows() > 0) {
+					return true;
+				} else {
+					return false;
+				}
 		}
 	}

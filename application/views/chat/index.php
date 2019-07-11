@@ -22,8 +22,8 @@
       <table id="admin" class="table table-striped table-bordered text-center" style="width:100%">
         <thead>
           <tr>
-            <th width="40%">First Name</th>
-            <th width="40%">Last Name</th>
+            <th width="80%">First Name</th>
+            <!-- <th width="40%">Last Name</th> -->
             <th width="20%">Start Chat</th>
             
           </tr>

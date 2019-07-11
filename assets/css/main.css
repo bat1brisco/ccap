@@ -140,6 +140,11 @@ img.d-block.w-100 {
     color: white;
 }
 
+.well.mt-5.mb-1 {
+    background-color: #00ADEF;
+    min-height: 150px;
+}
+
 .footer {
     height: 415px;
     /*margin-top: 50px;*/
