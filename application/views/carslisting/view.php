@@ -120,19 +120,19 @@ if($session_user_id != $user_id){
 
 	<input type="hidden" id="carslug" name="slug" value="<?= $car['slug']; ?>"> 
 	<?php echo validation_errors(); ?>
-
+<!-- CAR RATINGS STARS ************************************************************************************************************* -->
+<!-- NEXT TO Car_ratings.php from Controller *************************************************************************************************************-->
 	<?php	
 			echo form_open('car_ratings/createRating/' . $car['car_id']); ?>
-		<div class="form-group">
-			<div class="container">
-					<div class="starrating risingstar d-flex justify-content-center flex-row-reverse">
-						<input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="5 star">5</label>
-						<input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="4 star">4</label>
-						<input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="3 star">3</label>
-						<input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="2 star">2</label>
-						<input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="1 star">1</label>
-					</div>
-			</div>	
+	<div class="container">
+        <div class="starrating risingstar d-flex justify-content-center flex-row-reverse">
+            <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="5 star">5</label>
+            <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="4 star">4</label>
+            <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="3 star">3</label>
+            <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="2 star">2</label>
+            <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="1 star">1</label>
+        </div>
+  </div>	
 
 			<div class="col-sm"></div>
 			</div>
@@ -161,7 +161,7 @@ if($session_user_id != $user_id){
 
 		</div>
 	</form>
-
+<!-- ************************************************************************************************************* -->
 
 </div>
 <?php } ?>
@@ -185,7 +185,7 @@ if($session_user_id != $user_id){
 <h3>Add Comment</h3>
 
 <?php echo validation_errors(); ?>
-
+<!-- CAR COMMENTS ************************************************************************************************************* -->
 <?php echo form_open('car_comments/create/' . $car['car_id']); ?>
 	<div class="form-group">
 		<input type="text" name="name" hidden value="<?php echo $this->session->userdata('fname') .  " " . $this->session->userdata('lname'); ?>" class="form-control">

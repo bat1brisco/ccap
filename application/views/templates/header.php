@@ -17,20 +17,13 @@
 		
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>
+		<!-- STYLE RATING CSS ************************************************************************************************************* -->
 		<style>
-			/***
-			*  Simple Pure CSS Star Rating Widget Bootstrap 4 
-			* 
-			*  www.TheMastercut.co
-			*  
-			***/
-
-
+			@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 			/* Styling h1 and links
 			––––––––––––––––––––––––––––––––– */
 			h1[alt="Simple"] {color: white;}
 			/* a[href], a[href]:hover {color: grey; font-size: 0.5em; text-decoration: none} */
-
 			.starrating > input {display: none;}  /* Remove radio buttons */
 
 			.starrating > label:before { 
@@ -40,7 +33,6 @@
 			font-family: FontAwesome;
 			display: inline-block; 
 			}
-
 			.starrating > label
 			{
 			color: #222222; /* Start color when not clicked */
@@ -54,7 +46,7 @@
 
 
 		</style>
-		
+		<!-- ************************************************************************************************************* -->
 	</head>
 
 	<body>
