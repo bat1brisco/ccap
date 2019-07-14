@@ -118,6 +118,10 @@ img.d-block.w-100 {
     background-color: #00ADEF;
 }
 
+.card-text.admindashboard {
+    font-weight: bolder;
+}
+
 .container.star-container {
     background-color: #00ADEF;
 }
@@ -143,6 +147,14 @@ img.d-block.w-100 {
 .well.mt-5.mb-1 {
     background-color: #00ADEF;
     min-height: 150px;
+}
+
+div.well:nth-child(even) {
+    background: white;
+}
+
+div.well:nth-child(odd) {
+    background: #D8D6D5;
 }
 
 .footer {
@@ -233,7 +245,7 @@ ul.navbar-nav.custom-float {
 }
 
 ul.navbar-nav.admin-home-header {
-    margin-left: 555px;
+    margin-left: 745px;
 }
 
 ul.navbar-nav.user-home-header {

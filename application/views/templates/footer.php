@@ -80,6 +80,12 @@
 				"filter": true,
 				"deferRender": true
 			});
+
+			$('input[type=radio]').on('change', function(e) {
+				e.preventDefault();
+				$(this).closest("form").submit();
+
+			});
 		</script>
 	</body>
 </html>

@@ -4,7 +4,7 @@
 
 			<a class="nav-link rounded-0 link-active mb-1" href="<?php echo base_url(); ?>admindashboard">My Dashboard</a>
 			<a class="nav-link rounded-0 mb-1" href="<?php echo base_url(); ?>adminprofile">My Profile</a>
-			<a class="nav-link rounded-0 mb-1" href="<?php echo base_url(); ?>chat1">Chat</a>
+			<a class="nav-link rounded-0 mb-1" href="<?php echo base_url(); ?>chat1">Messages</a>
 			<a class="nav-link rounded-0 mb-1" href="<?php echo base_url(); ?>users/manage_account">Manage Registration</a>
 			<a class="nav-link rounded-0 mb-1" href="<?php echo base_url(); ?>Carslisting/manage_cars">Manage Car Posts</a>
 			<a class="nav-link rounded-0 mb-1" href="<?php echo base_url(); ?>Partslisting/manage_parts">Manage Parts Posts</a>
@@ -15,49 +15,59 @@
 
 		<div class="col-md-10 mb-4">
 	
-			<h4><?php echo $title; ?></h4>
+			<h4 class="pt-3 pb-4"><span class="blue">CEBU </span><span class="orange">CARS AND PARTS</span><?php echo $title; ?></h4>
 			
-			<div class="container container-card text-center">
-				<div class="row pr-1">
-					<?php $query = $this->db->query("SELECT * FROM `users` WHERE `status` = 'Approved'") ?>
-					<div class="card text-white bg-cards bg-secondary mb-3 ml-5 mr-4" style="max-width: 18rem;">
-					  <div class="card-header"><h5>CURRENT USERS</h5></div>
+			<div class="card-deck text-center mb-5">
+				
+					
+					<div class="card text-white bg-primary">
+					  
 
-					  <div class="card-body admindash">
-					    <h1 class="card-title"><?php echo $query->num_rows(); ?></h1>
+					  <div class="card-body admindash pt-5 pb-5">
+					  	<h5 class="card-title">CURRENT USERS</h5>
+					  	<?php $query = $this->db->query("SELECT * FROM `users` WHERE `status` = 'Approved'") ?>
+					    <h1 class="card-text admindashboard"><?php echo $query->num_rows(); ?></h1>
 					    
 					  </div>
 					</div>
 
-					<?php $query_pending = $this->db->query("SELECT * FROM `users` WHERE `status` = 'Pending'") ?>
-					<div class="card text-white bg-cards bg-warning mb-3 ml-4 mr-4" style="max-width: 18rem;">
-					  <div class="card-header"><h5>PENDING USERS</h5></div>
+					
+					<div class="card text-white bg-secondary">
+					  
 
-					  <div class="card-body admindash">
-					    <h1 class="card-title"><?php echo $query_pending->num_rows(); ?></h1>
+					  <div class="card-body admindash pt-5 pb-5">
+					  	<h5 class="card-title">PENDING USERS</h5>
+					  	<?php $query_pending = $this->db->query("SELECT * FROM `users` WHERE `status` = 'Pending'") ?>
+					    <h1 class="card-text admindashboard"><?php echo $query_pending->num_rows(); ?></h1>
 					    
 					  </div>
 					</div>
 
-					<div class="card text-white bg-cards bg-success mb-3 ml-4 mr-4" style="max-width: 18rem;">
-					  <div class="card-header"><h5>PENDING POSTS</h5></div>
-
-					  <div class="card-body admindash">
-					    <h1 class="card-title">30</h1>
+					
+					<div class="card text-white bg-success">
+					  
+					  
+					  <div class="card-body admindash pt-5 pb-5">
+					  	<h5 class="card-title">PENDING CAR POSTS</h5>
+					  	<?php $query_car_pending = $this->db->query("SELECT * FROM `cars` WHERE `status` = 'Pending'") ?>
+					    <h1 class="card-text admindashboard"><?php echo $query_car_pending->num_rows(); ?></h1>
 					    
 					  </div>
 					</div>
 
-					<div class="card text-white bg-cards bg-info mb-3 ml-4 mr-4" style="max-width: 18rem;">
-					  <div class="card-header"><h5>TRANSACTIONS</h5></div>
-
-					  <div class="card-body admindash">
-					    <h1 class="card-title">30</h1>
+					
+					<div class="card text-white bg-danger">
+					  
+					  
+					  <div class="card-body admindash pt-5 pb-5">
+					  	<h5 class="card-title">PENDING PARTS POSTS</h5>
+					  	<?php $query_parts_pending = $this->db->query("SELECT * FROM `parts` WHERE `status` = 'Pending'") ?>
+					    <h1 class="card-text admindashboard"><?php echo $query_parts_pending->num_rows(); ?></h1>
 					    
 					  </div>
 					</div>
 
-				</div>
+				
 			</div>
 
 			<h2 class="mt-3">Recent Cars Listing</h2>

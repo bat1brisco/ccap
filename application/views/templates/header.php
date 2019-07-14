@@ -13,7 +13,7 @@
 		<link rel="stylesheet" href="<?= base_url() ?>assets/bootstrap-star-rating/css/star-rating.min.css">
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/DataTables/DataTables1/css/dataTables.bootstrap4.min.css">
 		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+		<!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"> -->
 		
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>
@@ -29,13 +29,13 @@
 			.starrating > label:before { 
 			content: "\f005"; /* Star */
 			margin: 2px;
-			font-size: 8em;
+			font-size: 2em;
 			font-family: FontAwesome;
 			display: inline-block; 
 			}
 			.starrating > label
 			{
-			color: #222222; /* Start color when not clicked */
+			color: white; /* Start color when not clicked */
 			}
 
 			.starrating > input:checked ~ label
@@ -80,6 +80,7 @@
 					</a>
 						
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="<?php echo base_url(); ?>admindashboard" role="button">My Dashboard</a>
 						<a class="dropdown-item" href="<?php echo base_url(); ?>users/manage_account" role="button">Accounts</a>
 						<a class="dropdown-item" href="<?php echo base_url(); ?>Carslisting/manage_cars" role="button">Cars</a>
 						<a class="dropdown-item" href="<?php echo base_url(); ?>Partslisting/manage_parts" role="button">Parts</a>

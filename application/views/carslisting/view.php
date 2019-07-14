@@ -116,41 +116,35 @@ $user_id = intval($car['user_id']);
 
 if($session_user_id != $user_id){
 ?>
-<div class="container star-container mt-5 mb-5 p-5">
+<div class="container star-container mt-5 p-5">
 
 	<input type="hidden" id="carslug" name="slug" value="<?= $car['slug']; ?>"> 
-	<?php echo validation_errors(); ?>
+	
 <!-- CAR RATINGS STARS ************************************************************************************************************* -->
 <!-- NEXT TO Car_ratings.php from Controller *************************************************************************************************************-->
 	<?php	
 			echo form_open('car_ratings/createRating/' . $car['car_id']); ?>
 	<div class="container">
-        <div class="starrating risingstar d-flex justify-content-center flex-row-reverse">
-            <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="5 star">5</label>
-            <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="4 star">4</label>
-            <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="3 star">3</label>
-            <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="2 star">2</label>
-            <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="1 star">1</label>
+	<?php if($hasrated === TRUE): ?>
+				<?php $inputclass="disabled starrating "; ?>
+				<?php else : ?>
+				<?php $inputclass="starrating "; ?>
+        <div class="<?php echo $inputclass; ?>risingstar d-flex justify-content-center flex-row-reverse">
+            <input type="radio" class="<?php echo $inputclass; ?>" id="star5" name="rating" value="5" /><label for="star5" title="5 star"></label>
+            <input type="radio" class="<?php echo $inputclass; ?>" id="star4" name="rating" value="4" /><label for="star4" title="4 star"></label>
+            <input type="radio" class="<?php echo $inputclass; ?>" id="star3" name="rating" value="3" /><label for="star3" title="3 star"></label>
+            <input type="radio" class="<?php echo $inputclass; ?>" id="star2" name="rating" value="2" /><label for="star2" title="2 star"></label>
+            <input type="radio" class="<?php echo $inputclass; ?>" id="star1" name="rating" value="1" /><label for="star1" title="1 star"></label>
         </div>
+<?php endif; ?>
+				<input type="hidden" name="slug" value="<?php echo $car['slug']; ?>">
+					<!-- <button type="submit" class="btn btn-ccap">Submit</button> -->
   </div>	
 
-			<div class="col-sm"></div>
+			
 			</div>
-
-			<div class="row">
-			<?php if($hasrated == TRUE) :?>
-				<?php $inputclass="col-sm-4 disabled"; ?>
-				<?php else : ?>
-				<?php $inputclass="col-sm-4"; ?>
-				<div class="col-sm"></div>
-				<div class="<?= $inputclass; ?> text-center pt-4">
-					<input type="hidden" name="slug" value="<?php echo $car['slug']; ?>">
-					<button type="submit" class="btn btn-ccap">Submit</button>
-				</div>
-				<?php endif; ?>
-				<div class="col-sm"></div>
-			</div>
-
+			<?php } ?>
+		<div class="container">
 			<div class="row">
 				<div class="col-sm-4"></div>
 				<div class="col-sm-4">
@@ -162,27 +156,8 @@ if($session_user_id != $user_id){
 		</div>
 	</form>
 <!-- ************************************************************************************************************* -->
-
-</div>
-<?php } ?>
-
-<div class="container mt-5 mb-5">
-<h3>Comments</h3>
-<?php if(!empty($comments)) { ?>
-	<?php foreach($comments as $comment) : ?>
-		<div class="well">
-			<h4><?php echo $comment['name']; ?></h4>
-			<h3><?php echo $comment['body']; ?></h3>
-			<h6><strong><?php echo $comment['created_at']; ?></strong></h6>
-		</div>
-	<?php endforeach; ?>
-<?php }else{ ?>
-	<p>No comments to display</p>
-<?php } ?>
-<hr>
-
-<div class="container mt-5 mb-5">
-<h3>Add Comment</h3>
+<div class="container mb-5">
+	<h3>Add Comment</h3>
 
 <?php echo validation_errors(); ?>
 <!-- CAR COMMENTS ************************************************************************************************************* -->
@@ -199,5 +174,24 @@ if($session_user_id != $user_id){
 	<button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </div>
+
+
+
+<div class="container mt-5 mb-5">
+<h3>Comments</h3>
+<?php if(!empty($comments)) { ?>
+	<?php foreach($comments as $comment) : ?>
+		<div class="well mt-5 pt-3 pr-5 pb-3 pl-5">
+			<h5><strong><?php echo $comment['name']; ?></strong></h5>
+			<p><?php echo $comment['body']; ?></p>
+			<small class="font-italic"><?php echo $comment['created_at']; ?></small>
+		</div>
+	<?php endforeach; ?>
+<?php }else{ ?>
+	<p>No comments to display</p>
+<?php } ?>
+<hr>
+</div>
+
 
 
