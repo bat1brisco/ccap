@@ -123,7 +123,7 @@
 	    </ul>
 				
 			<!-- USER HEADER  -->
-			<?php elseif(($this->session->userdata('logged_in') && $this->session->userdata('user_type') == "user" )) : ?>
+		<?php elseif(($this->session->userdata('logged_in') && $this->session->userdata('user_type') == "user" )) : ?>
 	    <ul class="navbar-nav user-home-header">
 	      	
 	      <!-- <li class="nav-item dropdown">
@@ -135,7 +135,7 @@
 	      </li> -->
 					
         <li class="nav-item dropdown" id="badge_notif">
-	      	<a class="nav-link dropdown-toggle notif-bell mr-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	      	<a class="nav-link notif-bell mr-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 	         	<i class="fas fa-bell" style="font-size: 1.5em;"></i>
 	         	
 	         	<span id="notif_count" class="badge badge-pill badge-danger"></span>

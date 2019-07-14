@@ -249,7 +249,7 @@ ul.navbar-nav.admin-home-header {
 }
 
 ul.navbar-nav.user-home-header {
-    margin-left: 590px;
+    margin-left: 695px;
 }
 
 ul.navbar-nav.sub-nav {
@@ -313,6 +313,10 @@ ul.navbar-nav.sub-nav {
     min-height: 635px;
 }
 
+.container.post-product {
+    min-height: 635px;
+}
+
 .card.bg-dark.text-white {
     height: 250px;
 }
@@ -372,5 +376,23 @@ span.badge.badge-pill.badge-danger {
     left: 10px;
     bottom: 40px;
     /*background-color: white;*/
+}
+
+.img-thumbnail.parts-view {
+    height: 353px;
+    width: 555px;
+}
+
+.img-thumbnail.parts-view img {
+    width: 100%;
+}
+
+.img-thumbnail.cars-view {
+    height: 353px;
+    width: 555px;
+}
+
+.img-thumbnail.cars-view img {
+    width: 100%;
 }
 

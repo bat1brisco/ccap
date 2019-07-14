@@ -9,7 +9,6 @@
 			$data = array(
 				'car_id' => $car_id,
 				'name' => $this->input->post('name'),
-				// 'email' => $this->input->post('email'),
 				'body' => $this->input->post('body')
 			);
 

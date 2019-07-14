@@ -1,91 +1,103 @@
-<div class="row">
-  <div class="col-sm-4">
-  </div>
+<div class="container post-product">
+  <div class="row">
+    <div class="col-12 p-3">
 
-  <div class="col-sm-4">
-  <h4><?= $title; ?></h4>
+    <?php echo form_open_multipart('partslisting/create'); ?>
+      <h4 class="text-center"><?= $title; ?></h4>
+      <div class="row mt-5 mb-4">
+        <div class="col-md">
+          <label for="">Category</label>
+          <select class="form-control" name="category">
+            <option value="Wheels">Wheels</option>
+            <option value="Tires">Tires</option>
+            <option value="Internal Accesories">Internal Accessories</option>
+            <option value="Suspension">Suspension</option>
+            <option value="Transmission">Transmission</option>
+            <option value="Drive Shafts">Drive Shafts</option>
+            <option value="Brakes">Brakes</option>
+            <option value="Engine">Engine</option>
+            <option value="External Accessories">External Accessories</option>
+          </select>
 
-<?php echo validation_errors(); ?>
+          <span class="text-danger">
+            <?php echo form_error('brand'); ?>
+          </span>
+        </div>
 
-<?php echo form_open_multipart('partslisting/create'); ?>
-  <div class="form-group">
-    <label for="inputcategory" class="col-sm-2 control-label">Category</label>
-    <div class="col-sm-10">
-      <select class="form-control" name="category">
-			  <option value="Wheels">Wheels</option>
-			  <option value="Tires">Tires</option>
-			  <option value="Internal Accesories">Internal Accessories</option>
-			  <option value="Suspension">Suspension</option>
-			  <option value="Transmission">Transmission</option>
-        <option value="Drive Shafts">Drive Shafts</option>
-        <option value="Brakes">Brakes</option>
-        <option value="Engine">Engine</option>
-        <option value="External Accessories">External Accessories</option>
-			</select>
+        <div class="col-md">
+          <label for="inputBrand">Brand</label>
+          <input type="text" class="form-control" id="inputBrand" name="brand" placeholder="Brand" value="<?php echo isset($_POST["brand"]) ? $_POST["brand"] : ''; ?>">
+          <span class="text-danger">
+            <?php echo form_error('brand'); ?>
+          </span>
+        </div>
+
+        <div class="col-md">
+          <label for="">Model Name</label>
+            <input type="text" class="form-control" name="model_name" id="model_name" placeholder="Model Name" value="<?php echo isset($_POST["model_name"]) ? $_POST["model_name"] : ''; ?>">
+            <span class="text-danger">
+            <?php echo form_error('model_name'); ?>
+          </span>
+        </div>        
+      </div>
+
+      <div class="row mb-4">
+        <div class="col-md">
+          <label for="">Quantity</label>
+            <input type="number" class="form-control" name="parts_quantity" id="parts_quantity" placeholder="Parts Quantity" value="<?php echo isset($_POST["parts_quantity"]) ? $_POST["parts_quantity"] : ''; ?>">
+              <span class="text-danger">
+            <?php echo form_error('parts_quantity'); ?>
+          </span>
+        </div>
+
+        <div class="col-md">
+          <label for="">Price</label>
+            <input type="text" class="form-control" name="price" id="price" placeholder="Price" value="<?php echo isset($_POST["price"]) ? $_POST["price"] : ''; ?>">
+              <span class="text-danger">
+            <?php echo form_error('price'); ?>
+          </span>
+        </div>
+
+        <div class="col-md">
+          <label for="">Color</label>
+            <input type="text" class="form-control" name="color" id="color" placeholder="Product Color" value="<?php echo isset($_POST["color"]) ? $_POST["color"] : ''; ?>">
+            <span class="text-danger">
+            <?php echo form_error('color'); ?>
+          </span>
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col-md">
+          <label for="">Description</label>
+            <textarea class="form-control" rows="3" name="description"></textarea>
+            <span class="text-danger">
+            <?php echo form_error('description'); ?>
+          </span>
+        </div>
+
+        <div class="col-md">
+          <label for="">Reason For Selling</label>
+          <textarea class="form-control" rows="3" name="rfs"></textarea>
+            <span class="text-danger">
+            <?php echo form_error('rfs'); ?>
+          </span>
+        </div>        
+      </div>
+
+      <div class="row mb-4">
+        <div class="col-md">
+          <label for="">Upload Image</label>
+            <input type="file" name="userfile" value="Upload Images">
+        </div>    
+      </div>
+          
+      <button type="submit" class="btn btn-primary float-right">Submit</button>
+
+
+    <?php echo form_close(); ?>
+
     </div>
   </div>
-
-	<div class="form-group">
-    <label for="inputcapacity" class="col-sm-2 control-label">Brand</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputBrand" name="brand" placeholder="">
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="inputdoors" class="col-sm-2 control-label">Model Name</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputModelName" name="model_name" placeholder="">
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="inputdoors" class="col-sm-2 control-label">Quantity</label>
-    <div class="col-sm-10">
-      <input type="number" class="form-control" id="inputModelName" name="parts_quantity" step="1" placeholder="">
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="inputdoors" class="col-sm-2 control-label">Price</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputModelName" name="price" placeholder="">
-    </div>
-  </div>
-
-	<div class="form-group">
-    <label for="inputcolor" class="col-sm-2 control-label">Color</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputMake" name="color" placeholder="">
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="inputdescription" class="col-sm-2 control-label">Description</label>
-    <div class="col-sm-10">
-      <textarea class="form-control" rows="3" name="description"></textarea>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="inputrfs" class="col-sm-2 control-label">Reason for Selling</label>
-    <div class="col-sm-10">
-      <textarea class="form-control" rows="3" name="rfs"></textarea>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="">Upload Image</label>
-    <input type="file" name="userfile" value="Upload Images">
-  </div>
-
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-ccap">Post</button>
-    </div>
-  </div>
-</form>
-  </div>
-
-  <div class="col-sm-4"></div>
 </div>
+

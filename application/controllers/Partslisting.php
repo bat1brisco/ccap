@@ -20,17 +20,18 @@
 
 		public function view($slug = NULL) {
 			$data['part'] = $this->partslisting_model->get_parts($slug);
-			$parts_id = $data['parts']['parts_id'];
-			$data['comments'] = $this->parts_comment_model->get_comments($parts_id);
-			$data['rating'] = $this->part_rating_model->get_rating($part_id);
-			$user_id = $this->session->userdata('user_id');
-			$data['hasrated'] = $this->part_rating_model->has_rated($part_id, $user_id);
+			$parts_id = $data['part']['parts_id'];
 
 				if (empty($data['part'])) {
 					show_404();
 				}
 
 			$data['category'] = $data['part']['category'];
+
+			$data['comments'] = $this->parts_comment_model->get_comments($parts_id);
+			$data['rating'] = $this->parts_rating_model->get_rating($parts_id);
+			$user_id = $this->session->userdata('user_id');
+			$data['hasrated'] = $this->parts_rating_model->has_rated($parts_id, $user_id);
 
 			$this->load->view('templates/header');
 			$this->load->view('partslisting/view', $data);
@@ -53,21 +54,21 @@
 					$this->load->view('templates/footer');
 				} else {
 					$config['upload_path'] = './assets/images/posts';
-          $config['allowed_types'] = 'gif|jpg|png|jpeg';
-          $config['max_size'] = '2048';
-          $config['max_width'] = '2000';
-          $config['max_height'] = '2000';
+			        $config['allowed_types'] = 'gif|jpg|png|jpeg';
+			        $config['max_size'] = '2048';
+			        $config['max_width'] = '2000';
+			        $config['max_height'] = '2000';
 
-          $this->load->library('upload', $config);
+	        $this->load->library('upload', $config);
 
-            if (!$this->upload->do_upload()) {
-              $errors = array('error' => $this->upload->display_errors());
-              $post_image = 'noimage.png';
-            } else {
-              $data = array('upload_data' => $this->upload->data());
-              $post_image = $_FILES['userfile']['name'];
-            }
-
+	            if (!$this->upload->do_upload()) {
+	                $errors = array('error' => $this->upload->display_errors());
+	                $post_image = 'noimage.png';
+	            } else {
+	                $data = array('upload_data' => $this->upload->data());
+	                $post_image = $_FILES['userfile']['name'];
+	            }
+	            	$this->session->set_flashdata('parts_pending', 'Parts posted pending for approval');
 					$q = $this->partslisting_model->create_parts_post($post_image);
 					$user_data = $this->user_model->get_user($this->session->userdata('user_id'));
 					$admins = $this->user_model->get_administrators();
@@ -77,19 +78,21 @@
 						if($q == 1){
 							foreach ($admins->result() as $key) {
 								$notif = array('notification_message' => $user_data . ' has posted a new part.', 
-									// 'notif_date' => $date , 
+									'notif_date' => $date , 
 									'status' => 'Unread', 
 									'user_id' => $key->user_id);
-							
+								
 								$res = $this->notification_model->notification_module($notif);
 							}
+								
 							if ($res == 1) {
+
 								redirect('partslisting');
 							}
 						}
+							//redirect('partslisting');
+					}
 						//redirect('partslisting');
-				}
-					//redirect('partslisting');
 
 		}
 
@@ -213,6 +216,7 @@
 			redirect('Partslisting/manage_parts');
 		//-------------------- HERE
 		}
+		
 		public function parts_decline($id) {
 			$result = $this->partslisting_model->parts_decline($id);
 

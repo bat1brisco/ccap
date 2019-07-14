@@ -19,7 +19,9 @@
 		}
 
 		public function create_parts_post($post_image) {
-			$slug = url_title($this->input->post('brand'));
+			$permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
+
+			$slug = url_title($this->input->post('make').substr(str_shuffle($permitted_chars), 0, 10));
 
 			$data = array(
 				'user_id' => $this->session->userdata('user_id'),
@@ -122,6 +124,13 @@
 			$result  = $this->db->get_where('parts', array('status' => 'Pending'));
 			return $result;
 		}
+
+		public function get_recent_parts() {
+			$data = $this->db->query("SELECT * FROM parts WHERE status = 'Approved' LIMIT 8");
+
+			return $data;
+		}
+
 		public function parts_approve($id){
 			$this->db->set('status', "Approved");
 			$this->db->where('parts_id', $id);

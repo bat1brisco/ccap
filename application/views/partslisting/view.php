@@ -4,8 +4,8 @@
 	</div>
 
 	<div class="row">
-		<div class="col-md pl-0">
-			<img src="<?php echo site_url(); ?>assets/images/posts/<?php echo $part['post_image']; ?>" alt="" class="img-thumbnail">
+		<div class="col-md pl-0 pr-0">
+			<img src="<?php echo site_url(); ?>assets/images/posts/<?php echo $part['post_image']; ?>" alt="" class="img-thumbnail parts-view">
 		</div>
 
 		<div class="col-md pt-5 pb-5 car-price">
@@ -16,7 +16,7 @@
 			<?php if($this->session->userdata('logged_in')) : ?>
 			<div class="row">
 				<div class="col-md text-center">
-					<a class="btn btn-ccap btn-lg mt-5" href="<?php echo base_url(); ?>chat">Talk to a Middleman</a>
+					<a class="btn btn-ccap btn-lg mt-5" href="<?php echo base_url(); ?>chat">Leave Message</a>
 				</div>
 			</div>
 			<?php endif; ?>
@@ -57,69 +57,54 @@
 		</div>
 
 	</div>
-
-	<?php if($this->session->userdata('user_id') == $part['user_id']): ?>
+</div>
+	
+<div class="container">
+<?php if($this->session->userdata('user_id') == $part['user_id']): ?>
 	<hr>
 	<a class="btn btn-warning float-left mr-2" href="<?php echo base_url(); ?>partslisting/edit/<?php echo $part['slug']; ?>">Edit</a>
 	<?php echo form_open('/partslisting/delete/'.$part['parts_id']); ?>
 		<input type="submit" value="Delete" class="btn btn-danger">
 	</form>
-	<?php endif; ?>
+<?php endif; ?>
+
 </div>
+		
+<?php 
+$session_user_id = intval($this->session->userdata('user_id'));
+$user_id = intval($part['user_id']);
 
-<?php if($this->session->userdata('logged_in')): ?>
-<div class="container star-container mt-5 mb-5 p-5">
-	<!-- <h3 class="text-white">Rate this product</h3>
-	<hr>
-	<input class="rating ratingbar" value="2" data-min="0" data-max="5" data-step="1"> -->
+if($session_user_id != $user_id){
+?>
+<div class="container star-container mt-5 p-5">
 
-	<!-- <span class="mr-5"><a id="<?= $car['car_id']; ?>_upvote" class="voteMe"><i class="fas fa-thumbs-up fa-2x"></i></a><span id="<?= $car['car_id']; ?>_upvote_result" class="like ml-2">5</span></span>
-	<span><a id="<?= $car['car_id']; ?>_downvote" class="voteMe"><i class="fas fa-thumbs-down fa-2x"></i></a><span id="<?= $car['car_id']; ?>_downvote_result" class="dislike ml-2">4</span></span>
+	<input type="hidden" id="carslug" name="slug" value="<?= $part['slug']; ?>"> 
+	
+<!-- CAR RATINGS STARS ************************************************************************************************************* -->
+<!-- NEXT TO Car_ratings.php from Controller *************************************************************************************************************-->
+	<?php	
+			echo form_open('parts_ratings/createRating/' . $part['parts_id']); ?>
+	<div class="container">
+	<?php if($hasrated === TRUE): ?>
+				<?php $inputclass="disabled starrating "; ?>
+				<?php else : ?>
+				<?php $inputclass="starrating "; ?>
+        <div class="<?php echo $inputclass; ?>risingstar d-flex justify-content-center flex-row-reverse">
+            <input type="radio" class="<?php echo $inputclass; ?>" id="star5" name="rating" value="5" /><label for="star5" title="5 star"></label>
+            <input type="radio" class="<?php echo $inputclass; ?>" id="star4" name="rating" value="4" /><label for="star4" title="4 star"></label>
+            <input type="radio" class="<?php echo $inputclass; ?>" id="star3" name="rating" value="3" /><label for="star3" title="3 star"></label>
+            <input type="radio" class="<?php echo $inputclass; ?>" id="star2" name="rating" value="2" /><label for="star2" title="2 star"></label>
+            <input type="radio" class="<?php echo $inputclass; ?>" id="star1" name="rating" value="1" /><label for="star1" title="1 star"></label>
+        </div>
+<?php endif; ?>
+				<input type="hidden" name="slug" value="<?php echo $part['slug']; ?>">
+					<!-- <button type="submit" class="btn btn-ccap">Submit</button> -->
+  </div>	
 
-	<input type="hidden" id="carslug" name="slug" value="<?= $car['slug']; ?>"> -->
-	<?php echo validation_errors(); ?>
-
-	<?php echo form_open('parts_ratings/createRating/' . $part['parts_id']); ?>
-		<div class="form-group">
 			
-			<div class="row">
-			<?php if($hasrated == TRUE) :?>
-				<?php $inputclass="disabled"; ?>
-				<?php else : ?>
-				<?php $inputclass="inputrating"; ?>
-				<div class="col-sm"></div>
-				
-				<div class="col-sm-4">
-				
-				
-				<label for="inputrating" class="<?= $inputclass; ?> text-center text-white">Rating :</label>
-				
-				<select class="form-control" name="rating">
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-				</select>
 			</div>
-			<?php endif; ?>
-			<div class="col-sm"></div>
-			</div>
-
-			<div class="row">
-			<?php if($hasrated == TRUE) :?>
-				<?php $inputclass="col-sm-4 disabled"; ?>
-				<?php else : ?>
-				<?php $inputclass="col-sm-4"; ?>
-				<div class="col-sm"></div>
-				<div class="<?= $inputclass; ?> text-center pt-4">
-					<input type="hidden" name="slug" value="<?php echo $part['slug']; ?>">
-					<button type="submit" class="btn btn-ccap">Submit</button>
-				</div>
-				<?php endif; ?>
-				<div class="col-sm"></div>
-			</div>
-
+			<?php } ?>
+		<div class="container">
 			<div class="row">
 				<div class="col-sm-4"></div>
 				<div class="col-sm-4">
@@ -129,45 +114,41 @@
 			</div>
 
 		</div>
-
-		
 	</form>
-</div>
-<?php endif; ?>
-
-<!-- <div class="container mt-5 mb-5">
-<h3>Comments</h3>
-<?php if($comments) : ?>
-	<?php foreach($comments as $comment) : ?>
-		<div class="well">
-			<h5><?php echo $comment['body']; ?> [by <strong><?php echo $comment['name']; ?></strong>]</h5>
-		</div>
-	<?php endforeach; ?>
-<?php else : ?>
-	<p>No comments to display</p>
-<?php endif; ?>
-<hr>
-
-<h3>Add Comment</h3>
+<!-- ************************************************************************************************************* -->
+<div class="container mb-5">
+	<h3>Add Comment</h3>
 
 <?php echo validation_errors(); ?>
-
+<!-- CAR COMMENTS ************************************************************************************************************* -->
 <?php echo form_open('parts_comments/create/' . $part['parts_id']); ?>
 	<div class="form-group">
-		<label>Name</label>
-		<input type="text" name="name" class="form-control">
+		<input type="text" name="name" hidden value="<?php echo $this->session->userdata('fname') .  " " . $this->session->userdata('lname'); ?>" class="form-control">
 	</div>
-
-	<div class="form-group">
-		<label>Email</label>
-		<input type="text" name="email" class="form-control">
-	</div>
-
 	<div class="form-group">
 		<label>Body</label>
 		<textarea name="body" class="form-control"></textarea>
 	</div>
-	<input type="hidden" name="slug" value="<?php echo $car['slug']; ?>">
+
+	<input type="hidden" name="slug" value="<?php echo $part['slug']; ?>">
 	<button type="submit" class="btn btn-primary">Submit</button>
 </form>
-</div> -->
+</div>
+
+
+
+<div class="container mt-5 mb-5">
+<h3>Comments</h3>
+<?php if(!empty($comments)) { ?>
+	<?php foreach($comments as $comment) : ?>
+		<div class="well mt-5 pt-3 pr-5 pb-3 pl-5">
+			<h5><strong><?php echo $comment['name']; ?></strong></h5>
+			<p><?php echo $comment['body']; ?></p>
+			<small class="font-italic"><?php echo $comment['created_at']; ?></small>
+		</div>
+	<?php endforeach; ?>
+<?php }else{ ?>
+	<p>No comments to display</p>
+<?php } ?>
+<hr>
+</div>

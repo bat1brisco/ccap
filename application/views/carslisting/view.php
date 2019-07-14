@@ -4,8 +4,8 @@
 	</div>
 
 	<div class="row">
-		<div class="col-md pl-0">
-			<img src="<?php echo site_url(); ?>assets/images/posts/<?php echo $car['post_image']; ?>" alt="" class="img-thumbnail">
+		<div class="col-md pl-0 pr-0">
+			<img src="<?php echo site_url(); ?>assets/images/posts/<?php echo $car['post_image']; ?>" alt="" class="img-thumbnail cars-view">
 		</div>
 
 		<div class="col-md pt-5 pb-5 car-price">
@@ -99,7 +99,8 @@
 			</div>
 		</div>
 	</div>
-	
+</div>
+<div class="container">
 <?php if($this->session->userdata('user_id') == $car['user_id']): ?>
 	<hr>
 	<a class="btn btn-warning float-left mr-2" href="<?php echo base_url(); ?>carslisting/edit/<?php echo $car['slug']; ?>">Edit</a>
