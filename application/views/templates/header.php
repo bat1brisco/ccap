@@ -123,7 +123,7 @@
 	    </ul>
 				
 			<!-- USER HEADER  -->
-		<?php elseif(($this->session->userdata('logged_in') && $this->session->userdata('user_type') == "user" )) : ?>
+			<?php elseif(($this->session->userdata('logged_in') && $this->session->userdata('user_type') == "user" )) : ?>
 	    <ul class="navbar-nav user-home-header">
 	      	
 	      <!-- <li class="nav-item dropdown">
@@ -152,7 +152,7 @@
 	        </a>
 					
 	        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-	          <a class="dropdown-item" href="#">My Profile</a>
+	          <a class="dropdown-item" href="userdashboard">My Dashboard</a>
 	          <a class="dropdown-item" href="<?php echo base_url(); ?>users/logout">Log Out</a>
 	        </div>
 	      </li>

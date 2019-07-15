@@ -1,4 +1,4 @@
-<style>
+<!-- <style>
     /* Chat containers */
     .container1 {
     border: 2px solid #dedede;
@@ -52,8 +52,8 @@
     float: right;
     color: #999;
     }
-</style>    
-    <div class="container">
+</style>     -->
+    <div class="container mb-5 pb-5">
         <?php 
             foreach($messages as $message){
                 if($this->session->userdata('admin') == 'admin'){
@@ -83,7 +83,7 @@
                         <div class="container1 darker">
                             <img src="http://i.dailymail.co.uk/i/pix/2015/09/01/18/2BE1E88B00000578-3218613-image-m-5_1441127035222.jpg" alt="Avatar" class="right">
                             <p class="right"><?php echo $message->chat_message; ?></p>
-                            <span class="time-left"><?php echo $message->time_stamp; ?></span>
+                            <span class="time-right"><?php echo $message->time_stamp; ?></span>
                             </div>
                         <?php
                         }else{
@@ -99,11 +99,12 @@
         } ?>
 
         <form action="/ccap/chat/send_chat" method="POST">
-            <input type="text" name="user_id" hidden value="<?php echo $this->session->userdata('user_id'); ?>">
-            <textarea name="chat_message" id="message" cols="30" rows="10"></textarea>
+            <div class="form-group">
+            <input type="hidden" name="user_id" value="<?php echo $this->session->userdata('user_id'); ?>">
+            <textarea name="chat_message" id="message" class="form-control" cols="30" rows="10"></textarea>
             
-            <input type="submit">
+            <input type="submit" class="btn btn-primary mt-5 float-right">
             </div>
+            
         </form>
-    </div>
-</div>
+        </div>
