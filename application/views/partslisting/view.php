@@ -137,18 +137,20 @@ if($session_user_id != $user_id){
 
 
 
-<div class="container mt-5 mb-5">
+<div class="container mt-1 mb-5">
 <h3>Comments</h3>
 <?php if(!empty($comments)) { ?>
 	<?php foreach($comments as $comment) : ?>
-		<div class="well mt-5 pt-3 pr-5 pb-3 pl-5">
+		<div class="well mt-1 pt-3 pr-5 pb-3 pl-5">
 			<h5><strong><?php echo $comment['name']; ?></strong></h5>
 			<p><?php echo $comment['body']; ?></p>
 			<small class="font-italic"><?php echo $comment['created_at']; ?></small>
 		</div>
+
 	<?php endforeach; ?>
+
 <?php }else{ ?>
 	<p>No comments to display</p>
 <?php } ?>
-<hr>
+<!-- <hr> -->
 </div>

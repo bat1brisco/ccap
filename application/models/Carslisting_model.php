@@ -143,7 +143,7 @@
 								<div style="border:1px solid #ccc"; border-radius:5px; padding:16px; margin-bottom:16px; height:450px;>
 									<h3 align="center"><strong>' . $row['make'] .'</strong></h3>
 									<h4 style="text-align:center;">' . $row['model'] .'</h4>
-									<img class="post-thumbnail img-thumbnail" src="assets/images/posts/' . $row['post_image'] . '">
+									<img class="post-thumbnail img-thumbnail cars-view" src="assets/images/posts/' . $row['post_image'] . '">
 									<a class="btn btn-ccap mt-2 mb-2" href="/ccap/carslisting/' . $row['slug'] . '">View Details</a>
 								</div>			
 							</div>

@@ -387,12 +387,30 @@ span.badge.badge-pill.badge-danger {
     width: 100%;
 }
 
+.post-thumbnail.img-thumbnail.parts-view {
+    height: 252px;
+    width: 253px;
+}
+
+.post-thumbnail.img-thumbnail.parts-view img {
+    width: 100%;
+}
+
 .img-thumbnail.cars-view {
     height: 353px;
     width: 555px;
 }
 
 .img-thumbnail.cars-view img {
+    width: 100%;
+}
+
+.post-thumbnail.img-thumbnail.cars-view {
+    height: 252px;
+    width: 253px;
+}
+
+.post-thumbnail.img-thumbnail.cars-view img {
     width: 100%;
 }
 
