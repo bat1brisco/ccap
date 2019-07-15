@@ -26,7 +26,7 @@
 					show_404();
 				}
 
-			$data['category'] = $data['part']['category'];
+			$data['brand'] = $data['part']['brand'];
 
 			$data['comments'] = $this->parts_comment_model->get_comments($parts_id);
 			$data['rating'] = $this->parts_rating_model->get_rating($parts_id);

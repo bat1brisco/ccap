@@ -164,7 +164,7 @@ if($session_user_id != $user_id){
 <!-- CAR COMMENTS ************************************************************************************************************* -->
 <?php echo form_open('car_comments/create/' . $car['car_id']); ?>
 	<div class="form-group">
-		<input type="text" name="name" hidden value="<?php echo $this->session->userdata('fname') .  " " . $this->session->userdata('lname'); ?>" class="form-control">
+		<input type="hidden" name="name" value="<?php echo $this->session->userdata('fname') .  " " . $this->session->userdata('lname'); ?>" class="form-control">
 	</div>
 	<div class="form-group">
 		<label>Body</label>

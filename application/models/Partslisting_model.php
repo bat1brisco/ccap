@@ -21,7 +21,7 @@
 		public function create_parts_post($post_image) {
 			$permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
 
-			$slug = url_title($this->input->post('make').substr(str_shuffle($permitted_chars), 0, 10));
+			$slug = url_title($this->input->post('brand').substr(str_shuffle($permitted_chars), 0, 10));
 
 			$data = array(
 				'user_id' => $this->session->userdata('user_id'),
