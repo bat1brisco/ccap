@@ -155,6 +155,7 @@
 				}
 				return $output;
 		}
+
 		public function get_pending_cars(){
 			$result  = $this->db->get_where('cars', array('status' => 'Pending'));
 			return $result;
@@ -173,6 +174,7 @@
 			$result = $this->db->get_where('cars', array('car_id' => $id));
 			return $result;
 		}
+		
 		public function cars_decline($id){
 			$this->db->set('status', "Declined");
 			$this->db->where('car_id', $id);

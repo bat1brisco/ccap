@@ -249,7 +249,7 @@ ul.navbar-nav.admin-home-header {
 }
 
 ul.navbar-nav.user-home-header {
-    margin-left: 695px;
+    margin-left: 715px;
 }
 
 ul.navbar-nav.sub-nav {
@@ -397,17 +397,32 @@ span.badge.badge-pill.badge-danger {
 }
 
 .post-thumbnail.img-thumbnail.parts-view-dashboard {
-    height: 235px;
-    width: 253px;
+    height: 208px;
+    /* width: 253px; */
 }
 
 .post-thumbnail.img-thumbnail.parts-view-dashboard img {
     width: 100%;
 }
 
+.post-thumbnail.img-thumbnail.parts-view-home {
+    height: 275px;
+}
+
+.post-thumbnail.img-thumbnail.parts-view-home img {
+    width: 100%;
+}
+
+.post-thumbnail.img-thumbnail.cars-view-home {
+    height: 275px;
+}
+
+.post-thumbnail.img-thumbnail.cars-view-home img {
+    width: 100%;
+}
+
 .img-thumbnail.cars-view {
-    height: 353px;
-    width: 555px;
+    height: 253px;
 }
 
 .img-thumbnail.cars-view img {
@@ -415,8 +430,7 @@ span.badge.badge-pill.badge-danger {
 }
 
 .post-thumbnail.img-thumbnail.cars-view {
-    height: 252px;
-    width: 253px;
+    height: 205px;
 }
 
 .post-thumbnail.img-thumbnail.cars-view img {

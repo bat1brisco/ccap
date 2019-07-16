@@ -1,4 +1,4 @@
-<div class="container mb-5">
+<div class="container mb-2">
 	<div class="row">
 		<h4>Product Details</h4>
 	</div>
@@ -117,7 +117,7 @@ $user_id = intval($car['user_id']);
 
 if($session_user_id != $user_id){
 ?>
-<div class="container star-container mt-5 p-5">
+<div class="container star-container pt-2">
 
 	<input type="hidden" id="carslug" name="slug" value="<?= $car['slug']; ?>"> 
 	

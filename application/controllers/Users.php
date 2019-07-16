@@ -85,7 +85,7 @@
 							$this->session->set_userdata($user_data);
 
 								if ($this->session->userdata('user_type') == "admin") {
-									$data['title'] = 'My Dashboard';
+									$data['title'] = 'Admin Dashboard';
 
 									$this->load->view('templates/header');
 									$this->load->view('admindashboard/index', $data);

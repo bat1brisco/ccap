@@ -15,7 +15,7 @@
 
 		<div class="col-md-10 mb-4">
 	
-			<h4 class="pt-3 pb-4"><span class="blue">CEBU </span><span class="orange">CARS AND PARTS</span><?php echo $title; ?></h4>
+			<h4 class="pt-3 pb-4"><span class="blue">CEBU </span><span class="orange">CARS AND PARTS </span><?php echo $title; ?></h4>
 			
 			<div class="card-deck text-center mb-5">
 				
@@ -48,7 +48,7 @@
 					  
 					  
 					  <div class="card-body admindash pt-5 pb-5">
-					  	<h5 class="card-title">PENDING CAR POSTS</h5>
+					  	<h5 class="card-title">PENDING CARS</h5>
 					  	<?php $query_car_pending = $this->db->query("SELECT * FROM `cars` WHERE `status` = 'Pending'") ?>
 					    <h1 class="card-text admindashboard"><?php echo $query_car_pending->num_rows(); ?></h1>
 					    
@@ -60,7 +60,7 @@
 					  
 					  
 					  <div class="card-body admindash pt-5 pb-5">
-					  	<h5 class="card-title">PENDING PARTS POSTS</h5>
+					  	<h5 class="card-title">PENDING PARTS</h5>
 					  	<?php $query_parts_pending = $this->db->query("SELECT * FROM `parts` WHERE `status` = 'Pending'") ?>
 					    <h1 class="card-text admindashboard"><?php echo $query_parts_pending->num_rows(); ?></h1>
 					    
