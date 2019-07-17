@@ -16,7 +16,7 @@
 
     public function get_pending_cars($user_id) {
       $this->db->where('user_id', $user_id);
-      $this->db->where('car_status', 'pending');
+      $this->db->where('status', 'pending');
       $query = $this->db->get('cars');
 
       return $query->result_array();
