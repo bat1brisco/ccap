@@ -12,6 +12,41 @@
 		<div class="col-md-10 mb-4 pt-3">
 	
 			<h4><?php echo $title; ?></h4>
+
+			<hr>
+
+			<h4>Cars Sold</h4>
+				<?php if($carssold) : ?>
+					<?php foreach($carssold as $carsold) : ?>
+						<?php echo $carsold['Make']; ?>
+						<?php echo $carsold['Model']; ?>
+					<?php endforeach; ?>
+				<?php else : ?>
+					<p>No Cars Sold</p>
+				<?php endif; ?>
+			<hr>
+
+			<h4>Pending Cars</h4>
+			<?php if($carspending) : ?>
+					<?php foreach($carspending as $carpending) : ?>
+						<?php echo $carpending['Make']; ?>
+						<?php echo $carpending['Model']; ?>
+					<?php endforeach; ?>
+				<?php else : ?>
+					<p>No Cars Pending</p>
+				<?php endif; ?>
+			<hr>
+
+			<h4>Deals in Progress</h4>
+			<?php if($carsinprogress) : ?>
+					<?php foreach($carsinprogress as $carinprogress) : ?>
+						<?php echo $carinprogress['Make']; ?>
+						<?php echo $carinprogress['Model']; ?>
+					<?php endforeach; ?>
+				<?php else : ?>
+					<p>No Car Deals in Progress</p>
+				<?php endif; ?>
+			<hr>
 					
 		</div>
 	</div>

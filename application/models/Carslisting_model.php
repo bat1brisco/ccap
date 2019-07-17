@@ -4,6 +4,7 @@
 		public function __construct() {
 			
 			$this->load->database();
+			
 		}
 
 		public function get_cars($slug = FALSE) {
