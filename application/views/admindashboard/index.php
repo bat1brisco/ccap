@@ -15,7 +15,7 @@
 
 		<div class="col-md-10 mb-4">
 	
-			<h4 class="pt-3 pb-4"><span class="blue">CEBU </span><span class="orange">CARS AND PARTS</span><?php echo $title; ?></h4>
+			<h4 class="pt-3 pb-4"><span class="blue">CEBU </span><span class="orange">CARS AND PARTS </span><?php echo $title; ?></h4>
 			
 			<div class="card-deck text-center mb-5">
 				
@@ -48,7 +48,7 @@
 					  
 					  
 					  <div class="card-body admindash pt-5 pb-5">
-					  	<h5 class="card-title">PENDING CAR POSTS</h5>
+					  	<h5 class="card-title">PENDING CARS</h5>
 					  	<?php $query_car_pending = $this->db->query("SELECT * FROM `cars` WHERE `status` = 'Pending'") ?>
 					    <h1 class="card-text admindashboard"><?php echo $query_car_pending->num_rows(); ?></h1>
 					    
@@ -60,7 +60,7 @@
 					  
 					  
 					  <div class="card-body admindash pt-5 pb-5">
-					  	<h5 class="card-title">PENDING PARTS POSTS</h5>
+					  	<h5 class="card-title">PENDING PARTS</h5>
 					  	<?php $query_parts_pending = $this->db->query("SELECT * FROM `parts` WHERE `status` = 'Pending'") ?>
 					    <h1 class="card-text admindashboard"><?php echo $query_parts_pending->num_rows(); ?></h1>
 					    
@@ -86,7 +86,7 @@
 
 							<h4 align="center"><?php echo $row['make']; ?></h4>
 							<h5 style="text-align:center;"><?php echo $row['model']; ?></h5>
-							<img class="post-thumbnail img-thumbnail" src="<?php echo base_url(); ?>assets/images/posts/<?php echo $row['post_image']; ?>">
+							<img class="post-thumbnail img-thumbnail cars-view" src="<?php echo base_url(); ?>assets/images/posts/<?php echo $row['post_image']; ?>">
 							<a class="btn btn-ccap mt-2 mb-2" href="/ccap/carslisting/<?php echo $row['slug']; ?>">View Details</a>
 
 						</div>    
@@ -112,7 +112,7 @@
 
 							<h4 align="center"><?php echo $row['brand']; ?></h4>
 							<h5 style="text-align:center;"><?php echo $row['model_name']; ?></h5>
-							<img class="post-thumbnail img-thumbnail" src="<?php echo base_url(); ?>assets/images/posts/<?php echo $row['post_image']; ?>">
+							<img class="post-thumbnail img-thumbnail parts-view" src="<?php echo base_url(); ?>assets/images/posts/<?php echo $row['post_image']; ?>">
 							<a class="btn btn-ccap mt-2 mb-2" href="/ccap/partslisting/<?php echo $row['slug']; ?>">View Details</a>
 
 						</div>    

@@ -1,4 +1,4 @@
-<div class="container mb-5">
+<div class="container mb-2">
 	<div class="row">
 		<h4>Product Details</h4>
 	</div>
@@ -13,12 +13,25 @@
 			<h3 class="ml-3">Price: Php. <span><?php echo $car['price']; ?></span></h3>
 			<h5 class="ml-3">Description:</h5>
 			<h5 class="ml-3"><?php echo $car['description']; ?></h5>
+			
 			<?php if($this->session->userdata('logged_in')) : ?>
 			<div class="row">
 				<div class="col-md text-center">
 					<a class="btn btn-ccap btn-lg mt-5" href="<?php echo base_url(); ?>leave_message">Leave a message</a>
 				</div>
 			</div>
+			<?php endif; ?>
+
+			<?php if(($this->session->userdata('logged_in')) && ($this->session->userdata('user_id') != $car['user_id'])) : ?>
+				<?php echo form_open('/mycars/updateCarStatus/' . $car['car_id']); ?>
+					<div class="row">
+						<div class="col-md text-center">
+							<input type="hidden" name="cars_buyer_id" value="<?php echo $this->session->userdata('user_id'); ?>">
+							<input type="hidden" name="slug" value="<?php echo $car['slug'] ?>">
+							<button type="submit" class="btn btn-success btn-lg mt-2">Start Deal</button>
+						</div>
+					</div>
+				</form>
 			<?php endif; ?>
 		</div>
 	</div>
@@ -102,11 +115,12 @@
 </div>
 <div class="container">
 <?php if($this->session->userdata('user_id') == $car['user_id']): ?>
-	<hr>
-	<a class="btn btn-warning float-left mr-2" href="<?php echo base_url(); ?>carslisting/edit/<?php echo $car['slug']; ?>">Edit</a>
+	
 	<?php echo form_open('/carslisting/delete/'.$car['car_id']); ?>
-		<input type="submit" value="Delete" class="btn btn-danger">
+		<input type="submit" value="Delete" class="btn btn-danger float-right">
 	</form>
+	<a class="btn btn-warning float-right mr-2 text-white" href="<?php echo base_url(); ?>carslisting/edit/<?php echo $car['slug']; ?>">Edit</a>
+
 <?php endif; ?>
 
 </div>
@@ -117,7 +131,7 @@ $user_id = intval($car['user_id']);
 
 if($session_user_id != $user_id){
 ?>
-<div class="container star-container mt-5 p-5">
+<div class="container star-container pt-2">
 
 	<input type="hidden" id="carslug" name="slug" value="<?= $car['slug']; ?>"> 
 	

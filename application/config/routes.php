@@ -86,6 +86,13 @@ $route['adminprofile'] = 'adminprofile/index';
 $route['userdashboard/index'] = 'userdashboard/index';
 $route['userdashboard'] = 'userdashboard/index';
 
+$route['mycars/index'] = 'mycars/index';
+$route['mycars/(:any)'] = 'mycars/view/$1';
+$route['mycars'] = 'mycars/index';
+
+$route['myparts/index'] = 'myparts/index';
+$route['myparts'] = 'myparts/index';
+
 $route['insert_message'] = 'MessageController/insert_message';
 
 //ROUTE FOR MESSAGE ADMIN AND USER 

@@ -105,7 +105,7 @@
 
         <h4 align="center"><?php echo $row['make']; ?></h4>
         <h5 style="text-align:center;"><?php echo $row['model']; ?></h5>
-        <img class="post-thumbnail img-thumbnail" src="<?php echo base_url(); ?>assets/images/posts/<?php echo $row['post_image']; ?>">
+        <img class="post-thumbnail img-thumbnail cars-view-home" src="<?php echo base_url(); ?>assets/images/posts/<?php echo $row['post_image']; ?>">
         <a class="btn btn-ccap mt-2 mb-2" href="/ccap/carslisting/<?php echo $row['slug']; ?>">View Details</a>
 
       </div>    
@@ -134,7 +134,7 @@
 
         <h4 align="center"><?php echo $row['brand']; ?></h4>
         <h5 style="text-align:center;"><?php echo $row['model_name']; ?></h5>
-        <img class="post-thumbnail img-thumbnail" src="<?php echo base_url(); ?>assets/images/posts/<?php echo $row['post_image']; ?>">
+        <img class="post-thumbnail img-thumbnail parts-view-home" src="<?php echo base_url(); ?>assets/images/posts/<?php echo $row['post_image']; ?>">
         <a class="btn btn-ccap mt-2 mb-2" href="/ccap/partslisting/<?php echo $row['slug']; ?>">View Details</a>
 
       </div>    

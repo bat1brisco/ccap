@@ -249,7 +249,7 @@ ul.navbar-nav.admin-home-header {
 }
 
 ul.navbar-nav.user-home-header {
-    margin-left: 695px;
+    margin-left: 715px;
 }
 
 ul.navbar-nav.sub-nav {
@@ -387,6 +387,15 @@ span.badge.badge-pill.badge-danger {
     width: 100%;
 }
 
+.img-thumbnail.cars-view {
+    height: 455px;
+    width: 555px;
+}
+
+.img-thumbnail.cars-view img {
+    width: 100%;
+}
+
 .post-thumbnail.img-thumbnail.parts-view {
     height: 252px;
     width: 253px;
@@ -396,21 +405,96 @@ span.badge.badge-pill.badge-danger {
     width: 100%;
 }
 
-.img-thumbnail.cars-view {
-    height: 353px;
-    width: 555px;
+.post-thumbnail.img-thumbnail.parts-view-dashboard {
+    height: 208px;
+    /* width: 253px; */
 }
 
-.img-thumbnail.cars-view img {
+.post-thumbnail.img-thumbnail.parts-view-dashboard img {
+    width: 100%;
+}
+
+.post-thumbnail.img-thumbnail.parts-view-home {
+    height: 275px;
+}
+
+.post-thumbnail.img-thumbnail.parts-view-home img {
+    width: 100%;
+}
+
+.post-thumbnail.img-thumbnail.cars-view-home {
+    height: 275px;
+}
+
+.post-thumbnail.img-thumbnail.cars-view-home img {
     width: 100%;
 }
 
 .post-thumbnail.img-thumbnail.cars-view {
-    height: 252px;
-    width: 253px;
+    height: 205px;
 }
 
 .post-thumbnail.img-thumbnail.cars-view img {
     width: 100%;
 }
+
+.white-break-line {
+    border: 0.5px solid white;
+}
+
+ /* Chat containers */
+ .container1 {
+    border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    }
+
+    /* Darker chat container */
+    .darker {
+    border-color: #ccc;
+    background-color: #ddd;
+    }
+
+    /* Clear floats */
+    .container1::after {
+    content: "";
+    clear: both;
+    display: table;
+    }
+
+    /* Style images */
+    .container1 img {
+    float: left;
+    max-width: 60px;
+    width: 100%;
+    margin-right: 20px;
+    border-radius: 50%;
+    }
+
+    /* Style the right image */
+    .container1 img.right {
+    float: right;
+    margin-left: 20px;
+    margin-right:0;
+    }
+
+    /* Style time text */
+    .time-right {
+        margin-top: 40px;
+        padding-left: -50px;
+    float: right;
+    color: #aaa;
+    }
+
+    /* Style time text */
+    .time-left {
+    float: left;
+    color: #999;
+    }
+    .right {
+    float: right;
+    color: #999;
+    }
 
