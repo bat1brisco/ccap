@@ -29,4 +29,8 @@
 
       return $query->result_array();
     }
+
+    public function updateCarStatus($car_id) {
+
+    }
   }

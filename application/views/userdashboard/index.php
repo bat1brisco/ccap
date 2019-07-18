@@ -4,8 +4,8 @@
 
 			<a class="nav-link rounded-0 link-active mb-1" href="<?php echo base_url(); ?>userdashboard">My Dashboard</a>
 			<a class="nav-link rounded-0 mb-1 disabled" href="<?php echo base_url(); ?>chat">Messages</a>
-			<a class="nav-link rounded-0 mb-1" href="<?php echo base_url(); ?>mycars">Cars</a>
-			<a class="nav-link rounded-0 mb-1" href="<?php echo base_url(); ?>myparts">Parts</a>
+			<a class="nav-link rounded-0 mb-1" href="<?php echo base_url(); ?>mycars">My Cars</a>
+			<a class="nav-link rounded-0 mb-1" href="<?php echo base_url(); ?>myparts">My Parts</a>
 			<a class="nav-link rounded-0 mb-1 disabled" href="<?php echo base_url(); ?>transactions">Transactions</a>
 			<a class="nav-link rounded-0 mb-1 disabled" href="<?php echo base_url(); ?>logs">Logs</a>
 			<!-- <a class="nav-link rounded-0 mb-1" href="<?php echo base_url(); ?>users/manage_account">Manage Registration</a>
@@ -16,16 +16,14 @@
 			
 		</div>
 
-		<div class="col-md-10 mb-4">
+		<div class="col-md-10 mt-3 mb-4">
 	
 			<h4><?php echo $title; ?></h4>
 			
-			<div class="card-deck text-center mb-5">
+			<div class="card-deck text-center mt-3 mb-5">
 				
 					
 					<div class="card text-white bg-primary">
-					  
-
 					  <div class="card-body admindash pt-5 pb-5">
 					  	<h5 class="card-title">CARS SOLD</h5>
 					  	<?php $query = $this->db->query("SELECT * FROM `users` WHERE `status` = 'Approved'") ?>

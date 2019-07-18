@@ -387,6 +387,15 @@ span.badge.badge-pill.badge-danger {
     width: 100%;
 }
 
+.img-thumbnail.cars-view {
+    height: 455px;
+    width: 555px;
+}
+
+.img-thumbnail.cars-view img {
+    width: 100%;
+}
+
 .post-thumbnail.img-thumbnail.parts-view {
     height: 252px;
     width: 253px;
@@ -421,20 +430,16 @@ span.badge.badge-pill.badge-danger {
     width: 100%;
 }
 
-.img-thumbnail.cars-view {
-    height: 253px;
-}
-
-.img-thumbnail.cars-view img {
-    width: 100%;
-}
-
 .post-thumbnail.img-thumbnail.cars-view {
     height: 205px;
 }
 
 .post-thumbnail.img-thumbnail.cars-view img {
     width: 100%;
+}
+
+.white-break-line {
+    border: 0.5px solid white;
 }
 
  /* Chat containers */

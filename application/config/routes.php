@@ -87,6 +87,7 @@ $route['userdashboard/index'] = 'userdashboard/index';
 $route['userdashboard'] = 'userdashboard/index';
 
 $route['mycars/index'] = 'mycars/index';
+$route['mycars/(:any)'] = 'mycars/view/$1';
 $route['mycars'] = 'mycars/index';
 
 $route['myparts/index'] = 'myparts/index';
