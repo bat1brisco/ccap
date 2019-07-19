@@ -23,11 +23,15 @@
 			<?php endif; ?>
 
 			<?php if(($this->session->userdata('logged_in')) && ($this->session->userdata('user_id') != $car['user_id'])) : ?>
-				<div class="row">
-					<div class="col-md text-center">
-						<a class="btn btn-success btn-lg mt-2" href="<?php echo base_url(); ?>mycars">Start Deal</a>
+				<?php echo form_open('/mycars/updateCarStatus/' . $car['car_id']); ?>
+					<div class="row">
+						<div class="col-md text-center">
+							<input type="hidden" name="cars_buyer_id" value="<?php echo $this->session->userdata('user_id'); ?>">
+							<input type="hidden" name="slug" value="<?php echo $car['slug'] ?>">
+							<button type="submit" class="btn btn-success btn-lg mt-2">Start Deal</button>
+						</div>
 					</div>
-				</div>
+				</form>
 			<?php endif; ?>
 		</div>
 	</div>

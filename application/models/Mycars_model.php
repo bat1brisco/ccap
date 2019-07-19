@@ -23,14 +23,25 @@
     }
 
     public function get_in_progress_deals($user_id) {
-      $this->db->where('user_id', $user_id);
       $this->db->where('car_status', 'ongoing');
+      $this->db->where('user_id', $user_id);
+      $this->db->or_where('cars_buyer_id', $user_id);
+      
       $query = $this->db->get('cars');
 
       return $query->result_array();
     }
 
     public function updateCarStatus($car_id) {
+      $car_buyer = $this->input->post('cars_buyer_id');
 
+        $data = array(
+          'car_status' => 'ongoing',
+          'cars_buyer_id' => $car_buyer
+        );
+
+      $this->db->set($data);
+      $this->db->where('car_id', $car_id);
+      $query = $this->db->update('cars');
     }
   }

@@ -48,13 +48,15 @@
 								
 					<?php endforeach; ?>
 				<?php else : ?>
-					<p>No Cars Pending</p>
+					<p class="mt-5 mb-5">No Cars Pending</p>
 				<?php endif; ?>
 			<hr>
 
 			<h4>Deals in Progress</h4>
 			<?php if($carsinprogress) : ?>
-					<?php foreach($carsinprogress as $carinprogress) : ?>
+				
+					<?php foreach($carsinprogress as $row) : ?>
+						
 						<div class="col-md-3 text-center mb-4">
 							<div style="border:1px solid #ccc"; border-radius:5px; padding:16px; margin-bottom:16px; height:450px;>
 								<h3 align="center"><strong><?php echo $row['make']; ?></strong></h3>
@@ -63,7 +65,9 @@
 								<a class="btn btn-ccap mt-2 mb-2" href="/ccap/mycars/<?php echo $row['slug']; ?>">View Details</a>
 							</div>			
 						</div>
+						
 					<?php endforeach; ?>
+				
 				<?php else : ?>
 					<p class="mt-5 mb-5">No Car Deals in Progress</p>
 				<?php endif; ?>

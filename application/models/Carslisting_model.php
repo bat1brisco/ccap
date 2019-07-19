@@ -28,6 +28,7 @@
 				'user_id' => $this->session->userdata('user_id'),
 				'make' => $this->input->post('make'),
 				'slug' => $slug,
+				'cars_buyer_id' => null,
 				'model' => $this->input->post('model'),
 				'year' => $this->input->post('year'),
 				'price' => $this->input->post('price'),
@@ -64,7 +65,7 @@
 		function make_query($make, $model, $year, $transmission, $seating_capacity, $body_style, $drive_type, $fuel_type, $color, $cylinder_engine) {
 				$query = "
 				SELECT * FROM cars 
-				WHERE status = 'Approved'
+				WHERE car_status = 'Available'
 				";
 
 					if (isset($make)) {
