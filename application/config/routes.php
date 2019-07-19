@@ -86,6 +86,9 @@ $route['adminprofile'] = 'adminprofile/index';
 $route['userdashboard/index'] = 'userdashboard/index';
 $route['userdashboard'] = 'userdashboard/index';
 
+$route['transactions/index'] = 'transactions/index';
+$route['transactions'] = 'transactions/index';
+
 $route['mycars/index'] = 'mycars/index';
 $route['mycars/(:any)'] = 'mycars/view/$1';
 $route['mycars'] = 'mycars/index';
