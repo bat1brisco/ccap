@@ -21,13 +21,28 @@
 				</div>
 			</div>
 			<?php endif; ?>
-
+			<?php
+				$car_id = $car['car_id'];
+				$user_id = $car['user_id']; 
+				
+				$retrieve_seller = $this->db->query("SELECT `fname`, `lname` FROM `users` WHERE `user_id` = $user_id");
+				$name_of_seller = $retrieve_seller->row_array();
+			?>
 			<?php if(($this->session->userdata('logged_in')) && ($this->session->userdata('user_id') != $car['user_id'])) : ?>
 				<?php echo form_open('/mycars/updateCarStatus/' . $car['car_id']); ?>
 					<div class="row">
 						<div class="col-md text-center">
 							<input type="hidden" name="cars_buyer_id" value="<?php echo $this->session->userdata('user_id'); ?>">
-							<input type="hidden" name="slug" value="<?php echo $car['slug'] ?>">
+							<input type="hidden" name="car_buyer_id" value="<?php echo $this->session->userdata('user_id'); ?>">
+							<input type="hidden" name="slug" value="<?php echo $car['slug']; ?>">
+							<input type="hidden" name="car_id" value="<?php echo $car['car_id']; ?>">
+							<input type="hidden" name="car_seller_id" value="<?php echo $car['user_id']; ?>">
+							<input type="hidden" name="car_make" value="<?php echo $car['make']; ?>">
+							<input type="hidden" name="car_model" value="<?php echo $car['model']; ?>">
+							<input type="hidden" name="post_image" value="<?php echo $car['post_image']; ?>">
+							<input type="hidden" name="name_of_seller" value="<?php echo implode(" ", $name_of_seller); ?>">
+							<input type="hidden" name="name_of_buyer" value="<?php echo $this->session->userdata('fname') . ' ' . $this->session->userdata('lname'); ?>">
+							
 							<button type="submit" class="btn btn-success btn-lg mt-2">Start Deal</button>
 						</div>
 					</div>

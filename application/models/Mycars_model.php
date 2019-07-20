@@ -44,4 +44,38 @@
       $this->db->where('car_id', $car_id);
       $query = $this->db->update('cars');
     }
+
+    public function newTransaction() {
+      $car_id = $this->input->post('car_id');
+      $car_buyer_id = $this->input->post('car_buyer_id');
+      $car_seller_id = $this->input->post('car_seller_id');
+      $name_of_buyer = $this->input->post('name_of_buyer');
+      $name_of_seller = $this->input->post('name_of_seller');
+      $car_make = $this->input->post('car_make');
+      $car_model = $this->input->post('car_model');
+      $post_image = $this->input->post('post_image');
+
+      $data = array(
+        'car_id' => $car_id,
+        'car_buyer_id' => $car_buyer_id,
+        'car_seller_id' => $car_seller_id,
+        'name_of_buyer' => $name_of_buyer,
+        'name_of_seller' => $name_of_seller,
+        'car_make' => $car_make,
+        'car_model' => $car_model,
+        'post_image' => $post_image,
+        'meetup_sched' => NULL,
+        'downpayment' => FALSE,
+        'fullpayment' => FALSE,
+        'status' => 'ongoing',
+        'downpayment_price' => NULL,
+        'fullpay_sched' => NULL,
+        'meetup_place' => NULL,
+        'mode_of_payment' => NULL
+      );
+
+      $q = $this->db->insert('car_transactions', $data);
+      
+      return 1;
+    }
   }
