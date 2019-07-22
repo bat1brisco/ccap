@@ -9,7 +9,7 @@
 		    <a class="nav-link rounded-0 mb-1" href="<?php echo base_url(); ?>Carslisting/manage_cars">Manage Car Posts</a>
 		    <a class="nav-link rounded-0 link-active mb-1" href="<?php echo base_url(); ?>Partslisting/manage_parts">Manage Parts Posts</a>
 		    <a class="nav-link rounded-0 mb-1" href="<?php echo base_url(); ?>users/administer_accounts">Users List</a>
-		    <a class="nav-link rounded-0 mb-1 disabled" href="<?php echo base_url(); ?>admintransactions">Transactions</a>
+		    <a class="nav-link rounded-0 mb-1" href="<?php echo base_url(); ?>transactions">Transactions</a>
 		    <!-- <a class="nav-link rounded-0 mb-1 disabled" href="<?php echo base_url(); ?>adminlogs">Logs</a>      -->
 		</div>
 

@@ -52,12 +52,11 @@
 		<script src="<?php echo base_url(); ?>assets/jquery-ui-1.12.1/jquery-ui.min.js"></script>
 		<script src="<?php echo base_url(); ?>assets/DataTables/DataTables1/js/jquery.dataTables.min.js"></script>
 		<script src="<?php echo base_url(); ?>assets/DataTables/DataTables1/js/dataTables.bootstrap4.min.js"></script>
-		
+		<script src="<?php echo base_url(); ?>sweetalert2/package/dist/sweetalert2.all.min.js"></script>
 		<script src="<?php echo base_url(); ?>assets/js/effects.js"></script>
 		<script src="<?php echo base_url(); ?>assets/js/chat.js"></script>
 		<script src="<?php echo base_url(); ?>assets/js/chat1.js"></script>
-		<script src="<?php echo base_url(); ?>assets/js/rating.js"></script>
-		<script src="<?php echo base_url(); ?>assets/js/likedislike.js"></script>
+		<script src="<?php echo base_url(); ?>assets/js/transactions.js"></script>
 		
 		<script>
 			$('#cars-table').DataTable({
@@ -86,6 +85,267 @@
 				$(this).closest("form").submit();
 
 			});
+
+			$('#car_history').DataTable({
+				"autoWidth": false,
+				"pageLength": 10,
+				"filter": true,
+				"deferRender": true,
+
+				"columnDefs": [
+												{
+														"targets": [ 2 ],
+														"visible": true,
+														"searchable": false
+												},
+												{
+														"targets": [ 3 ],
+														"visible": true
+												}
+		        					]
+
+			});
+
+			$('#parts_history').DataTable({
+				"autoWidth": false,
+				"pageLength": 10,
+				"filter": true,
+				"deferRender": true,
+
+				"columnDefs": [
+												{
+														"targets": [ 2 ],
+														"visible": true,
+														"searchable": false
+												},
+												{
+														"targets": [ 3 ],
+														"visible": true
+												}
+											]
+
+			});
+
+			// display cars post history
+			$(document).on('click','a[data-role=view_history_button]',function(){
+					var id = $(this).data('id');
+					$('#save_id').val(id);
+					$.ajax({
+						url:'http://localhost/ccap/History/display_history',
+						method:'POST',
+						data:{id:id},
+						success:function(data){
+							$('#view_history').html(data),
+							$('.view_history_modal').modal('toggle');
+						}
+
+					});
+
+			});	
+			//update cars post history
+				$('#save_changes_btn').on('click',function(event){
+					 event.preventDefault();
+					var id = $('#save_id').val();
+					var make = $('#make').val();
+					var model = $('#model').val();
+					var year = $('#year').val();
+					var price = $('#price').val();
+					var transmission = $('#transmission').val();
+					var seating_capacity = $('#seating_capacity').val();
+					var body_style = $('#body_style').val();
+					var mileage = $('#mileage').val();
+					var color = $('#color').val();		
+					var cylinder_engine = $('#cylinder_engine').val();
+					var door = $('#door').val();
+					var drive_type = $('#drive_type').val();
+					var fuel_type = $('#fuel_type').val();
+					var description = $('#description').val();
+					var rfs = $('#rfs').val();
+
+					 	$.ajax({
+						url:'http://localhost/ccap/History/update_history',
+						method:"POST",
+						data:{id:id, make:make, model:model, year:year, price:price, transmission:transmission, seating_capacity:seating_capacity, body_style:body_style, mileage:mileage, color:color, cylinder_engine:cylinder_engine, door:door, drive_type:drive_type, fuel_type:fuel_type, description:description, rfs:rfs},
+						success:function(data){
+							
+							$('.view_history_modal').modal('toggle');	
+							
+							Swal.fire({
+								  position: 'center',
+								  type: 'success',
+								  title: 'Successfully updated!',
+								  showConfirmButton: false,
+								  timer: 1000
+								})
+									.then(function(){
+		                          location.reload();
+		                         });
+
+							}
+						});	
+				});
+
+				//delete cars post history
+				$(document).on('click','a[data-role=delete_history_button]',function(){
+					var id = $(this).data('id');
+
+					Swal.fire({
+					  title: 'Are you sure?',
+					  text: "You want to delete this post!",
+					  type: 'warning',
+					  showCancelButton: true,
+					  confirmButtonColor: '#3085d6',
+					  cancelButtonColor: '#d33',
+					  confirmButtonText: 'Yes, delete it!'
+						})
+					.then((result) => {
+						if (result.value) {
+								$.ajax({
+								url:'http://localhost/ccap/History/delete_history',
+								method:'POST',
+								data:{id:id},
+								success:function(data){
+									 Swal.fire(
+								      'Deleted!',
+								      'Your post has been cancelled.',
+								      'success'
+								    )
+									  .then(function(){
+	                                  location.reload();
+	                                          });
+								}
+							});
+
+						}
+					}) 
+					
+				});
+
+
+					// display parts post history
+			$(document).on('click','a[data-role=view_parts_history_btn]',function(){
+					var id = $(this).data('id');
+					$('#parts_save_id').val(id);
+					$.ajax({
+						url:'http://localhost/ccap/History/parts_view_history',
+						method:'POST',
+						data:{id:id},
+						success:function(data){
+							$('#parts_view_history').html(data),
+							$('.parts_history_modal').modal('toggle');
+						}
+
+					});
+					
+			});	
+
+					//update parts post history
+				$('#parts_save_changes_btn').on('click',function(event){
+					 event.preventDefault();
+					var id = $('#parts_save_id').val();
+					var category = $('#category').val();
+					var brand = $('#brand').val();
+					var model_name = $('#model_name').val();
+					var price = $('#price').val();
+					var color = $('#color').val();
+					var quantity = $('#quantity').val();
+					var description = $('#description').val();
+					var rfs = $('#rfs').val();
+
+					 	$.ajax({
+						url:'http://localhost/ccap/History/parts_update_history',
+						method:"POST",
+						data:{id:id, category:category, brand:brand, model_name:model_name, price:price, color:color, quantity:quantity, description:description, rfs:rfs},
+						success:function(data){
+							
+							$('.parts_history_modal').modal('toggle');	
+							
+							Swal.fire({
+								  position: 'center',
+								  type: 'success',
+								  title: 'Successfully updated!',
+								  showConfirmButton: false,
+								  timer: 1000
+								})
+									.then(function(){
+		                          location.reload();
+		                         });
+
+							}
+						});	
+				});
+
+
+					//delete parts post history
+				$(document).on('click','a[data-role=del_parts_history_btn]',function(){
+					var id = $(this).data('id');
+
+					Swal.fire({
+					  title: 'Are you sure?',
+					  text: "You want to delete this post!",
+					  type: 'warning',
+					  showCancelButton: true,
+					  confirmButtonColor: '#3085d6',
+					  cancelButtonColor: '#d33',
+					  confirmButtonText: 'Yes, delete it!'
+						})
+					.then((result) => {
+						if (result.value) {
+								$.ajax({
+								url:'http://localhost/ccap/History/parts_delete_history',
+								method:'POST',
+								data:{id:id},
+								success:function(data){
+									 Swal.fire(
+								      'Deleted!',
+								      'Your post has been cancelled.',
+								      'success'
+								    )
+									  .then(function(){
+	                                  location.reload();
+	                                          });
+								}
+							});
+
+						}
+					}) 
+					
+				});
+
+
 		</script>
 	</body>
 </html>
+
+<div id="transactionModal" class="modal fade">  
+  <div class="modal-dialog">  
+    <form method="post" id="transaction_form">  
+      <div class="modal-content">  
+      	<div class="modal-header">  
+
+					<h4 class="modal-title">Add User</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>  
+            
+        </div>  
+                     
+				<div class="modal-body">  
+          <label>Car Make</label>  
+          <input type="text" name="car_make" id="car_make" class="form-control" />  
+          <br />  
+          <label>Car Model</label>  
+          <input type="text" name="car_model" id="car_model" class="form-control" />  
+          <br />  
+          <label>Select User Image</label>  
+          <input type="file" name="userfile" id="user_image" />  
+          <span id="user_uploaded_image"></span>  
+        </div>
+
+        <div class="modal-footer">  
+          <input type="hidden" name="transaction_id" id="transaction_id" />  
+          <input type="submit" name="action" id="action" class="btn btn-success" value="Add" />  
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>  
+        </div>  
+      </div>  
+    </form>  
+  </div>  
+</div>  

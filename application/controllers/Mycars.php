@@ -32,6 +32,7 @@
 
 		public function updateCarStatus($car_id) {
 			//$slug = $this->input->post('slug');
+			$this->mycars_model->newTransaction();
 
 			$this->mycars_model->updateCarStatus($car_id);
 			redirect('mycars/');

@@ -8,11 +8,8 @@
 			<a class="nav-link rounded-0 mb-1" href="<?php echo base_url(); ?>myparts">My Parts</a>
 			<a class="nav-link rounded-0 mb-1 disabled" href="<?php echo base_url(); ?>transactions">Transactions</a>
 			<a class="nav-link rounded-0 mb-1 disabled" href="<?php echo base_url(); ?>logs">Logs</a>
-			<!-- <a class="nav-link rounded-0 mb-1" href="<?php echo base_url(); ?>users/manage_account">Manage Registration</a>
-			<a class="nav-link rounded-0 mb-1" href="<?php echo base_url(); ?>Carslisting/manage_cars">Manage Car Posts</a>
-			<a class="nav-link rounded-0 mb-1" href="<?php echo base_url(); ?>Partslisting/manage_parts">Manage Parts Posts</a>
-			<a class="nav-link rounded-0 mb-1" href="<?php echo base_url(); ?>users/administer_accounts">Users List</a>
-			<a class="nav-link rounded-0 mb-1" href="">Reports</a> -->
+			<a class="nav-link rounded-0 mb-1 " href="<?php echo base_url(); ?>History/history_cars_page">Cars History</a>
+			<a class="nav-link rounded-0 mb-1 " href="<?php echo base_url(); ?>History/history_parts_page">Parts History</a>
 			
 		</div>
 

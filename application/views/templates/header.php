@@ -13,12 +13,22 @@
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/main.css">
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/DataTables/DataTables1/css/dataTables.bootstrap4.min.css">
 		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-		
+		<link rel="stylesheet" href="<?php echo base_url(); ?>sweetalert2/package/dist/sweetalert2.min.css">
+
+		<style type="text/css">
+			.modal-lg {
+		    max-width: 55%;
+			}
+			.img_border {
+				border:5px;
+			}
+		</style>
+
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>
 	
 	</head>
-
+	
 	<body>
 		
 	<nav class="navbar navbar-expand-lg navbar-light">
@@ -86,7 +96,7 @@
 	        </a>
 	        
 	        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-	          <a class="dropdown-item" href="#">My Profile</a>
+	          <a class="dropdown-item" href="<?php echo base_url(); ?>adminprofile">My Profile</a>
 	          <a class="dropdown-item" href="<?php echo base_url(); ?>users/logout">Log Out</a>
 	        </div>
       	</li>
@@ -116,13 +126,10 @@
 
         <li class="nav-item dropdown">
 	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $this->session->userdata('fname') . " " . $this->session->userdata('lname'); ?>
-
-	         	<!-- <i class="fas fa-user-circle" style="font-size: 1.5em;"></i> -->
-	        
 	        </a>
 					
 	        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-	          <a class="dropdown-item" href="userdashboard">My Dashboard</a>
+	          <a class="dropdown-item" href="<?php echo base_url(); ?>userdashboard">My Dashboard</a>
 	          <a class="dropdown-item" href="<?php echo base_url(); ?>users/logout">Log Out</a>
 	        </div>
 	      </li>
