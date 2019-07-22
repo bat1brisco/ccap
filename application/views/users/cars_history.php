@@ -8,13 +8,13 @@
 															                      	
 								<table class="table table-striped table-hover" id="car_history" style="width: 100%" >
 									<thead>
-										<th style="border-bottom:2px solid black;background-color: #2A293E;color:white">Applicant Name</th>
-										<th style="border-bottom:2px solid black;background-color: #2A293E;color:white">Image</th>
-										<th style="border-bottom:2px solid black;background-color: #2A293E;color:white">Type of Car</th>
-										<th style="border-bottom:2px solid black;background-color: #2A293E;color:white">Price</th>
-										<th style="border-bottom:2px solid black;background-color: #2A293E;color:white">Date Posted</th>
-										<th style="border-bottom:2px solid black;background-color: #2A293E;color:white">Status</th>
-										<th  style="border-bottom:2px solid black;background-color: #2A293E;color:white"><center>Action</th>
+										<th style="border-bottom:2px solid black;background-color: #00ADEF;color:white">Applicant Name</th>
+										<th style="border-bottom:2px solid black;background-color: #00ADEF;color:white">Image</th>
+										<th style="border-bottom:2px solid black;background-color: #00ADEF;color:white">Type of Car</th>
+										<th style="border-bottom:2px solid black;background-color: #00ADEF;color:white">Price</th>
+										<th style="border-bottom:2px solid black;background-color: #00ADEF;color:white">Date Posted</th>
+										<th style="border-bottom:2px solid black;background-color: #00ADEF;color:white">Status</th>
+										<th  style="border-bottom:2px solid black;background-color: #00ADEF;color:white"><center>Action</th>
 										
 									</thead>
 									<tbody>
@@ -37,7 +37,7 @@
 															<td data-target="updated_history" width="25%">
 																<center>
 																	<a href="#" data-role = "view_history_button" data-id = "<?php echo $row->car_id ?>"><button class="btn btn-info "><i class="fas fa-edit" style="margin-right: 3px"></i>View</button></a>
-																	<a href="#" data-role = "delete_history_button" data-id = "<?php echo $row->car_id ?>"><button class="btn btn-info "><i class="fas fa-times" style="margin-right: 3px"></i>Cancel</button></a>
+																	<a href="#" data-role = "delete_history_button" data-id = "<?php echo $row->car_id ?>"><button class="btn btn-warning text-white"><i class="fas fa-times" style="margin-right: 3px"></i>Cancel</button></a>
 																</center>
 															</td>
 														</tr>
@@ -47,13 +47,13 @@
 										 ?>
 									</tbody>
 									<tfoot>
-										<th style="border-top:2px solid black;background-color: #2A293E;color:white">Applicant Name</th>
-										<th style="border-top:2px solid black;background-color: #2A293E;color:white">Image</th>
-										<th style="border-top:2px solid black;background-color: #2A293E;color:white">Type of Car</th>
-										<th style="border-top:2px solid black;background-color: #2A293E;color:white">Maker</th>
-										<th style="border-top:2px solid black;background-color: #2A293E;color:white">Date Posted</th>
-										<th style="border-top:2px solid black;background-color: #2A293E;color:white">Status</th>
-										<th style="border-top:2px solid black;background-color: #2A293E;color:white"><center>Action</th>
+										<th style="border-top:2px solid black;background-color: #00ADEF;color:white">Applicant Name</th>
+										<th style="border-top:2px solid black;background-color: #00ADEF;color:white">Image</th>
+										<th style="border-top:2px solid black;background-color: #00ADEF;color:white">Type of Car</th>
+										<th style="border-top:2px solid black;background-color: #00ADEF;color:white">Maker</th>
+										<th style="border-top:2px solid black;background-color: #00ADEF;color:white">Date Posted</th>
+										<th style="border-top:2px solid black;background-color: #00ADEF;color:white">Status</th>
+										<th style="border-top:2px solid black;background-color: #00ADEF;color:white"><center>Action</th>
 										
 									</tfoot>
 								</table>							                      	
