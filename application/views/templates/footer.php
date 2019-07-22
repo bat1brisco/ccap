@@ -56,8 +56,7 @@
 		<script src="<?php echo base_url(); ?>assets/js/effects.js"></script>
 		<script src="<?php echo base_url(); ?>assets/js/chat.js"></script>
 		<script src="<?php echo base_url(); ?>assets/js/chat1.js"></script>
-		<script src="<?php echo base_url(); ?>assets/js/rating.js"></script>
-		<script src="<?php echo base_url(); ?>assets/js/likedislike.js"></script>
+		<script src="<?php echo base_url(); ?>assets/js/transactions.js"></script>
 		
 		<script>
 			$('#cars-table').DataTable({
@@ -87,23 +86,23 @@
 
 			});
 
-				$('#car_history').DataTable({
+			$('#car_history').DataTable({
 				"autoWidth": false,
 				"pageLength": 10,
 				"filter": true,
 				"deferRender": true,
 
 				"columnDefs": [
-		            {
-		                "targets": [ 2 ],
-		                "visible": true,
-		                "searchable": false
-		            },
-		            {
-		                "targets": [ 3 ],
-		                "visible": true
-		            }
-		        ]
+												{
+														"targets": [ 2 ],
+														"visible": true,
+														"searchable": false
+												},
+												{
+														"targets": [ 3 ],
+														"visible": true
+												}
+		        					]
 
 			});
 
@@ -114,16 +113,16 @@
 				"deferRender": true,
 
 				"columnDefs": [
-		            {
-		                "targets": [ 2 ],
-		                "visible": true,
-		                "searchable": false
-		            },
-		            {
-		                "targets": [ 3 ],
-		                "visible": true
-		            }
-		        ]
+												{
+														"targets": [ 2 ],
+														"visible": true,
+														"searchable": false
+												},
+												{
+														"targets": [ 3 ],
+														"visible": true
+												}
+											]
 
 			});
 
@@ -317,3 +316,36 @@
 		</script>
 	</body>
 </html>
+
+<div id="transactionModal" class="modal fade">  
+  <div class="modal-dialog">  
+    <form method="post" id="transaction_form">  
+      <div class="modal-content">  
+      	<div class="modal-header">  
+
+					<h4 class="modal-title">Add User</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>  
+            
+        </div>  
+                     
+				<div class="modal-body">  
+          <label>Car Make</label>  
+          <input type="text" name="car_make" id="car_make" class="form-control" />  
+          <br />  
+          <label>Car Model</label>  
+          <input type="text" name="car_model" id="car_model" class="form-control" />  
+          <br />  
+          <label>Select User Image</label>  
+          <input type="file" name="userfile" id="user_image" />  
+          <span id="user_uploaded_image"></span>  
+        </div>
+
+        <div class="modal-footer">  
+          <input type="hidden" name="transaction_id" id="transaction_id" />  
+          <input type="submit" name="action" id="action" class="btn btn-success" value="Add" />  
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>  
+        </div>  
+      </div>  
+    </form>  
+  </div>  
+</div>  

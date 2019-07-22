@@ -31,9 +31,11 @@
 			$this->db->from('car_ratings');
 			$rates = $this->db->count_all_results();
 			// CONDITION FOR ONLY 5 AND ABOVE WILL THE RATING BE SHOWN
-	    	if($rating == ''){
-	       	$rating = 0;
-	    	}
+				if($rates > 5) {
+					if($rating == ''){
+						$rating = 0;
+				 	}
+				}
 
        	return $rating;
 		}
