@@ -37,9 +37,11 @@
 
 			$data['comments'] = $this->car_comment_model->get_comments($car_id);
 			$data['rating'] = $this->car_rating_model->get_rating($car_id);
+			$rating = $data['rating'];
 			$user_id = $this->session->userdata('user_id');
 			$data['hasrated'] = $this->car_rating_model->has_rated($car_id, $user_id);
 
+				
 			$this->load->view('templates/header');
 			$this->load->view('carslisting/view', $data);
 			$this->load->view('templates/footer');

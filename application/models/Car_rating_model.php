@@ -23,12 +23,19 @@
 	       	
 	    $postResult = $ratingquery->result_array();
 
-	    $rating = $postResult[0]['averageRating'];
-	       	
-	    	if($rating == ''){
-	       	$rating = 0;
-	    	}
-
+		$rating = $postResult[0]['averageRating'];
+		
+		$this->db->where('car_id', $car_id);
+		$this->db->from('car_ratings');		
+		$rates = $this->db->count_all_results();
+		
+		if($rates > 5 ){
+			if($rating == ''){
+				$rating = 0;
+			 }
+ 
+		}
+	    	
        	return $rating;
 		}
 
