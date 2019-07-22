@@ -56,11 +56,11 @@
     <div class="container mt-3 mb-5 pb-5">
         <?php 
             foreach($messages as $message){
-                if($this->session->userdata('admin') == 'admin'){
+                if($this->session->userdata('user_type') == 'admin'){
                     if($message->from_admin){
             ?>
                         <div class="container1 darker">
-                        <img src="http://i.dailymail.co.uk/i/pix/2015/09/01/18/2BE1E88B00000578-3218613-image-m-5_1441127035222.jpg" alt="Avatar" class="right">
+                        <img src="<?php echo site_url()?>assets/images/ccaplogo.png" alt="Avatar" class="right">
                         <p class="right"><?php echo $message->chat_message; ?></p>
                         <span class="time-right"><?php echo $message->time_stamp; ?></span>
                         </div>
@@ -69,7 +69,9 @@
                       
                         ?>
                         <div class="container1 darker">
-                        <img src="http://i.dailymail.co.uk/i/pix/2015/09/01/18/2BE1E88B00000578-3218613-image-m-5_1441127035222.jpg" alt="Avatar" >
+                        <h4 class="left"><?php //echo $message->user_id?></h4>
+
+                        <img src="<?php echo site_url()?>assets/images/user_logo.jpg" alt="Avatar" >
                         <p class="left"><?php echo $message->chat_message; ?></p>
                         <span class="time-left"><?php echo $message->time_stamp; ?></span>
                         </div>
@@ -81,7 +83,7 @@
                         if(!$message->from_admin){
                              ?>
                         <div class="container1 darker">
-                            <img src="http://i.dailymail.co.uk/i/pix/2015/09/01/18/2BE1E88B00000578-3218613-image-m-5_1441127035222.jpg" alt="Avatar" class="right">
+                            <img src="<?php echo site_url()?>assets/images/user_logo.jpg" alt="Avatar" class="right">
                             <p class="right"><?php echo $message->chat_message; ?></p>
                             <span class="time-right"><?php echo $message->time_stamp; ?></span>
                             </div>
@@ -89,7 +91,9 @@
                         }else{
                             ?>
                             <div class="container1 darker">
-                            <img src="http://i.dailymail.co.uk/i/pix/2015/09/01/18/2BE1E88B00000578-3218613-image-m-5_1441127035222.jpg" alt="Avatar" >
+                        <!-- <h4 class="left"><?php echo $message->user_id?></h4> -->
+
+                            <img src="<?php //echo site_url()?>assets/images/ccaplogo.png" alt="Avatar" >
                             <p class="left"><?php echo $message->chat_message; ?></p>
                             <span class="time-left"><?php echo $message->time_stamp; ?></span>
                             </div>

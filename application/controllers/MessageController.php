@@ -26,7 +26,8 @@
 			$result = $this->MessageModel->insert_message($message);
 			return $result;
 		}
-		
+		// TestTest
+		// New Message Controller for Kuha'g Messages
 		function leave_message(){
 			$message = $this->MessageModel->get_users_messages($this->session->userdata('user_id'));
 
